@@ -1,0 +1,7 @@
+# Optional PDF/figure authoring. Analysis does not require reportlab.
+reportlab==5.0.1
+charset-normalizer==3.5.2
+pillow>=11,<14
+pandas==3.0.6
+numpy==2.5.4
+matplotlib==3.11.2

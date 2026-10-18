@@ -1,0 +1,168 @@
+antibiotic,phenotype,status,n_pairs
+amikacin,intermediate,nonbinary,1
+amikacin,not defined,nonbinary,38
+amikacin,resistant,eligible_binary,6
+amikacin,susceptible,eligible_binary,2982
+amoxicillin,not defined,nonbinary,2
+amoxicillin,resistant,eligible_binary,4
+amoxicillin-clavulanic acid,intermediate,nonbinary,650
+amoxicillin-clavulanic acid,not defined,nonbinary,38
+amoxicillin-clavulanic acid,resistant,eligible_binary,901
+amoxicillin-clavulanic acid,resistant,unmatched_metadata,1
+amoxicillin-clavulanic acid,susceptible,eligible_binary,8056
+ampicillin,not defined,nonbinary,39
+ampicillin,resistant,eligible_binary,2526
+ampicillin,resistant,unmatched_metadata,1
+ampicillin,susceptible,eligible_binary,7350
+ampicillin-sulbactam,resistant,eligible_binary,7
+ampicillin-sulbactam,susceptible,eligible_binary,2
+azithromycin,not defined,nonbinary,9
+azithromycin,resistant,eligible_binary,42
+azithromycin,susceptible,eligible_binary,6994
+azithromycin,susceptible,unmatched_metadata,1
+aztreonam,resistant,eligible_binary,4
+aztreonam,susceptible,eligible_binary,3
+cefalotin,resistant,eligible_binary,4
+cefazolin,not defined,nonbinary,33
+cefazolin,resistant,eligible_binary,9
+cefazolin,susceptible,eligible_binary,2
+cefepime,resistant,eligible_binary,4
+cefepime,susceptible,eligible_binary,8
+cefotaxime,intermediate,nonbinary,1
+cefotaxime,resistant,eligible_binary,8
+cefotaxime,susceptible,eligible_binary,89
+cefovecin,not defined,nonbinary,38
+cefoxitin,intermediate,nonbinary,110
+cefoxitin,not defined,nonbinary,4
+cefoxitin,resistant,eligible_binary,803
+cefoxitin,resistant,unmatched_metadata,1
+cefoxitin,susceptible,eligible_binary,8707
+cefpodoxime,not defined,nonbinary,38
+ceftazidime,not defined,nonbinary,31
+ceftazidime,resistant,eligible_binary,53
+ceftazidime,susceptible,eligible_binary,200
+ceftazidime-avibactam,susceptible,eligible_binary,2
+ceftiofur,intermediate,nonbinary,9
+ceftiofur,not defined,nonbinary,20
+ceftiofur,resistant,eligible_binary,713
+ceftiofur,resistant,unmatched_metadata,1
+ceftiofur,susceptible,eligible_binary,4132
+ceftolozane-tazobactam,resistant,eligible_binary,1
+ceftolozane-tazobactam,susceptible,eligible_binary,1
+ceftriaxone,intermediate,nonbinary,8
+ceftriaxone,resistant,eligible_binary,1233
+ceftriaxone,resistant,unmatched_metadata,1
+ceftriaxone,susceptible,eligible_binary,8388
+cephalexin,not defined,nonbinary,34
+cephalothin,not defined,nonbinary,3
+chloramphenicol,intermediate,nonbinary,94
+chloramphenicol,not defined,nonbinary,38
+chloramphenicol,resistant,eligible_binary,654
+chloramphenicol,resistant,unmatched_metadata,1
+chloramphenicol,susceptible,eligible_binary,9104
+chlortetracycline,not defined,nonbinary,1
+ciprofloxacin,intermediate,nonbinary,139
+ciprofloxacin,nonsusceptible,nonbinary,150
+ciprofloxacin,not defined,nonbinary,2
+ciprofloxacin,resistant,eligible_binary,758
+ciprofloxacin,susceptible,eligible_binary,8826
+ciprofloxacin,susceptible,unmatched_metadata,1
+clindamycin,not defined,nonbinary,7
+colistin,intermediate,nonbinary,980
+colistin,not defined,nonbinary,4
+colistin,resistant,eligible_binary,4
+colistin,susceptible,eligible_binary,88
+danofloxacin,not defined,nonbinary,1
+doripenem,resistant,eligible_binary,1
+doripenem,susceptible,eligible_binary,7
+doxycycline,not defined,nonbinary,35
+enrofloxacin,not defined,nonbinary,41
+ertapenem,resistant,eligible_binary,1
+ertapenem,susceptible,eligible_binary,10
+erythromycin,not defined,nonbinary,6
+erythromycin,susceptible,eligible_binary,1
+florfenicol,not defined,nonbinary,3
+gentamicin,intermediate,nonbinary,353
+gentamicin,not defined,nonbinary,40
+gentamicin,resistant,eligible_binary,956
+gentamicin,susceptible,eligible_binary,8575
+gentamicin,susceptible,unmatched_metadata,1
+imipenem,not defined,nonbinary,38
+imipenem,resistant,eligible_binary,1
+imipenem,susceptible,eligible_binary,161
+kanamycin,intermediate,nonbinary,26
+kanamycin,resistant,eligible_binary,476
+kanamycin,resistant,unmatched_metadata,1
+kanamycin,susceptible,eligible_binary,3375
+levofloxacin,intermediate,nonbinary,2
+levofloxacin,not defined,nonbinary,1
+levofloxacin,resistant,eligible_binary,1
+levofloxacin,susceptible,eligible_binary,20
+marbofloxacin,not defined,nonbinary,38
+meropenem,resistant,eligible_binary,1
+meropenem,susceptible,eligible_binary,4840
+minocycline,resistant,eligible_binary,2
+minocycline,susceptible,eligible_binary,2
+moxifloxacin,intermediate,nonbinary,1
+nalidixic acid,intermediate,nonbinary,1
+nalidixic acid,not defined,nonbinary,9
+nalidixic acid,resistant,eligible_binary,847
+nalidixic acid,susceptible,eligible_binary,8842
+nalidixic acid,susceptible,unmatched_metadata,1
+neomycin,not defined,nonbinary,3
+nitrofurantoin,intermediate,nonbinary,1
+nitrofurantoin,not defined,nonbinary,4
+nitrofurantoin,susceptible,eligible_binary,4
+novobiocin,not defined,nonbinary,2
+orbifloxacin,not defined,nonbinary,30
+oxacillin,not defined,nonbinary,4
+oxytetracycline,not defined,nonbinary,3
+pefloxacin,resistant,eligible_binary,1
+penicillin,not defined,nonbinary,7
+piperacillin,not defined,nonbinary,1
+piperacillin,resistant,eligible_binary,1
+piperacillin,susceptible,eligible_binary,2
+piperacillin-tazobactam,not defined,nonbinary,30
+piperacillin-tazobactam,resistant,eligible_binary,4
+piperacillin-tazobactam,susceptible,eligible_binary,3
+piperacillin-tazobactam,,conflicting,1
+polymyxin b,not defined,nonbinary,2
+polymyxin b,susceptible,eligible_binary,3
+pradofloxacin,not defined,nonbinary,30
+rifampin,not defined,nonbinary,4
+spectinomycin,not defined,nonbinary,3
+spectinomycin,susceptible,eligible_binary,1
+streptomycin,not defined,nonbinary,11
+streptomycin,resistant,eligible_binary,3326
+streptomycin,resistant,unmatched_metadata,1
+streptomycin,susceptible,eligible_binary,5430
+sulfadimethoxine,not defined,nonbinary,3
+sulfamethoxazole,resistant,eligible_binary,91
+sulfamethoxazole,susceptible,eligible_binary,341
+sulfisoxazole,resistant,eligible_binary,2749
+sulfisoxazole,resistant,unmatched_metadata,1
+sulfisoxazole,susceptible,eligible_binary,6506
+sulfonamide,resistant,eligible_binary,4
+tetracycline,intermediate,nonbinary,36
+tetracycline,not defined,nonbinary,33
+tetracycline,resistant,eligible_binary,4987
+tetracycline,resistant,unmatched_metadata,1
+tetracycline,susceptible,eligible_binary,4827
+tiamulin,not defined,nonbinary,1
+ticarcillin,not defined,nonbinary,4
+ticarcillin,resistant,eligible_binary,4
+tigecycline,susceptible,eligible_binary,102
+tilmicosin,not defined,nonbinary,1
+tobramycin,intermediate,nonbinary,1
+tobramycin,not defined,nonbinary,1
+tobramycin,resistant,eligible_binary,5
+tobramycin,susceptible,eligible_binary,5
+trimethoprim,resistant,eligible_binary,1
+trimethoprim,susceptible,eligible_binary,81
+trimethoprim-sulfamethoxazole,not defined,nonbinary,37
+trimethoprim-sulfamethoxazole,resistant,eligible_binary,331
+trimethoprim-sulfamethoxazole,resistant,unmatched_metadata,1
+trimethoprim-sulfamethoxazole,susceptible,eligible_binary,9314
+tulathromycin,not defined,nonbinary,1
+tylosin,not defined,nonbinary,3
+vancomycin,susceptible,eligible_binary,1

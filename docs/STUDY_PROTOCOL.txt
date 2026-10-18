@@ -1,0 +1,102 @@
+MACHINE LEARNING-BASED ANALYSIS AND PREDICTION OF ANTIBIOTIC RESISTANCE
+Prime study: preprocessing of Salmonella phenotype and genomic-annotation data
+Protocol written before model results were inspected, 18 October 2026 (Asia/Dhaka).
+
+1. QUESTION
+How do categorical encoding and numerical missing-value strategies affect a
+genomic AMR classifier after auditable, biologically informed cleaning? What
+data are lost or changed by the cleaning, and how reproducible/scalable is it?
+
+2. DATA AND UNIT OF ANALYSIS
+Acquire the full NCBI Pathogen Detection organism-group query for Salmonella
+enterica AST, and all matching tested-isolate metadata. Confirm species_taxid
+28901. Archive responses, stable order, timestamps, schema, and SHA256. Counts
+of AST rows, BioSamples, assemblies, and SNP groups are distinct denominators.
+This is a public surveillance/research convenience cohort. No population
+resistance prevalence inference, patient-level study, or raw-genome discovery
+claim is supported. Reference annotations are retrospective and curated.
+
+3. DETERMINISTIC CLEANING
+Preserve raw files. Normalize only Unicode/whitespace/case and '=' equality.
+IDs remain strings. Record every modified cell. Check submission-domain MIC
+and disk measurements, preserving signs and combination concentrations.
+Never replace censored >x with an exact measurement of x. Keep MIC mg/L and
+disk mm separate. Source labels are retained; no current breakpoint relabeling.
+Quarantine quantitative measurement anomalies for quantitative use; they are
+not genotype/phenotype discrepancies. Do not remove genomic discordance.
+
+Deduplicate identical biological assay payloads; distinguish intentional
+long-format multiple drugs and repeat assays. Resolve no conflicts by vote:
+all discordant phenotype pairs are quarantined. Missing and nonbinary targets
+are never imputed. Primary R/S pairs require unanimous known labels and an
+unambiguous metadata join. Quarantine nonunique BioSample metadata. Audit
+both raw target-accession mismatches and unmatched BioSamples.
+
+Dates are interval/precision-aware. Only strict year, month, day and explicit
+ranges are accepted. Do not invent days or use ingestion date as collection.
+Assembly metrics must be positive and N50 cannot exceed total assembly size.
+There is no arbitrary species-genome-length trimming based on the outcome.
+
+4. GENOMIC ENCODING
+AMR_genotypes is a unique symbol list, not a gene-copy counter. Split only the
+final '=': preserve symbol punctuation, point mutations, and call status.
+Use train-fitted multi-hot encoding. A completed analysis with explicit zero
+reported calls is distinct from unavailable results. The raw API can omit an
+empty array: availability therefore uses applied flag plus a reported list or
+an explicit zero count. Positive count plus missing list is unavailable.
+The inclusive AMR list can contain general efflux/plus calls. Do not call all
+tokens acquired resistance genes. Provide gene-only and metadata-only controls.
+Unknown validation/test tokens get no fitted column; count and report them.
+
+5. PREDECLARED TASKS AND PREDICTORS
+Primary drug: ampicillin. Secondary: tetracycline and ciprofloxacin, provided
+each has at least 100 eligible R and 100 S BioSamples. Secondary outcomes do
+not select the primary result. R=1, S=0. Intermediate, nonsusceptible and other
+labels stay in the cleaned data but outside this binary estimand.
+
+Candidate X: country, host, source/epidemiological type, serovar, collection
+year, assembly N50/length/contigs, unique AMR call count, availability flag,
+and reported genomic symbols. Never use MIC, disk, susceptibility, assay-panel
+statistics, number_drugs_*, AST_phenotypes, sample/accession/project/cluster IDs
+as X. This is prediction after genomic processing, not before culture growth.
+
+6. SPLITTING AND COMPARISONS
+Build connected groups linked by BioSample and recorded SNP cluster. Use fixed
+random seed42 and 60/20/20 training/validation/test group allocation. Missing
+clusters fall back to BioSample; do not group all missing clusters together.
+These groups reduce known clone overlap but cannot prove phylogenetic or
+patient independence. Split once before all learned preprocessing.
+
+Use fixed logistic regression C=1 and no class weighting. Compare ordinal
+integer vs one-hot nominal encoding crossed with (a) median, (b) median plus
+missingness indicators, (c) multivariate iterative imputation plus indicators.
+Fit encoders/imputers/scalers/vocabulary within training folds. Integer nominal
+codes are a deliberate ablation and imply an artificial order for a linear
+model. IterativeImputer is deterministic multivariate imputation, not a full
+multiple-imputation inferential analysis. It is not assumed superior.
+
+Primary configuration fixed in advance: one-hot plus median and indicators,
+with genomic multi-hot features. Primary threshold0.5. A validation-only
+max-F1 threshold is supplementary. Three-fold grouped CV within training is
+the internal comparison. All six frozen comparisons may be reported on the
+same holdout as a prespecified analysis, without test-guided tuning. Report
+metadata-only and genomic-only controls and additional split sensitivity.
+
+7. MEASURES AND UNCERTAINTY
+Report average precision (primary), AUROC, resistance recall/precision/F1,
+balanced accuracy, accuracy, Brier score, calibration and confusion matrices,
+alongside class counts. Use paired resampling of entire held-out groups for
+confidence intervals/differences; include effective groups, not just rows.
+Confidence intervals are conditional on this fitted model and cohort.
+Single-center/source/lineage biases and uncertain clusterless relationships
+remain. No model is approved for clinical use by this experiment.
+
+8. COMPUTATIONAL EVALUATION AND REPRODUCTION
+Benchmark real prefixes and full acquired data with several chunk sizes.
+Verify identical canonical hashes across chunk sizes. Do not manufacture
+millions of rows or claim a distributed benchmark. Record measured time,
+peak process memory, versions, actual run logs, and inference round-trip.
+Deliver WSL scripts, frozen data, audits, executable notebook, saved models,
+results and an explanatory report. Include AI assistance disclosure. This
+protocol supports an undergraduate reproducible empirical study; it does not
+prejudge publication novelty or promise favorable metrics.

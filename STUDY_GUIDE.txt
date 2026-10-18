@@ -1,0 +1,326 @@
+STUDY GUIDE FOR SHADMAN
+Internship Research Prime: preprocessing as a research problem
+
+Use this guide alongside the scripts, audit tables and measured results. Your aim
+is to explain a decision, show the evidence behind it, and state its limits. A
+long notebook or a high accuracy number is not sufficient evidence of good work.
+
+THE QUESTION YOU SHOULD BE ABLE TO STATE
+
+Can source-reported Salmonella antibiotic resistance be predicted from isolate
+metadata and existing AMRFinderPlus annotations, and how do missing-value handling,
+categorical encoding and the way related isolates are split affect that estimate?
+
+The primary task is ampicillin resistant versus susceptible. Tetracycline and
+ciprofloxacin provide secondary tasks. Nonbinary and ambiguous labels are kept in
+the audit trail. The work compares preprocessing choices while holding the main
+classifier fixed. It does not discover genes from raw sequences, establish causal
+mechanisms, estimate population prevalence or demonstrate clinical usefulness.
+
+The source contains 142,338 assays, 9,977 assembled isolates and 9,976 BioSamples.
+Say all three counts with their units. A single isolate tested against 15 drugs
+contributes 15 assay rows, not 15 independent isolates. One BioSample has two
+assembly records; it is quarantined from the primary feature table. Use measured
+processed counts from results/preprocessing_summary.json for the final cohorts.
+
+THREE-DAY LEARNING AND DEMONSTRATION PLAN
+
+DAY 1: understand the source and prove that cleaning preserves meaning
+
+Morning: inspect provenance and schema
+  1. Read README.txt and data/raw/acquisition_manifest.json. Locate the exact
+     queries, retrieval times, file hashes and number of downloaded records.
+  2. Inspect a raw AST JSON object and the matching isolate object. Explain the
+     difference between id, target_acc, biosample_acc and bioproject_acc.
+  3. Read logs/raw_ast_profile.json and logs/raw_isolate_profile.json. Identify
+     which missing fields are important and which are structurally absent.
+  4. Draw the relationship: BioSample -> assembly -> several AST measurements.
+     Explain why source IDs must survive even when model rows are aggregated.
+
+Afternoon: trace transformations in src/preprocess.py
+  5. Run preprocessing and open results/audit/schema_audit.json. Check observed
+     field types and absent fields before deciding whether to coerce a column.
+  6. Trace clean_text and canonical. Understand Unicode normalization, collapsing
+     whitespace and documented missing sentinels. Do not strip meaningful gene
+     punctuation or merge distinct drugs merely because their names look alike.
+  7. Work through the measurement examples below using measurement(). Then inspect
+     censoring_counts.csv and measurement_quarantine.csv.gz.
+  8. Open date_precision.csv.gz. Explain why a year-only date should not become an
+     apparently observed January 1 and why an interval spanning years stays uncertain.
+  9. Inspect ambiguous_biosample_metadata.csv.gz and join_exceptions.csv.gz. Explain
+     the conservative assembly choice and how the quarantine affects sample counts.
+ 10. Inspect exact_duplicate_assays.csv.gz and phenotype_pair_quarantine.csv.gz.
+     Identify how exact duplicates differ from repeated independent laboratory
+     measurements and from observations of another antibiotic.
+
+Day 1 deliverable: a one-page data-quality log containing five real examples,
+raw values, the applied rule, resulting values/status and the retained source ID.
+Do not invent invalid values in the raw dataset. Use synthetic fixtures only when
+clearly identifying them as implementation tests.
+
+DAY 2: build leakage-safe missing-value and encoding pipelines
+
+Morning: missingness and targets
+  1. Read the measured feature-missingness table. Distinguish missing source type,
+     missing host, missing collection year and missing numeric assembly quality.
+     Verify actual counts; the numeric quality fields are complete in this frozen
+     source, so do not claim substantial missingness in them.
+  2. Explain why a missing target is never replaced with the most common class.
+     An untested antibiotic is unknown, not susceptible.
+  3. Inspect the real inter-platform conflict for piperacillin-tazobactam. Source
+     phenotype disagreement remains unresolved even if one label is more common
+     elsewhere. Explain what additional laboratory evidence would resolve it.
+  4. Explain how completed zero-hit genotyping differs from unavailable analysis.
+     All raw isolates here have amrfinderplus_applied=1. Missing-analysis handling
+     is a supported policy tested with fixtures, not a frequent observed problem.
+
+Afternoon: src/model_study.py
+  5. Locate feature_columns and the forbidden-feature check. Write X and y on paper.
+     Explain why MIC and number_drugs_resistant must be absent from X even if they
+     predict resistance extremely well.
+  6. Inspect build_pipeline. Numeric imputation and scaling, categorical imputation
+     and encoding, gene vocabulary learning and logistic regression are fitted
+     together on training data. Cross-validation fits a fresh pipeline per fold.
+  7. Compare median, median_flags and iterative_flags. Indicators preserve the fact
+     that a value was missing; iterative imputation estimates numeric relationships.
+     Neither method proves that data are missing at random or recovers the truth.
+  8. Compare ordinal and one-hot encoding. Inspect encoding_maps.json rather than
+     assuming the mapping order. Both encoding arms retain the same training
+     category set without rare-category pooling. Unseen categories never change the vocabulary.
+  9. Inspect GeneEncoder. A row can contain multiple annotations, so one integer per
+     isolate would discard information. Multi-hot columns retain symbol=status
+     tokens. A token appearing twice is presence, not measured gene copy number.
+ 10. Explain how unknown categories and unknown genes behave at inference. Check
+     summary.json for the measured unseen-gene counts and inference checks.
+
+Day 2 deliverable: a diagram of the fitted pipeline plus two small worked feature
+encodings and a written explanation of one-hot versus ordinal assumptions. Use
+actual training maps when naming any final feature columns or integer codes.
+
+DAY 3: evaluate honestly, demonstrate reproducibility and defend the result
+
+Morning: splits, experiments and metrics
+  1. Read results/model_study/split_manifest.csv.gz. Verify no recorded component
+     occurs in train and validation/test simultaneously. A 60/20/20 group split
+     does not guarantee exactly 60/20/20 isolate counts when cluster sizes vary.
+  2. Read the experiment protocol in summary.json before selecting rows from
+     metrics.csv. The fixed main model is onehot_median_flags, with ampicillin as
+     primary. The other preprocessing combinations are controlled comparisons.
+  3. Compare metadata_only, genes_only and combined models. Improvements can reflect
+     known resistance annotations, lineage, collection patterns or source bias.
+     They do not show that a metadata association causes biological resistance.
+  4. Interpret average precision against test resistance frequency; inspect
+     resistance recall and precision together. Then inspect balanced accuracy,
+     ROC AUC, Brier score, calibration and confusion counts. State the threshold.
+  5. Read bootstrap_ci.csv and paired_differences.csv. The same resampled groups are
+     used for model comparisons. Intervals describe test-group variation conditional
+     on fitted models; they do not include all possible training uncertainty.
+  6. Inspect cv_metrics.csv and split_sensitivities.csv. BioSample-random splitting
+     can leave clonal relatives on both sides. Project holdout probes a different
+     generalization question and may have very uneven class support.
+
+Afternoon: reproducibility and viva practice
+  7. Run src/validate_preprocessing.py and inspect preprocessing_validation.json.
+     Explain an independently hand-calculated fixture, a source integrity check
+     and a real-output reconciliation rule. Passing tests does not validate
+     laboratory labels or establish external model validity.
+  8. Read streaming_benchmark.json. Compare chunk sizes only after verifying equal
+     canonical hashes. State the scope: row canonicalization and interval parsing,
+     not end-to-end training. OS file cache and run order affect a single timing.
+  9. Rerun using bash setup_wsl.sh && bash run_wsl.sh. Record package versions and
+     warnings from actual outputs. Explain why rerunning derived results uses the
+     same source while re-downloading the live database creates a new acquisition.
+ 10. Prepare a five-minute demonstration: question -> source units -> real cleaning
+     case -> split/encoding policy -> measured comparison -> remaining uncertainty.
+
+Day 3 deliverable: a short presentation or verbal demonstration containing one
+provenance check, one difficult cleaning example, one encoding example and one
+carefully interpreted measured result. No result needs to be impressive to be
+scientifically useful; the evidence must support what you say.
+
+WORKED EXAMPLES
+
+A. Censoring
+  Source: MIC <=4 mg/L.
+  Meaning: the value is in (0,4], subject to the assay's reporting conventions.
+  Store: lower=0, upper=4, lower_closed=False, upper_closed=True, censored=True.
+  Incorrect shortcut: treat the value as observed exactly 4 and fit ordinary
+  regression without acknowledging censoring.
+
+  Source: MIC >8 mg/L.
+  Store: lower=8, lower_closed=False, upper=None (unbounded), upper_closed=False.
+  The boundary 8 is not the measured concentration.
+
+B. Combination measurements
+  Source: piperacillin-tazobactam >64/4.
+  Retain the primary concentration/comparator and the reported secondary
+  concentration. Do not divide 64 by 4, and do not invent a second comparator.
+  In this project the measurement table is audited; MIC values are excluded from
+  resistance predictors because they are part of how source phenotypes arise.
+
+C. Structural missingness
+  Source: a disk-diffusion result in mm, with no MIC in mg/L.
+  A missing MIC is expected for that assay. Filling MIC with the median would
+  fabricate another kind of test. Retain the disk result separately. It is not
+  interchangeable with an isolate metadata feature that happens to be unrecorded.
+
+D. Label encoding
+  Source susceptible -> y=0; source resistant -> y=1.
+  Intermediate -> excluded from the primary binary task and retained in audit.
+  Nonsusceptible -> retained as its own source category; it is not silently R.
+  Not defined, missing and contradictory labels -> no invented binary target.
+  Class encoding defines the question. A different definition requires a separate
+  protocol and sensitivity analysis, not a hidden replacement in the same run.
+
+E. Nominal categories
+  Toy categories: animal, food, human. Codes 0,1,2 are labels, not biological
+  distances. A linear model using those codes imposes a numeric trend. One-hot
+  encoding gives a separate column per represented category. The actual fitted
+  vocabulary comes only from training data and is saved for inspection.
+
+F. Gene annotations
+  Example token: blaTEM-1=COMPLETE. Another token with a partial or altered-call
+  status is not silently upgraded to COMPLETE. Parentheses, apostrophes and slash
+  characters inside gene names are meaningful. Distinct calls use multiple
+  presence columns; copy number cannot be recovered from this representation.
+
+G. Split leakage
+  Suppose isolates A and B share a recorded SNP cluster. If A is in training and B
+  in test, a model may perform well by exploiting near-identical lineage features.
+  Keep their connected group together. Isolates with missing cluster links fall
+  back to BioSample grouping; absence of a link is not proof of unrelatedness.
+
+DEEPER VIVA QUESTIONS AND WHAT A GOOD ANSWER MUST INCLUDE
+
+1. Why is 142,338 not the effective independent sample size?
+   It counts assays. Repeated drugs, repeated measurements and related isolates
+   create dependence. Quote BioSample/isolate counts, then per-drug eligible counts
+   and recorded group counts from actual outputs.
+
+2. Why not remove every repeated BioSample row?
+   Different antibiotics are useful long-format observations. Exact duplicate
+   assays can be flagged separately. Repeated methods can provide discordant
+   evidence that should be audited rather than deleted indiscriminately.
+
+3. Why not use the majority label for a conflict?
+   Multiple records are not necessarily independent votes. Method/platform and
+   testing-standard differences may matter. Quarantine avoids inventing ground truth.
+
+4. Why not use LabelEncoder on every feature column?
+   It is suitable for class labels, not generally nominal multi-category predictors
+   with a linear model. Explain artificial order, training-only vocabularies and
+   unknown-category behavior. Explicit y mapping is deterministic and auditable.
+
+5. Can missing host information be called missing at random?
+   Not from these data alone. Missingness may depend on submitter, surveillance
+   purpose or unobserved features. An indicator measures recordedness; it does not
+   identify a missingness mechanism or remove selection bias.
+
+6. Is iterative imputation automatically better than median imputation?
+   No. It assumes useful relationships and adequate support. Some numerical fields
+   are complete here. Inspect validation/test comparisons and uncertainty; do not
+   claim gains unless actual outputs support them. This is single imputation.
+
+7. Why retain quality status in gene tokens?
+   COMPLETE, POINT, MISTRANSLATION and partial calls have different annotation
+   meanings. Preserving them avoids pretending every detection has identical
+   evidence. This can increase sparsity; a future status-collapsing experiment
+   should be explicit and fitted/evaluated without test-set selection.
+
+8. Is a high accuracy enough for ciprofloxacin?
+   A mostly susceptible sample can yield high accuracy by predicting susceptibility.
+   Inspect resistant support, resistance recall, precision, AP and confusion counts.
+   Check whether group splitting leaves enough cases of each class.
+
+9. What does the bootstrap interval omit?
+   The current bootstrap resamples test groups while models remain fixed. It does
+   not refit training models, resolve source-label error, remove batch effects or
+   account for every possible split. State that scope when citing an interval.
+
+10. Why compare BioProject holdout with SNP-component holdout?
+    They probe different dependence structures. Project holdout can expose
+    submitter/batch shifts; SNP holdout addresses recorded clonal similarity. Neither
+    automatically constitutes geographic, temporal or external clinical validation.
+
+11. Why not recompute all S/I/R labels from MIC?
+    Reliable reinterpretation requires organism/drug-specific breakpoints, standard
+    editions, methods and combination semantics. Edition information is incomplete.
+    This study keeps source labels and does not invent breakpoint harmonization.
+
+12. How would Spark improve this particular project?
+    It may not: this frozen source fits local processing and Spark adds overhead.
+    A defensible extension would compare identical transformations on a genuinely
+    larger source, measuring shuffle, memory, wall time and equivalent outputs.
+    Duplicating rows to claim biological scale would not add evidence.
+
+13. Does grouping eliminate all leakage?
+    It prevents overlap in recorded components. Missing links, broader lineage,
+    reference-database annotations and source-specific effects remain. Explain the
+    explicit feature exclusion list and the limits of the available cluster data.
+
+14. What is your own research contribution here?
+    Understanding and defending the data model, inspecting actual edge cases,
+    specifying cleaning/encoding policies, reproducing controlled experiments and
+    honestly interpreting the evidence. AI-assisted implementation is disclosed;
+    generating files alone is not equivalent to understanding or original discovery.
+
+CODE READING MAP
+
+Function names are the stable references. The delivered source may change line
+numbers during review; the command below regenerates a current one-based map:
+
+  rg -n '^def |^class ' src/download_data.py src/preprocess.py src/model_study.py src/benchmark_streaming.py src/validate_preprocessing.py
+
+Acquisition
+  src/download_data.py:34   retrieve: query construction, retries, response hashes.
+  src/download_data.py:67   acquire: sorted unique IDs, counts, JSONL and file hash.
+  src/download_data.py:111  main: cohort queries and acquisition manifest.
+
+Deterministic preprocessing
+  src/preprocess.py:18      clean_text: Unicode, whitespace and missing sentinels.
+  src/preprocess.py:37      date_interval: partial date precision and year bounds.
+  src/preprocess.py:58      measurement: censor bounds and combination components.
+  src/preprocess.py:90      UnionFind: connected recorded split components.
+  src/preprocess.py:100     preprocess: integrity, joins, duplicate/conflict policies,
+                            feature assembly and audit exports.
+
+Model study
+  src/model_study.py        token_rows and GeneEncoder: annotation parsing/multi-hot.
+  src/model_study.py        feature_columns and build_pipeline: X, imputers, encoders.
+  src/model_study.py        split_groups and bioproject_groups: split boundaries.
+  src/model_study.py        validation_threshold: validation-only threshold selection.
+  src/model_study.py        bootstrap_comparison: paired group uncertainty estimates.
+  src/model_study.py        export_encoded and extract_encoding: inspect fitted maps.
+  src/model_study.py        run: fixed study protocol, models, controls and exports.
+
+Validation and scalability
+  src/validate_preprocessing.py:35   fixture_measurements: hand-calculated semantics.
+  src/validate_preprocessing.py:88   fixture_pipeline: miniature end-to-end edge cases.
+  src/validate_preprocessing.py:144  source_integrity: hashes and raw unit counts.
+  src/validate_preprocessing.py:168  output_contracts: source/output reconciliation.
+  src/benchmark_streaming.py:33     worker: streamed canonicalization and digest.
+  src/benchmark_streaming.py:65     benchmark: real prefixes/chunks and comparison.
+
+Model source line numbers are intentionally regenerated by the command while
+implementation is being finalized; use the named functions rather than stale
+positions. Read saved package versions and warnings in the actual run summary.
+
+A DEFENSIBLE FIVE-MINUTE EXPLANATION
+
+First minute: describe the new NCBI Salmonella source and distinguish assays,
+isolates and BioSamples. State the prediction target and study limits.
+
+Second minute: show one raw conflict, one censored MIC and one structural-missing
+case. Locate each audit entry and explain the rule without claiming ground truth.
+
+Third minute: show the training-only pipeline. Explain binary target mapping,
+one-hot versus ordinal predictors, gene multi-hot tokens and missingness handling.
+
+Fourth minute: show the group split and one controlled comparison from metrics.csv.
+State the test support, model, threshold, AP/recall and relevant uncertainty. Use
+actual values from the delivered outputs; this guide supplies no invented score.
+
+Final minute: explain what remains unresolved: surveillance selection, incomplete
+metadata/cluster relationships, label-standard differences and external validity.
+Describe one concrete next experiment and how you would avoid reusing the test
+set to select its design.

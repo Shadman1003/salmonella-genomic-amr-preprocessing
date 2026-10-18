@@ -1,0 +1,152 @@
+antibiotic,phenotype,assays
+amikacin,intermediate,1
+amikacin,not defined,38
+amikacin,resistant,7
+amikacin,susceptible,2982
+amoxicillin,not defined,2
+amoxicillin,resistant,4
+amoxicillin-clavulanic acid,intermediate,650
+amoxicillin-clavulanic acid,not defined,38
+amoxicillin-clavulanic acid,resistant,904
+amoxicillin-clavulanic acid,susceptible,8056
+ampicillin,not defined,39
+ampicillin,resistant,2531
+ampicillin,susceptible,7350
+ampicillin-sulbactam,resistant,8
+ampicillin-sulbactam,susceptible,2
+azithromycin,not defined,9
+azithromycin,resistant,42
+azithromycin,susceptible,6996
+aztreonam,resistant,4
+aztreonam,susceptible,3
+cefalotin,resistant,4
+cefazolin,not defined,33
+cefazolin,resistant,10
+cefazolin,susceptible,2
+cefepime,resistant,4
+cefepime,susceptible,8
+cefotaxime,intermediate,1
+cefotaxime,resistant,8
+cefotaxime,susceptible,89
+cefovecin,not defined,38
+cefoxitin,intermediate,110
+cefoxitin,not defined,4
+cefoxitin,resistant,805
+cefoxitin,susceptible,8707
+cefpodoxime,not defined,38
+ceftazidime,not defined,31
+ceftazidime,resistant,54
+ceftazidime,susceptible,200
+ceftazidime-avibactam,susceptible,2
+ceftiofur,intermediate,9
+ceftiofur,not defined,20
+ceftiofur,resistant,715
+ceftiofur,susceptible,4132
+ceftolozane-tazobactam,resistant,1
+ceftolozane-tazobactam,susceptible,1
+ceftriaxone,intermediate,8
+ceftriaxone,resistant,1236
+ceftriaxone,susceptible,8389
+cephalexin,not defined,34
+cephalothin,not defined,3
+chloramphenicol,intermediate,94
+chloramphenicol,not defined,38
+chloramphenicol,resistant,656
+chloramphenicol,susceptible,9104
+chlortetracycline,not defined,1
+ciprofloxacin,intermediate,139
+ciprofloxacin,nonsusceptible,150
+ciprofloxacin,not defined,2
+ciprofloxacin,resistant,758
+ciprofloxacin,susceptible,8828
+clindamycin,not defined,7
+colistin,intermediate,980
+colistin,not defined,4
+colistin,resistant,4
+colistin,susceptible,88
+danofloxacin,not defined,1
+doripenem,resistant,1
+doripenem,susceptible,7
+doxycycline,not defined,35
+enrofloxacin,not defined,41
+ertapenem,resistant,1
+ertapenem,susceptible,12
+erythromycin,not defined,6
+erythromycin,susceptible,1
+florfenicol,not defined,3
+gentamicin,intermediate,353
+gentamicin,not defined,40
+gentamicin,resistant,957
+gentamicin,susceptible,8577
+imipenem,not defined,38
+imipenem,resistant,1
+imipenem,susceptible,163
+kanamycin,intermediate,26
+kanamycin,resistant,478
+kanamycin,susceptible,3375
+levofloxacin,intermediate,2
+levofloxacin,not defined,1
+levofloxacin,resistant,1
+levofloxacin,susceptible,21
+marbofloxacin,not defined,38
+meropenem,resistant,1
+meropenem,susceptible,4841
+minocycline,resistant,2
+minocycline,susceptible,2
+moxifloxacin,intermediate,1
+nalidixic acid,intermediate,1
+nalidixic acid,not defined,9
+nalidixic acid,resistant,847
+nalidixic acid,susceptible,8844
+neomycin,not defined,3
+nitrofurantoin,intermediate,1
+nitrofurantoin,not defined,4
+nitrofurantoin,susceptible,4
+novobiocin,not defined,2
+orbifloxacin,not defined,30
+oxacillin,not defined,4
+oxytetracycline,not defined,3
+pefloxacin,resistant,1
+penicillin,not defined,7
+piperacillin,not defined,1
+piperacillin,resistant,1
+piperacillin,susceptible,2
+piperacillin-tazobactam,not defined,30
+piperacillin-tazobactam,resistant,5
+piperacillin-tazobactam,susceptible,4
+polymyxin b,not defined,2
+polymyxin b,susceptible,3
+pradofloxacin,not defined,30
+rifampin,not defined,4
+spectinomycin,not defined,3
+spectinomycin,susceptible,1
+streptomycin,not defined,11
+streptomycin,resistant,3328
+streptomycin,susceptible,5430
+sulfadimethoxine,not defined,3
+sulfamethoxazole,resistant,91
+sulfamethoxazole,susceptible,341
+sulfisoxazole,resistant,2751
+sulfisoxazole,susceptible,6506
+sulfonamide,resistant,4
+tetracycline,intermediate,36
+tetracycline,not defined,33
+tetracycline,resistant,4990
+tetracycline,susceptible,4827
+tiamulin,not defined,1
+ticarcillin,not defined,4
+ticarcillin,resistant,4
+tigecycline,susceptible,103
+tilmicosin,not defined,1
+tobramycin,intermediate,1
+tobramycin,not defined,1
+tobramycin,resistant,6
+tobramycin,susceptible,5
+trimethoprim,resistant,1
+trimethoprim,susceptible,81
+trimethoprim-sulfamethoxazole,not defined,37
+trimethoprim-sulfamethoxazole,resistant,335
+trimethoprim-sulfamethoxazole,susceptible,9315
+tulathromycin,not defined,1
+tylosin,not defined,3
+vancomycin,susceptible,1

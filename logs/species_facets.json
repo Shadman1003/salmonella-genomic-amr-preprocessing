@@ -1,0 +1,426 @@
+{
+  "count": 9977,
+  "species_taxid": {
+    "numBuckets": 1,
+    "missing": {
+      "count": 0
+    },
+    "buckets": [
+      {
+        "val": 28901,
+        "count": 9977
+      }
+    ]
+  },
+  "scientific_name": {
+    "numBuckets": 124,
+    "missing": {
+      "count": 0
+    },
+    "buckets": [
+      {
+        "val": "Salmonella enterica subsp. enterica serovar Kentucky",
+        "count": 1498
+      },
+      {
+        "val": "Salmonella enterica",
+        "count": 907
+      },
+      {
+        "val": "Salmonella enterica subsp. enterica serovar Heidelberg",
+        "count": 725
+      },
+      {
+        "val": "Salmonella enterica subsp. enterica serovar Enteritidis",
+        "count": 687
+      },
+      {
+        "val": "Salmonella enterica subsp. enterica serovar Infantis",
+        "count": 679
+      },
+      {
+        "val": "Salmonella enterica subsp. enterica serovar Typhimurium var. 5-",
+        "count": 505
+      },
+      {
+        "val": "Salmonella enterica subsp. enterica serovar Typhimurium",
+        "count": 504
+      },
+      {
+        "val": "Salmonella enterica subsp. enterica serovar Hadar",
+        "count": 479
+      },
+      {
+        "val": "Salmonella enterica subsp. enterica serovar Saintpaul",
+        "count": 428
+      },
+      {
+        "val": "Salmonella enterica subsp. enterica serovar Reading",
+        "count": 422
+      },
+      {
+        "val": "Salmonella enterica subsp. enterica",
+        "count": 265
+      },
+      {
+        "val": "Salmonella enterica subsp. enterica serovar Schwarzengrund",
+        "count": 252
+      },
+      {
+        "val": "Salmonella enterica subsp. enterica serovar Anatum",
+        "count": 231
+      },
+      {
+        "val": "Salmonella enterica subsp. enterica serovar 4,[5],12:i:-",
+        "count": 189
+      },
+      {
+        "val": "Salmonella enterica subsp. enterica serovar Agona",
+        "count": 169
+      },
+      {
+        "val": "Salmonella enterica subsp. enterica serovar Montevideo",
+        "count": 159
+      },
+      {
+        "val": "Salmonella enterica subsp. enterica serovar Senftenberg",
+        "count": 151
+      },
+      {
+        "val": "Salmonella enterica subsp. enterica serovar Derby",
+        "count": 139
+      },
+      {
+        "val": "Salmonella enterica subsp. enterica serovar Muenchen",
+        "count": 119
+      },
+      {
+        "val": "Salmonella enterica subsp. enterica serovar Dublin",
+        "count": 102
+      },
+      {
+        "val": "Salmonella enterica subsp. enterica serovar Newport",
+        "count": 90
+      },
+      {
+        "val": "Salmonella enterica subsp. enterica serovar Berta",
+        "count": 84
+      },
+      {
+        "val": "Salmonella enterica subsp. enterica serovar Braenderup",
+        "count": 84
+      },
+      {
+        "val": "Salmonella enterica subsp. enterica serovar Mbandaka",
+        "count": 80
+      },
+      {
+        "val": "Salmonella enterica subsp. arizonae serovar 18:z4,z23:-",
+        "count": 69
+      },
+      {
+        "val": "Salmonella enterica subsp. enterica serovar Uganda",
+        "count": 65
+      },
+      {
+        "val": "Salmonella enterica subsp. enterica serovar Johannesburg",
+        "count": 50
+      },
+      {
+        "val": "Salmonella enterica subsp. enterica serovar Brandenburg",
+        "count": 49
+      },
+      {
+        "val": "Salmonella enterica subsp. enterica serovar Albany",
+        "count": 46
+      },
+      {
+        "val": "Salmonella enterica subsp. enterica serovar Cerro",
+        "count": 46
+      },
+      {
+        "val": "Salmonella enterica subsp. enterica serovar Thompson",
+        "count": 45
+      },
+      {
+        "val": "Salmonella enterica subsp. arizonae",
+        "count": 41
+      },
+      {
+        "val": "Salmonella enterica subsp. enterica serovar Alachua",
+        "count": 41
+      },
+      {
+        "val": "Salmonella enterica subsp. enterica serovar 4,12:i:-",
+        "count": 38
+      },
+      {
+        "val": "Salmonella enterica subsp. enterica serovar London",
+        "count": 33
+      },
+      {
+        "val": "Salmonella enterica subsp. enterica serovar 4,12:d:-",
+        "count": 32
+      },
+      {
+        "val": "Salmonella enterica subsp. enterica serovar 4:i:-",
+        "count": 27
+      },
+      {
+        "val": "Salmonella enterica subsp. enterica serovar Litchfield",
+        "count": 26
+      },
+      {
+        "val": "Salmonella enterica subsp. enterica serovar Ohio",
+        "count": 25
+      },
+      {
+        "val": "Salmonella enterica subsp. enterica serovar Worthington",
+        "count": 25
+      },
+      {
+        "val": "Salmonella enterica subsp. enterica serovar Bredeney",
+        "count": 21
+      },
+      {
+        "val": "Salmonella enterica subsp. enterica serovar -:r:1,5",
+        "count": 18
+      },
+      {
+        "val": "Salmonella enterica subsp. enterica serovar Adelaide",
+        "count": 17
+      },
+      {
+        "val": "Salmonella enterica subsp. enterica serovar 4,[5],12:r:-",
+        "count": 15
+      },
+      {
+        "val": "Salmonella enterica subsp. enterica serovar Blockley",
+        "count": 14
+      },
+      {
+        "val": "Salmonella enterica subsp. enterica serovar Muenster",
+        "count": 14
+      },
+      {
+        "val": "Salmonella enterica subsp. enterica serovar Meleagridis",
+        "count": 13
+      },
+      {
+        "val": "Salmonella enterica subsp. enterica serovar Oranienburg",
+        "count": 12
+      },
+      {
+        "val": "Salmonella enterica subsp. enterica serovar Liverpool",
+        "count": 11
+      },
+      {
+        "val": "Salmonella enterica subsp. enterica serovar Eko",
+        "count": 10
+      },
+      {
+        "val": "Salmonella enterica subsp. enterica serovar Rissen",
+        "count": 10
+      },
+      {
+        "val": "Salmonella enterica subsp. enterica serovar Chailey",
+        "count": 9
+      },
+      {
+        "val": "Salmonella enterica subsp. enterica serovar Kiambu",
+        "count": 9
+      },
+      {
+        "val": "Salmonella enterica subsp. enterica serovar Typhi",
+        "count": 9
+      },
+      {
+        "val": "Salmonella enterica subsp. enterica serovar Bareilly",
+        "count": 8
+      },
+      {
+        "val": "Salmonella enterica subsp. enterica serovar Minnesota",
+        "count": 8
+      },
+      {
+        "val": "Salmonella enterica subsp. enterica serovar Norwich",
+        "count": 8
+      },
+      {
+        "val": "Salmonella enterica subsp. arizonae serovar [1],13,23:g,z51:-",
+        "count": 7
+      },
+      {
+        "val": "Salmonella enterica subsp. enterica serovar Indiana",
+        "count": 7
+      },
+      {
+        "val": "Salmonella enterica subsp. enterica serovar Javiana",
+        "count": 7
+      },
+      {
+        "val": "Salmonella enterica subsp. enterica serovar Tennessee",
+        "count": 7
+      },
+      {
+        "val": "Salmonella enterica subsp. enterica serovar Give",
+        "count": 6
+      },
+      {
+        "val": "Salmonella enterica subsp. enterica serovar Livingstone",
+        "count": 6
+      },
+      {
+        "val": "Salmonella enterica subsp. enterica serovar Manhattan",
+        "count": 6
+      },
+      {
+        "val": "Salmonella enterica subsp. enterica serovar Molade",
+        "count": 6
+      },
+      {
+        "val": "Salmonella enterica subsp. enterica serovar 4,12:r:-",
+        "count": 5
+      },
+      {
+        "val": "Salmonella enterica subsp. enterica serovar Bovismorbificans",
+        "count": 5
+      },
+      {
+        "val": "Salmonella enterica subsp. enterica serovar Corvallis",
+        "count": 5
+      },
+      {
+        "val": "Salmonella enterica subsp. enterica serovar Gaminara",
+        "count": 5
+      },
+      {
+        "val": "Salmonella enterica subsp. enterica serovar Orion",
+        "count": 5
+      },
+      {
+        "val": "Salmonella enterica subsp. enterica serovar Panama",
+        "count": 5
+      },
+      {
+        "val": "Salmonella enterica subsp. enterica serovar Cubana",
+        "count": 4
+      },
+      {
+        "val": "Salmonella enterica subsp. enterica serovar Stanley",
+        "count": 4
+      },
+      {
+        "val": "Salmonella enterica subsp. enterica serovar 3,10:e,h:-",
+        "count": 3
+      },
+      {
+        "val": "Salmonella enterica subsp. enterica serovar 4,12:nonmotile",
+        "count": 3
+      },
+      {
+        "val": "Salmonella enterica subsp. enterica serovar 6,7:k:-",
+        "count": 3
+      },
+      {
+        "val": "Salmonella enterica subsp. enterica serovar Altona",
+        "count": 3
+      },
+      {
+        "val": "Salmonella enterica subsp. enterica serovar Havana",
+        "count": 3
+      },
+      {
+        "val": "Salmonella enterica subsp. enterica serovar Ruiru",
+        "count": 3
+      },
+      {
+        "val": "Salmonella enterica subsp. arizonae serovar 13,23:g,z51:-",
+        "count": 2
+      },
+      {
+        "val": "Salmonella enterica subsp. arizonae serovar 48:z4,z24:-",
+        "count": 2
+      },
+      {
+        "val": "Salmonella enterica subsp. enterica serovar 4,5,12:i:-",
+        "count": 2
+      },
+      {
+        "val": "Salmonella enterica subsp. enterica serovar Agbeni",
+        "count": 2
+      },
+      {
+        "val": "Salmonella enterica subsp. enterica serovar Albert",
+        "count": 2
+      },
+      {
+        "val": "Salmonella enterica subsp. enterica serovar Hartford",
+        "count": 2
+      },
+      {
+        "val": "Salmonella enterica subsp. enterica serovar Holcomb",
+        "count": 2
+      },
+      {
+        "val": "Salmonella enterica subsp. enterica serovar Idikan",
+        "count": 2
+      },
+      {
+        "val": "Salmonella enterica subsp. enterica serovar Krefeld",
+        "count": 2
+      },
+      {
+        "val": "Salmonella enterica subsp. enterica serovar Lille",
+        "count": 2
+      },
+      {
+        "val": "Salmonella enterica subsp. enterica serovar Soerenga",
+        "count": 2
+      },
+      {
+        "val": "Salmonella enterica subsp. houtenae serovar 44:z4,z23:-",
+        "count": 2
+      },
+      {
+        "val": "Salmonella enterica subsp. arizonae serovar 40:z4,z23:-",
+        "count": 1
+      },
+      {
+        "val": "Salmonella enterica subsp. enterica serovar 6,7:-1,5",
+        "count": 1
+      },
+      {
+        "val": "Salmonella enterica subsp. enterica serovar 8,(20):-:z6",
+        "count": 1
+      },
+      {
+        "val": "Salmonella enterica subsp. enterica serovar 9,46:nonmotile",
+        "count": 1
+      },
+      {
+        "val": "Salmonella enterica subsp. enterica serovar 9:-:-",
+        "count": 1
+      },
+      {
+        "val": "Salmonella enterica subsp. enterica serovar 9:z29:-",
+        "count": 1
+      },
+      {
+        "val": "Salmonella enterica subsp. enterica serovar Barranquilla",
+        "count": 1
+      },
+      {
+        "val": "Salmonella enterica subsp. enterica serovar Concord",
+        "count": 1
+      },
+      {
+        "val": "Salmonella enterica subsp. enterica serovar Cubana str. CVM42234",
+        "count": 1
+      }
+    ]
+  },
+  "query": [
+    "* -status:withdrawn"
+  ]
+}

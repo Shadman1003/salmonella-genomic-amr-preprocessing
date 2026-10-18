@@ -1,0 +1,84 @@
+{
+  "generated_at_utc": "2026-10-18T10:42:36.586515+00:00",
+  "scope": "Preprocessing semantics, source integrity and output reconciliation. Excludes fitted model feature selection and split validation, which are audited by modeling.",
+  "fixtures_only": false,
+  "checks": [
+    {
+      "check": "hand_calculated_measurement_semantics",
+      "passed": true,
+      "details": {
+        "hand_calculated_cases": 11,
+        "semantics": "Censor bounds, combination components and MIC/disk namespaces checked independently."
+      }
+    },
+    {
+      "check": "partial_date_and_text_fixtures",
+      "passed": true,
+      "details": {
+        "date_cases": 11,
+        "text_cases": 2,
+        "scope": "Accepted date cases tested; not an exhaustive date grammar verification."
+      }
+    },
+    {
+      "check": "miniature_end_to_end_duplicate_conflict_join_and_gene_fixtures",
+      "passed": true,
+      "details": {
+        "isolates": 3,
+        "assays": 6,
+        "gene_tokens_preserved": [
+          "aac(6')-Ib-cr=COMPLETE",
+          "blaCTX-M-15=COMPLETE",
+          "gene/with,comma=PARTIAL"
+        ],
+        "pair_status_counts": {
+          "eligible_binary": 1,
+          "conflicting": 1,
+          "missing": 1,
+          "unmatched_metadata": 1
+        }
+      }
+    },
+    {
+      "check": "frozen_raw_source_sha256_counts_and_ids",
+      "passed": true,
+      "details": [
+        {
+          "file": "data/raw/ncbi_salmonella_ast.jsonl",
+          "records": 142338,
+          "distinct_ids": 142338,
+          "sha256": "e59a5782024bdfbd9334d3add3c3bc897c6338d680c18ab4d559bd6d46454b2e",
+          "bytes": 85421138
+        },
+        {
+          "file": "data/raw/ncbi_salmonella_isolates.jsonl",
+          "records": 9977,
+          "distinct_ids": 9977,
+          "sha256": "a56f0bc8bea5f16b2a70ca46a5ae8072514c80f243a14a24611e826add91d214",
+          "bytes": 33101955
+        }
+      ]
+    },
+    {
+      "check": "processed_output_contracts_and_reconciliation",
+      "passed": true,
+      "details": {
+        "ast_rows": 142338,
+        "isolate_rows": 9975,
+        "pair_rows": 142299,
+        "eligible_pairs": 138911,
+        "exact_duplicates": 0,
+        "unmatched_assays": 30,
+        "target_mismatches": 0,
+        "measurement_flagged_assays": 0,
+        "reported_secondary_mic_rows_preserved": 19368,
+        "feature_export_forbidden_fields": [],
+        "scope": "Output export checked for explicit phenotype/measurement fields; actual fitted model X and split leakage require the separate modeling audit."
+      }
+    }
+  ],
+  "all_checks_passed": true,
+  "passed_checks": 5,
+  "total_checks": 5,
+  "interpretation": "Passing the listed finite checks does not prove all data are error-free or establish clinical validity."
+}

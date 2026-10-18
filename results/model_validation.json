@@ -1,0 +1,246 @@
+{
+  "all_checks_passed": true,
+  "fitted_models_audited": 14,
+  "validation_and_test_predictions_recomputed": 50299,
+  "all_saved_probabilities_match_1e_12": true,
+  "all_reported_fixed_threshold_metrics_match_1e_12": true,
+  "known_group_intersections": 0,
+  "grouped_cv_fits_recorded": 18,
+  "bootstrap_replicates": 300,
+  "final_model_and_fold_warnings": 0,
+  "executed_notebook_code_cells": 11,
+  "notebook_error_outputs": 0,
+  "model_audits": [
+    {
+      "drug": "ampicillin",
+      "model": "genes_only",
+      "split": "test",
+      "rows": 2070,
+      "all_saved_probabilities_match": true,
+      "all_fixed_threshold_metrics_match": true
+    },
+    {
+      "drug": "ampicillin",
+      "model": "genes_only",
+      "split": "validation",
+      "rows": 1538,
+      "all_saved_probabilities_match": true,
+      "all_fixed_threshold_metrics_match": true
+    },
+    {
+      "drug": "ampicillin",
+      "model": "metadata_only",
+      "split": "test",
+      "rows": 2070,
+      "all_saved_probabilities_match": true,
+      "all_fixed_threshold_metrics_match": true
+    },
+    {
+      "drug": "ampicillin",
+      "model": "metadata_only",
+      "split": "validation",
+      "rows": 1538,
+      "all_saved_probabilities_match": true,
+      "all_fixed_threshold_metrics_match": true
+    },
+    {
+      "drug": "ampicillin",
+      "model": "onehot_iterative_flags",
+      "split": "test",
+      "rows": 2070,
+      "all_saved_probabilities_match": true,
+      "all_fixed_threshold_metrics_match": true
+    },
+    {
+      "drug": "ampicillin",
+      "model": "onehot_iterative_flags",
+      "split": "validation",
+      "rows": 1538,
+      "all_saved_probabilities_match": true,
+      "all_fixed_threshold_metrics_match": true
+    },
+    {
+      "drug": "ampicillin",
+      "model": "onehot_median",
+      "split": "test",
+      "rows": 2070,
+      "all_saved_probabilities_match": true,
+      "all_fixed_threshold_metrics_match": true
+    },
+    {
+      "drug": "ampicillin",
+      "model": "onehot_median",
+      "split": "validation",
+      "rows": 1538,
+      "all_saved_probabilities_match": true,
+      "all_fixed_threshold_metrics_match": true
+    },
+    {
+      "drug": "ampicillin",
+      "model": "onehot_median_flags",
+      "split": "test",
+      "rows": 2070,
+      "all_saved_probabilities_match": true,
+      "all_fixed_threshold_metrics_match": true
+    },
+    {
+      "drug": "ampicillin",
+      "model": "onehot_median_flags",
+      "split": "validation",
+      "rows": 1538,
+      "all_saved_probabilities_match": true,
+      "all_fixed_threshold_metrics_match": true
+    },
+    {
+      "drug": "ampicillin",
+      "model": "ordinal_iterative_flags",
+      "split": "test",
+      "rows": 2070,
+      "all_saved_probabilities_match": true,
+      "all_fixed_threshold_metrics_match": true
+    },
+    {
+      "drug": "ampicillin",
+      "model": "ordinal_iterative_flags",
+      "split": "validation",
+      "rows": 1538,
+      "all_saved_probabilities_match": true,
+      "all_fixed_threshold_metrics_match": true
+    },
+    {
+      "drug": "ampicillin",
+      "model": "ordinal_median",
+      "split": "test",
+      "rows": 2070,
+      "all_saved_probabilities_match": true,
+      "all_fixed_threshold_metrics_match": true
+    },
+    {
+      "drug": "ampicillin",
+      "model": "ordinal_median",
+      "split": "validation",
+      "rows": 1538,
+      "all_saved_probabilities_match": true,
+      "all_fixed_threshold_metrics_match": true
+    },
+    {
+      "drug": "ampicillin",
+      "model": "ordinal_median_flags",
+      "split": "test",
+      "rows": 2070,
+      "all_saved_probabilities_match": true,
+      "all_fixed_threshold_metrics_match": true
+    },
+    {
+      "drug": "ampicillin",
+      "model": "ordinal_median_flags",
+      "split": "validation",
+      "rows": 1538,
+      "all_saved_probabilities_match": true,
+      "all_fixed_threshold_metrics_match": true
+    },
+    {
+      "drug": "ciprofloxacin",
+      "model": "genes_only",
+      "split": "test",
+      "rows": 2058,
+      "all_saved_probabilities_match": true,
+      "all_fixed_threshold_metrics_match": true
+    },
+    {
+      "drug": "ciprofloxacin",
+      "model": "genes_only",
+      "split": "validation",
+      "rows": 1505,
+      "all_saved_probabilities_match": true,
+      "all_fixed_threshold_metrics_match": true
+    },
+    {
+      "drug": "ciprofloxacin",
+      "model": "metadata_only",
+      "split": "test",
+      "rows": 2058,
+      "all_saved_probabilities_match": true,
+      "all_fixed_threshold_metrics_match": true
+    },
+    {
+      "drug": "ciprofloxacin",
+      "model": "metadata_only",
+      "split": "validation",
+      "rows": 1505,
+      "all_saved_probabilities_match": true,
+      "all_fixed_threshold_metrics_match": true
+    },
+    {
+      "drug": "ciprofloxacin",
+      "model": "onehot_median_flags",
+      "split": "test",
+      "rows": 2058,
+      "all_saved_probabilities_match": true,
+      "all_fixed_threshold_metrics_match": true
+    },
+    {
+      "drug": "ciprofloxacin",
+      "model": "onehot_median_flags",
+      "split": "validation",
+      "rows": 1505,
+      "all_saved_probabilities_match": true,
+      "all_fixed_threshold_metrics_match": true
+    },
+    {
+      "drug": "tetracycline",
+      "model": "genes_only",
+      "split": "test",
+      "rows": 2053,
+      "all_saved_probabilities_match": true,
+      "all_fixed_threshold_metrics_match": true
+    },
+    {
+      "drug": "tetracycline",
+      "model": "genes_only",
+      "split": "validation",
+      "rows": 1529,
+      "all_saved_probabilities_match": true,
+      "all_fixed_threshold_metrics_match": true
+    },
+    {
+      "drug": "tetracycline",
+      "model": "metadata_only",
+      "split": "test",
+      "rows": 2053,
+      "all_saved_probabilities_match": true,
+      "all_fixed_threshold_metrics_match": true
+    },
+    {
+      "drug": "tetracycline",
+      "model": "metadata_only",
+      "split": "validation",
+      "rows": 1529,
+      "all_saved_probabilities_match": true,
+      "all_fixed_threshold_metrics_match": true
+    },
+    {
+      "drug": "tetracycline",
+      "model": "onehot_median_flags",
+      "split": "test",
+      "rows": 2053,
+      "all_saved_probabilities_match": true,
+      "all_fixed_threshold_metrics_match": true
+    },
+    {
+      "drug": "tetracycline",
+      "model": "onehot_median_flags",
+      "split": "validation",
+      "rows": 1529,
+      "all_saved_probabilities_match": true,
+      "all_fixed_threshold_metrics_match": true
+    }
+  ],
+  "reproduction_check": {
+    "all_frozen_metric_rows_match_initial_run": true,
+    "rows": 42,
+    "max_absolute_difference": 5.551115123125783e-16,
+    "fit_timings_excluded": true
+  },
+  "limitations": "Finite artifact/inference checks cannot prove external validity or complete biological independence."
+}

@@ -1,0 +1,18 @@
+Fit ampicillin: ordinal_median (6,268 training isolates)
+Fit ampicillin: ordinal_median_flags (6,268 training isolates)
+Fit ampicillin: ordinal_iterative_flags (6,268 training isolates)
+Fit ampicillin: onehot_median (6,268 training isolates)
+Fit ampicillin: onehot_median_flags (6,268 training isolates)
+Fit ampicillin: onehot_iterative_flags (6,268 training isolates)
+Fit ampicillin: metadata_only (6,268 training isolates)
+Fit ampicillin: genes_only (6,268 training isolates)
+Finished ampicillin
+Fit tetracycline: onehot_median_flags (6,232 training isolates)
+Fit tetracycline: metadata_only (6,232 training isolates)
+Fit tetracycline: genes_only (6,232 training isolates)
+Finished tetracycline
+Fit ciprofloxacin: onehot_median_flags (6,021 training isolates)
+Fit ciprofloxacin: metadata_only (6,021 training isolates)
+Fit ciprofloxacin: genes_only (6,021 training isolates)
+Finished ciprofloxacin
+{"finished": true, "output": "results/model_study", "tasks": ["ampicillin", "tetracycline", "ciprofloxacin"], "elapsed_seconds": 112.13327760000001}

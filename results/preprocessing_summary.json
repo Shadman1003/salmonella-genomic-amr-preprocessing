@@ -1,0 +1,70 @@
+{
+  "raw_ast_rows": 142338,
+  "raw_isolate_records": 9977,
+  "unique_biosamples_metadata": 9975,
+  "ambiguous_biosamples_quarantined": 1,
+  "exact_duplicate_assays": 0,
+  "unique_biosample_drug_pairs": 142299,
+  "pair_status_counts": {
+    "eligible_binary": 138911,
+    "nonbinary": 3372,
+    "unmatched_metadata": 15,
+    "conflicting": 1
+  },
+  "phenotype_counts": {
+    "susceptible": 117405,
+    "resistant": 21561,
+    "intermediate": 2413,
+    "not defined": 809,
+    "nonsusceptible": 150
+  },
+  "measurement_types": {
+    "mic": 142185,
+    "disk": 153
+  },
+  "comparators": {
+    "==": 66464,
+    "<=": 59010,
+    ">": 16434,
+    "<": 382,
+    ">=": 48
+  },
+  "censored_measurements": 75874,
+  "measurement_invalid_assays": 0,
+  "combination_mic_assays": 19368,
+  "missing_platform": 81756,
+  "missing_vendor": 81568,
+  "unknown_phenotype_rows": 0,
+  "unmatched_ast_records": 30,
+  "target_mismatch_records": 0,
+  "amr_available_isolates": 9975,
+  "species_taxid_counts": {
+    "28901": 9975
+  },
+  "gene_status_counts": {
+    "COMPLETE": 43300,
+    "POINT": 923,
+    "MISTRANSLATION": 295,
+    "PARTIAL_END_OF_CONTIG": 1046,
+    "PARTIAL": 425,
+    "HMM": 6
+  },
+  "date_precision_counts": {
+    "year": 7585,
+    "month": 1665,
+    "day": 685,
+    "missing": 40
+  },
+  "snp_cluster_available_isolates": 9665,
+  "connected_groups": 1249,
+  "largest_group_isolates": 683,
+  "preprocess_wall_seconds": 183.4713807,
+  "peak_rss_mib": 710.90625,
+  "policies": {
+    "labels": "Never imputed; unanimous source R/S only for primary binary cohort.",
+    "assays": "Censoring and dual concentrations preserved; MIC and disk never pooled or used as X.",
+    "groups": "Connected components of BioSample and recorded SNP-cluster links; absent cluster falls back to BioSample.",
+    "genes": "Unique symbol=status annotations, not copy number; unavailable distinguished from completed zero-hit analysis.",
+    "invalid_measurements": "Flagged and separately quarantined for quantitative use; source phenotypes remain usable because measurements never enter X."
+  }
+}

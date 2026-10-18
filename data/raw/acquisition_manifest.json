@@ -1,0 +1,394 @@
+{
+  "dataset": "NCBI Pathogen Detection Salmonella enterica AST and tested-isolate metadata",
+  "started_at_utc": "2026-10-18T06:59:08.888775+00:00",
+  "endpoint": "https://www.ncbi.nlm.nih.gov/pathogens/pathogens-srv/",
+  "official_documentation": [
+    "https://www.ncbi.nlm.nih.gov/pathogens/docs/ast/",
+    "https://www.ncbi.nlm.nih.gov/pathogens/ast/",
+    "https://www.ncbi.nlm.nih.gov/pathogens/pathogens_help/",
+    "https://www.ncbi.nlm.nih.gov/pathogens/docs/data_processing/",
+    "https://www.ncbi.nlm.nih.gov/pathogens/faq/"
+  ],
+  "cohort": "taxgroup_name:\"Salmonella enterica\"",
+  "limitations": [
+    "Public convenience/surveillance collection; not a representative prevalence sample.",
+    "Phenotypes are supplied by BioSample submitters and receive only basic NCBI QC.",
+    "API is a live service; stable sorting and equal before/after counts do not guarantee a transactionally consistent snapshot.",
+    "Only isolates with submitted AST are acquired; missing AST is not susceptibility."
+  ],
+  "downloads": [
+    {
+      "collection": "ast",
+      "query": "taxgroup_name:\"Salmonella enterica\"",
+      "fields": "*",
+      "sort": [
+        {
+          "property": "id",
+          "direction": "ASC"
+        }
+      ],
+      "page_size": 5000,
+      "records": 142338,
+      "distinct_ids": 142338,
+      "file": "data/raw/ncbi_salmonella_ast.jsonl",
+      "sha256": "e59a5782024bdfbd9334d3add3c3bc897c6338d680c18ab4d559bd6d46454b2e",
+      "bytes": 85421138,
+      "initial_probe": {
+        "url": "https://www.ncbi.nlm.nih.gov/pathogens/pathogens-srv/?action=retrieve&collection=ast&fq=taxgroup_name%3A%22Salmonella+enterica%22&start=0&limit=0&fl=%2A&sort=%5B%7B%22property%22%3A%22id%22%2C%22direction%22%3A%22ASC%22%7D%5D",
+        "retrieved_at_utc": "2026-10-18T06:59:10.773907+00:00",
+        "response_sha256": "31c362a274c3e4075aa7310a6bab67b50473ccc3480251179be35b6d729823d9",
+        "response_bytes": 158
+      },
+      "final_probe": {
+        "url": "https://www.ncbi.nlm.nih.gov/pathogens/pathogens-srv/?action=retrieve&collection=ast&fq=taxgroup_name%3A%22Salmonella+enterica%22&start=0&limit=0&fl=%2A&sort=%5B%7B%22property%22%3A%22id%22%2C%22direction%22%3A%22ASC%22%7D%5D",
+        "retrieved_at_utc": "2026-10-18T07:03:17.948195+00:00",
+        "response_sha256": "31c362a274c3e4075aa7310a6bab67b50473ccc3480251179be35b6d729823d9",
+        "response_bytes": 158
+      },
+      "pages": [
+        {
+          "url": "https://www.ncbi.nlm.nih.gov/pathogens/pathogens-srv/?action=retrieve&collection=ast&fq=taxgroup_name%3A%22Salmonella+enterica%22&start=0&limit=5000&fl=%2A&sort=%5B%7B%22property%22%3A%22id%22%2C%22direction%22%3A%22ASC%22%7D%5D",
+          "retrieved_at_utc": "2026-10-18T06:59:19.923928+00:00",
+          "response_sha256": "a2156a23b5b6df9af24c58e5744d9c79c13e09329031c659b7266e1e6fa2db92",
+          "response_bytes": 3426514,
+          "start": 0,
+          "records": 5000,
+          "first_id": "001_PDT000003687.3",
+          "last_id": "001_PDT000135414.2"
+        },
+        {
+          "url": "https://www.ncbi.nlm.nih.gov/pathogens/pathogens-srv/?action=retrieve&collection=ast&fq=taxgroup_name%3A%22Salmonella+enterica%22&start=5000&limit=5000&fl=%2A&sort=%5B%7B%22property%22%3A%22id%22%2C%22direction%22%3A%22ASC%22%7D%5D",
+          "retrieved_at_utc": "2026-10-18T06:59:30.961860+00:00",
+          "response_sha256": "5dd2805b7aa9eeb47dc269f47282193e98cbd4e735bb7f66251669c03735f86d",
+          "response_bytes": 3820752,
+          "start": 5000,
+          "records": 5000,
+          "first_id": "001_PDT000135443.2",
+          "last_id": "002_PDT000003875.4"
+        },
+        {
+          "url": "https://www.ncbi.nlm.nih.gov/pathogens/pathogens-srv/?action=retrieve&collection=ast&fq=taxgroup_name%3A%22Salmonella+enterica%22&start=10000&limit=5000&fl=%2A&sort=%5B%7B%22property%22%3A%22id%22%2C%22direction%22%3A%22ASC%22%7D%5D",
+          "retrieved_at_utc": "2026-10-18T06:59:40.885062+00:00",
+          "response_sha256": "4e55204b31e846b5674b8168b792984b442fa52c5d1f5e5842954b9cf65a679b",
+          "response_bytes": 3456614,
+          "start": 10000,
+          "records": 5000,
+          "first_id": "002_PDT000003876.4",
+          "last_id": "002_PDT000136384.2"
+        },
+        {
+          "url": "https://www.ncbi.nlm.nih.gov/pathogens/pathogens-srv/?action=retrieve&collection=ast&fq=taxgroup_name%3A%22Salmonella+enterica%22&start=15000&limit=5000&fl=%2A&sort=%5B%7B%22property%22%3A%22id%22%2C%22direction%22%3A%22ASC%22%7D%5D",
+          "retrieved_at_utc": "2026-10-18T06:59:51.749575+00:00",
+          "response_sha256": "39c3125ff271637899fbe6bae23984980271d9a5b5999a5d764829f5dbc9b290",
+          "response_bytes": 3623803,
+          "start": 15000,
+          "records": 5000,
+          "first_id": "002_PDT000136385.2",
+          "last_id": "003_PDT000024355.3"
+        },
+        {
+          "url": "https://www.ncbi.nlm.nih.gov/pathogens/pathogens-srv/?action=retrieve&collection=ast&fq=taxgroup_name%3A%22Salmonella+enterica%22&start=20000&limit=5000&fl=%2A&sort=%5B%7B%22property%22%3A%22id%22%2C%22direction%22%3A%22ASC%22%7D%5D",
+          "retrieved_at_utc": "2026-10-18T07:00:02.615438+00:00",
+          "response_sha256": "4ace9148d665f4859199522f0d9108781c812b42353c3f2486f4c55ab8360fd9",
+          "response_bytes": 3347672,
+          "start": 20000,
+          "records": 5000,
+          "first_id": "003_PDT000024356.4",
+          "last_id": "003_PDT000138877.2"
+        },
+        {
+          "url": "https://www.ncbi.nlm.nih.gov/pathogens/pathogens-srv/?action=retrieve&collection=ast&fq=taxgroup_name%3A%22Salmonella+enterica%22&start=25000&limit=5000&fl=%2A&sort=%5B%7B%22property%22%3A%22id%22%2C%22direction%22%3A%22ASC%22%7D%5D",
+          "retrieved_at_utc": "2026-10-18T07:00:13.817062+00:00",
+          "response_sha256": "fe90098d2f9609fb7551382f3dfd62529f4b2a9cb74ae0e3860d4494b4b71eb8",
+          "response_bytes": 3630869,
+          "start": 25000,
+          "records": 5000,
+          "first_id": "003_PDT000138879.2",
+          "last_id": "004_PDT000031389.3"
+        },
+        {
+          "url": "https://www.ncbi.nlm.nih.gov/pathogens/pathogens-srv/?action=retrieve&collection=ast&fq=taxgroup_name%3A%22Salmonella+enterica%22&start=30000&limit=5000&fl=%2A&sort=%5B%7B%22property%22%3A%22id%22%2C%22direction%22%3A%22ASC%22%7D%5D",
+          "retrieved_at_utc": "2026-10-18T07:00:20.105068+00:00",
+          "response_sha256": "449652083c5467d2985450e22d2cf53c9fc6ba88ca360b1df109576d18a7f117",
+          "response_bytes": 3339883,
+          "start": 30000,
+          "records": 5000,
+          "first_id": "004_PDT000031390.3",
+          "last_id": "004_PDT000142876.2"
+        },
+        {
+          "url": "https://www.ncbi.nlm.nih.gov/pathogens/pathogens-srv/?action=retrieve&collection=ast&fq=taxgroup_name%3A%22Salmonella+enterica%22&start=35000&limit=5000&fl=%2A&sort=%5B%7B%22property%22%3A%22id%22%2C%22direction%22%3A%22ASC%22%7D%5D",
+          "retrieved_at_utc": "2026-10-18T07:00:25.871713+00:00",
+          "response_sha256": "3a4660aa552edd501257c38368cbdeaa4bdd04ee531f5087ac5028bbaa92bd7f",
+          "response_bytes": 3613844,
+          "start": 35000,
+          "records": 5000,
+          "first_id": "004_PDT000142877.2",
+          "last_id": "005_PDT000031834.4"
+        },
+        {
+          "url": "https://www.ncbi.nlm.nih.gov/pathogens/pathogens-srv/?action=retrieve&collection=ast&fq=taxgroup_name%3A%22Salmonella+enterica%22&start=40000&limit=5000&fl=%2A&sort=%5B%7B%22property%22%3A%22id%22%2C%22direction%22%3A%22ASC%22%7D%5D",
+          "retrieved_at_utc": "2026-10-18T07:00:33.085170+00:00",
+          "response_sha256": "225746cb52b18ca8539b33ad0fcb1d71e9f3f04a3e2c48b392aff173529f7786",
+          "response_bytes": 3336280,
+          "start": 40000,
+          "records": 5000,
+          "first_id": "005_PDT000031835.3",
+          "last_id": "005_PDT000161172.2"
+        },
+        {
+          "url": "https://www.ncbi.nlm.nih.gov/pathogens/pathogens-srv/?action=retrieve&collection=ast&fq=taxgroup_name%3A%22Salmonella+enterica%22&start=45000&limit=5000&fl=%2A&sort=%5B%7B%22property%22%3A%22id%22%2C%22direction%22%3A%22ASC%22%7D%5D",
+          "retrieved_at_utc": "2026-10-18T07:00:48.196357+00:00",
+          "response_sha256": "7f480ee4b18698e1e0bb666b9f35af65990f0f7039be1489be0acd88c3af0c93",
+          "response_bytes": 3631322,
+          "start": 45000,
+          "records": 5000,
+          "first_id": "005_PDT000161173.2",
+          "last_id": "006_PDT000035902.4"
+        },
+        {
+          "url": "https://www.ncbi.nlm.nih.gov/pathogens/pathogens-srv/?action=retrieve&collection=ast&fq=taxgroup_name%3A%22Salmonella+enterica%22&start=50000&limit=5000&fl=%2A&sort=%5B%7B%22property%22%3A%22id%22%2C%22direction%22%3A%22ASC%22%7D%5D",
+          "retrieved_at_utc": "2026-10-18T07:00:54.423146+00:00",
+          "response_sha256": "e2e2da8857c71b4a84979ed11927ef9e789e94e3230e4c7fd496a914717bc84b",
+          "response_bytes": 3345831,
+          "start": 50000,
+          "records": 5000,
+          "first_id": "006_PDT000035903.5",
+          "last_id": "006_PDT000161287.2"
+        },
+        {
+          "url": "https://www.ncbi.nlm.nih.gov/pathogens/pathogens-srv/?action=retrieve&collection=ast&fq=taxgroup_name%3A%22Salmonella+enterica%22&start=55000&limit=5000&fl=%2A&sort=%5B%7B%22property%22%3A%22id%22%2C%22direction%22%3A%22ASC%22%7D%5D",
+          "retrieved_at_utc": "2026-10-18T07:01:01.254999+00:00",
+          "response_sha256": "1441442d0e11e305cea391943db4abca7ca642cd7ca74de77208c24a6fce3e6c",
+          "response_bytes": 3651379,
+          "start": 55000,
+          "records": 5000,
+          "first_id": "006_PDT000161288.2",
+          "last_id": "007_PDT000036849.4"
+        },
+        {
+          "url": "https://www.ncbi.nlm.nih.gov/pathogens/pathogens-srv/?action=retrieve&collection=ast&fq=taxgroup_name%3A%22Salmonella+enterica%22&start=60000&limit=5000&fl=%2A&sort=%5B%7B%22property%22%3A%22id%22%2C%22direction%22%3A%22ASC%22%7D%5D",
+          "retrieved_at_utc": "2026-10-18T07:01:08.490148+00:00",
+          "response_sha256": "b654305f187f26dfd1dc48b18547832ae39cc05aa32ec6b8f1d5e0983d5c5db8",
+          "response_bytes": 3359285,
+          "start": 60000,
+          "records": 5000,
+          "first_id": "007_PDT000036850.4",
+          "last_id": "007_PDT000269057.2"
+        },
+        {
+          "url": "https://www.ncbi.nlm.nih.gov/pathogens/pathogens-srv/?action=retrieve&collection=ast&fq=taxgroup_name%3A%22Salmonella+enterica%22&start=65000&limit=5000&fl=%2A&sort=%5B%7B%22property%22%3A%22id%22%2C%22direction%22%3A%22ASC%22%7D%5D",
+          "retrieved_at_utc": "2026-10-18T07:01:19.147379+00:00",
+          "response_sha256": "70add5dfef189d6155a821e44ffdac1dd51f2114bc0081b203c647ff58fed4b5",
+          "response_bytes": 3649332,
+          "start": 65000,
+          "records": 5000,
+          "first_id": "007_PDT000269058.2",
+          "last_id": "008_PDT000039314.4"
+        },
+        {
+          "url": "https://www.ncbi.nlm.nih.gov/pathogens/pathogens-srv/?action=retrieve&collection=ast&fq=taxgroup_name%3A%22Salmonella+enterica%22&start=70000&limit=5000&fl=%2A&sort=%5B%7B%22property%22%3A%22id%22%2C%22direction%22%3A%22ASC%22%7D%5D",
+          "retrieved_at_utc": "2026-10-18T07:01:31.037321+00:00",
+          "response_sha256": "2f7a903cab1d5f6c577d9e4acec796b8a681265b1ffda7f439e2ad8bb7ced678",
+          "response_bytes": 3363772,
+          "start": 70000,
+          "records": 5000,
+          "first_id": "008_PDT000039404.3",
+          "last_id": "008_PDT000269163.2"
+        },
+        {
+          "url": "https://www.ncbi.nlm.nih.gov/pathogens/pathogens-srv/?action=retrieve&collection=ast&fq=taxgroup_name%3A%22Salmonella+enterica%22&start=75000&limit=5000&fl=%2A&sort=%5B%7B%22property%22%3A%22id%22%2C%22direction%22%3A%22ASC%22%7D%5D",
+          "retrieved_at_utc": "2026-10-18T07:01:37.066497+00:00",
+          "response_sha256": "7af5757eb0380aeca22cd10cc8a734994966d51972870ff1d3152ab11fc1b030",
+          "response_bytes": 3620960,
+          "start": 75000,
+          "records": 5000,
+          "first_id": "008_PDT000269164.2",
+          "last_id": "009_PDT000041321.6"
+        },
+        {
+          "url": "https://www.ncbi.nlm.nih.gov/pathogens/pathogens-srv/?action=retrieve&collection=ast&fq=taxgroup_name%3A%22Salmonella+enterica%22&start=80000&limit=5000&fl=%2A&sort=%5B%7B%22property%22%3A%22id%22%2C%22direction%22%3A%22ASC%22%7D%5D",
+          "retrieved_at_utc": "2026-10-18T07:01:43.136766+00:00",
+          "response_sha256": "d3ec388b7923c05842ebd6cb71210f33fb34357d02414c1a96ec197dc436135a",
+          "response_bytes": 3351342,
+          "start": 80000,
+          "records": 5000,
+          "first_id": "009_PDT000041322.5",
+          "last_id": "009_PDT000269270.2"
+        },
+        {
+          "url": "https://www.ncbi.nlm.nih.gov/pathogens/pathogens-srv/?action=retrieve&collection=ast&fq=taxgroup_name%3A%22Salmonella+enterica%22&start=85000&limit=5000&fl=%2A&sort=%5B%7B%22property%22%3A%22id%22%2C%22direction%22%3A%22ASC%22%7D%5D",
+          "retrieved_at_utc": "2026-10-18T07:01:53.312106+00:00",
+          "response_sha256": "44b4acc8b6e58381c970a83889ce64954a4bf51cfa2f024680770511f23e2d05",
+          "response_bytes": 3612164,
+          "start": 85000,
+          "records": 5000,
+          "first_id": "009_PDT000269271.2",
+          "last_id": "010_PDT000045874.4"
+        },
+        {
+          "url": "https://www.ncbi.nlm.nih.gov/pathogens/pathogens-srv/?action=retrieve&collection=ast&fq=taxgroup_name%3A%22Salmonella+enterica%22&start=90000&limit=5000&fl=%2A&sort=%5B%7B%22property%22%3A%22id%22%2C%22direction%22%3A%22ASC%22%7D%5D",
+          "retrieved_at_utc": "2026-10-18T07:02:01.291551+00:00",
+          "response_sha256": "f4e3bc5a44339a45898d32a288f9342d8c5f98387b4e3de317a0704c014e02c2",
+          "response_bytes": 3362992,
+          "start": 90000,
+          "records": 5000,
+          "first_id": "010_PDT000045875.3",
+          "last_id": "010_PDT000269381.2"
+        },
+        {
+          "url": "https://www.ncbi.nlm.nih.gov/pathogens/pathogens-srv/?action=retrieve&collection=ast&fq=taxgroup_name%3A%22Salmonella+enterica%22&start=95000&limit=5000&fl=%2A&sort=%5B%7B%22property%22%3A%22id%22%2C%22direction%22%3A%22ASC%22%7D%5D",
+          "retrieved_at_utc": "2026-10-18T07:02:08.006576+00:00",
+          "response_sha256": "a8267de1729a021e7c0933b2f23fdfb7a002082a4721288bf1576ec729c15366",
+          "response_bytes": 3617820,
+          "start": 95000,
+          "records": 5000,
+          "first_id": "010_PDT000269382.2",
+          "last_id": "011_PDT000050263.2"
+        },
+        {
+          "url": "https://www.ncbi.nlm.nih.gov/pathogens/pathogens-srv/?action=retrieve&collection=ast&fq=taxgroup_name%3A%22Salmonella+enterica%22&start=100000&limit=5000&fl=%2A&sort=%5B%7B%22property%22%3A%22id%22%2C%22direction%22%3A%22ASC%22%7D%5D",
+          "retrieved_at_utc": "2026-10-18T07:02:19.800012+00:00",
+          "response_sha256": "0b261421e781854e31efbf89a47e1f9b6e8262504277b8784ac847304562b01b",
+          "response_bytes": 3385044,
+          "start": 100000,
+          "records": 5000,
+          "first_id": "011_PDT000050264.3",
+          "last_id": "011_PDT000359409.1"
+        },
+        {
+          "url": "https://www.ncbi.nlm.nih.gov/pathogens/pathogens-srv/?action=retrieve&collection=ast&fq=taxgroup_name%3A%22Salmonella+enterica%22&start=105000&limit=5000&fl=%2A&sort=%5B%7B%22property%22%3A%22id%22%2C%22direction%22%3A%22ASC%22%7D%5D",
+          "retrieved_at_utc": "2026-10-18T07:02:27.487634+00:00",
+          "response_sha256": "de304201d8c9e08c535c34de744c875832a3bb161cba9a72a7a0e5981ba86f7e",
+          "response_bytes": 3609261,
+          "start": 105000,
+          "records": 5000,
+          "first_id": "011_PDT000359410.1",
+          "last_id": "012_PDT000067184.3"
+        },
+        {
+          "url": "https://www.ncbi.nlm.nih.gov/pathogens/pathogens-srv/?action=retrieve&collection=ast&fq=taxgroup_name%3A%22Salmonella+enterica%22&start=110000&limit=5000&fl=%2A&sort=%5B%7B%22property%22%3A%22id%22%2C%22direction%22%3A%22ASC%22%7D%5D",
+          "retrieved_at_utc": "2026-10-18T07:02:39.541250+00:00",
+          "response_sha256": "24fe41013eb8be34bbd1a1bb83c26636f0fcf2743b38c76f80962415847f067e",
+          "response_bytes": 3403340,
+          "start": 110000,
+          "records": 5000,
+          "first_id": "012_PDT000067215.3",
+          "last_id": "012_PDT000385619.1"
+        },
+        {
+          "url": "https://www.ncbi.nlm.nih.gov/pathogens/pathogens-srv/?action=retrieve&collection=ast&fq=taxgroup_name%3A%22Salmonella+enterica%22&start=115000&limit=5000&fl=%2A&sort=%5B%7B%22property%22%3A%22id%22%2C%22direction%22%3A%22ASC%22%7D%5D",
+          "retrieved_at_utc": "2026-10-18T07:02:45.244139+00:00",
+          "response_sha256": "e016a45f14381a06338e68ac0aab7d55e5a0a8a36055945e3dc377ccf6d01a1a",
+          "response_bytes": 3593397,
+          "start": 115000,
+          "records": 5000,
+          "first_id": "012_PDT000385620.1",
+          "last_id": "013_PDT000069830.4"
+        },
+        {
+          "url": "https://www.ncbi.nlm.nih.gov/pathogens/pathogens-srv/?action=retrieve&collection=ast&fq=taxgroup_name%3A%22Salmonella+enterica%22&start=120000&limit=5000&fl=%2A&sort=%5B%7B%22property%22%3A%22id%22%2C%22direction%22%3A%22ASC%22%7D%5D",
+          "retrieved_at_utc": "2026-10-18T07:02:51.722656+00:00",
+          "response_sha256": "1e0f5f1b7af30be51d54cc7a7e689ec0f5f01e8636d4364bd6ca157296d79473",
+          "response_bytes": 3418157,
+          "start": 120000,
+          "records": 5000,
+          "first_id": "013_PDT000069936.5",
+          "last_id": "013_PDT000469994.1"
+        },
+        {
+          "url": "https://www.ncbi.nlm.nih.gov/pathogens/pathogens-srv/?action=retrieve&collection=ast&fq=taxgroup_name%3A%22Salmonella+enterica%22&start=125000&limit=5000&fl=%2A&sort=%5B%7B%22property%22%3A%22id%22%2C%22direction%22%3A%22ASC%22%7D%5D",
+          "retrieved_at_utc": "2026-10-18T07:02:58.352544+00:00",
+          "response_sha256": "59928509d90debb8445e9ef0b36d7d24eaafbe9a20285920867df32fa773234f",
+          "response_bytes": 3562569,
+          "start": 125000,
+          "records": 5000,
+          "first_id": "013_PDT000469995.1",
+          "last_id": "014_PDT000078129.1"
+        },
+        {
+          "url": "https://www.ncbi.nlm.nih.gov/pathogens/pathogens-srv/?action=retrieve&collection=ast&fq=taxgroup_name%3A%22Salmonella+enterica%22&start=130000&limit=5000&fl=%2A&sort=%5B%7B%22property%22%3A%22id%22%2C%22direction%22%3A%22ASC%22%7D%5D",
+          "retrieved_at_utc": "2026-10-18T07:03:05.576764+00:00",
+          "response_sha256": "fed60a07c4e340bc4eaf47525cefdef67139572128b167241e0a5de494fee322",
+          "response_bytes": 3550003,
+          "start": 130000,
+          "records": 5000,
+          "first_id": "014_PDT000078130.1",
+          "last_id": "014_PDT000522579.1"
+        },
+        {
+          "url": "https://www.ncbi.nlm.nih.gov/pathogens/pathogens-srv/?action=retrieve&collection=ast&fq=taxgroup_name%3A%22Salmonella+enterica%22&start=135000&limit=5000&fl=%2A&sort=%5B%7B%22property%22%3A%22id%22%2C%22direction%22%3A%22ASC%22%7D%5D",
+          "retrieved_at_utc": "2026-10-18T07:03:11.803246+00:00",
+          "response_sha256": "012d0fc49f1c676aa816fed73da0a7c61aea51a02f42c3a1b5807eed83ba2a2b",
+          "response_bytes": 3763902,
+          "start": 135000,
+          "records": 5000,
+          "first_id": "014_PDT000522580.1",
+          "last_id": "015_PDT000085259.3"
+        },
+        {
+          "url": "https://www.ncbi.nlm.nih.gov/pathogens/pathogens-srv/?action=retrieve&collection=ast&fq=taxgroup_name%3A%22Salmonella+enterica%22&start=140000&limit=5000&fl=%2A&sort=%5B%7B%22property%22%3A%22id%22%2C%22direction%22%3A%22ASC%22%7D%5D",
+          "retrieved_at_utc": "2026-10-18T07:03:16.366925+00:00",
+          "response_sha256": "5aee61e9c7fa72075313c3a6b4c0b9630a48e4b0f2cf097dde68d8f16f213706",
+          "response_bytes": 1674877,
+          "start": 140000,
+          "records": 2338,
+          "first_id": "015_PDT000085260.3",
+          "last_id": "039_PDT000555592.1"
+        }
+      ]
+    },
+    {
+      "collection": "isolates",
+      "query": "taxgroup_name:\"Salmonella enterica\" AND number_drugs_tested:[1 TO *]",
+      "fields": "*",
+      "sort": [
+        {
+          "property": "id",
+          "direction": "ASC"
+        }
+      ],
+      "page_size": 5000,
+      "records": 9977,
+      "distinct_ids": 9977,
+      "file": "data/raw/ncbi_salmonella_isolates.jsonl",
+      "sha256": "a56f0bc8bea5f16b2a70ca46a5ae8072514c80f243a14a24611e826add91d214",
+      "bytes": 33101955,
+      "initial_probe": {
+        "url": "https://www.ncbi.nlm.nih.gov/pathogens/pathogens-srv/?action=retrieve&collection=isolates&fq=taxgroup_name%3A%22Salmonella+enterica%22+AND+number_drugs_tested%3A%5B1+TO+%2A%5D&start=0&limit=0&fl=%2A&sort=%5B%7B%22property%22%3A%22id%22%2C%22direction%22%3A%22ASC%22%7D%5D",
+        "retrieved_at_utc": "2026-10-18T07:03:19.773172+00:00",
+        "response_sha256": "db6e2c2bc61e353b829423036e4cbc25d49d89ca1e7f9401755db0347d4b3821",
+        "response_bytes": 156
+      },
+      "final_probe": {
+        "url": "https://www.ncbi.nlm.nih.gov/pathogens/pathogens-srv/?action=retrieve&collection=isolates&fq=taxgroup_name%3A%22Salmonella+enterica%22+AND+number_drugs_tested%3A%5B1+TO+%2A%5D&start=0&limit=0&fl=%2A&sort=%5B%7B%22property%22%3A%22id%22%2C%22direction%22%3A%22ASC%22%7D%5D",
+        "retrieved_at_utc": "2026-10-18T07:04:14.101681+00:00",
+        "response_sha256": "db6e2c2bc61e353b829423036e4cbc25d49d89ca1e7f9401755db0347d4b3821",
+        "response_bytes": 156
+      },
+      "pages": [
+        {
+          "url": "https://www.ncbi.nlm.nih.gov/pathogens/pathogens-srv/?action=retrieve&collection=isolates&fq=taxgroup_name%3A%22Salmonella+enterica%22+AND+number_drugs_tested%3A%5B1+TO+%2A%5D&start=0&limit=5000&fl=%2A&sort=%5B%7B%22property%22%3A%22id%22%2C%22direction%22%3A%22ASC%22%7D%5D",
+          "retrieved_at_utc": "2026-10-18T07:03:46.741316+00:00",
+          "response_sha256": "6af7a23d735c080b665e932145d09d40f799f49355b3a3a8ccd9f2df06f4cb44",
+          "response_bytes": 21676854,
+          "start": 0,
+          "records": 5000,
+          "first_id": "PDG000000002.4265_PDT000003687.3",
+          "last_id": "PDG000000002.4265_PDT000135414.2"
+        },
+        {
+          "url": "https://www.ncbi.nlm.nih.gov/pathogens/pathogens-srv/?action=retrieve&collection=isolates&fq=taxgroup_name%3A%22Salmonella+enterica%22+AND+number_drugs_tested%3A%5B1+TO+%2A%5D&start=5000&limit=5000&fl=%2A&sort=%5B%7B%22property%22%3A%22id%22%2C%22direction%22%3A%22ASC%22%7D%5D",
+          "retrieved_at_utc": "2026-10-18T07:04:12.170483+00:00",
+          "response_sha256": "6239f818f8fbdcf94d5b999e388ac04b55c1722cd739e480c7930444caa45133",
+          "response_bytes": 21027920,
+          "start": 5000,
+          "records": 4977,
+          "first_id": "PDG000000002.4265_PDT000135443.2",
+          "last_id": "PDG000000002.4265_PDT003421718.1"
+        }
+      ]
+    }
+  ],
+  "completed_at_utc": "2026-10-18T07:04:14.289867+00:00"
+}

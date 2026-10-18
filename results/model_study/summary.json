@@ -1,0 +1,256 @@
+{
+  "protocol": "Fixed 60/20/20 SNP/BioSample connected-component split; seed 42/43.",
+  "primary_drug": "ampicillin",
+  "primary_model": "onehot_median_flags",
+  "primary_threshold": 0.5,
+  "primary_metric": "average_precision",
+  "class_weight": null,
+  "C": 1.0,
+  "solver": "liblinear",
+  "genomic_features": "Training-vocabulary multi-hot of reported unique symbol=quality tokens.",
+  "label_definition": "Source-reported resistant=1, susceptible=0; all other labels excluded.",
+  "target_label_mapping": {
+    "susceptible": 0,
+    "resistant": 1
+  },
+  "invalid_measurement_rule": "Exclude eligible pairs flagged measurement_invalid (no imputation).",
+  "missing_target_rule": "Never impute phenotype or interpret untested drug as susceptible.",
+  "imputation_caveat": "IterativeImputer is single deterministic multivariate imputation, not pooled MI inference.",
+  "numeric_scaling": "Training-only StandardScaler before imputation in every arm; same second scaler after imputation for values/flags.",
+  "categorical_comparison": "Both arms retain identical categories; no rare-category pooling.",
+  "bootstrap": {
+    "replicates": 300,
+    "unit": "SNP/BioSample connected component",
+    "paired": true,
+    "method": "percentile 95%; frozen models, threshold 0.5",
+    "scope": "Conditional on fitted training models; excludes training/model-selection uncertainty."
+  },
+  "all_isolates": 9975,
+  "all_groups": 1249,
+  "invalid_measurement_pairs": 0,
+  "skipped_tasks": {},
+  "invalid_measurement_pairs_by_task": {
+    "ampicillin": 0,
+    "tetracycline": 0,
+    "ciprofloxacin": 0
+  },
+  "alternate_split_caveat": "Alternate splits have different test populations; metric differences do not isolate a causal leakage effect.",
+  "tasks": {
+    "ampicillin": {
+      "n": 9876,
+      "unmatched_eligible_pairs": 0,
+      "splits": {
+        "train": {
+          "n": 6268,
+          "groups": 732,
+          "support": {
+            "susceptible": 4465,
+            "resistant": 1803
+          }
+        },
+        "validation": {
+          "n": 1538,
+          "groups": 244,
+          "support": {
+            "susceptible": 1298,
+            "resistant": 240
+          }
+        },
+        "test": {
+          "n": 2070,
+          "groups": 242,
+          "support": {
+            "susceptible": 1587,
+            "resistant": 483
+          }
+        }
+      },
+      "validation_thresholds": {
+        "ordinal_median": {
+          "threshold": 0.5356747592824841,
+          "rule": "Maximum validation F1; highest threshold breaks ties."
+        },
+        "ordinal_median_flags": {
+          "threshold": 0.537030547555937,
+          "rule": "Maximum validation F1; highest threshold breaks ties."
+        },
+        "ordinal_iterative_flags": {
+          "threshold": 0.5371023117932838,
+          "rule": "Maximum validation F1; highest threshold breaks ties."
+        },
+        "onehot_median": {
+          "threshold": 0.4997188485930129,
+          "rule": "Maximum validation F1; highest threshold breaks ties."
+        },
+        "onehot_median_flags": {
+          "threshold": 0.5021156113014915,
+          "rule": "Maximum validation F1; highest threshold breaks ties."
+        },
+        "onehot_iterative_flags": {
+          "threshold": 0.5022908812050867,
+          "rule": "Maximum validation F1; highest threshold breaks ties."
+        },
+        "metadata_only": {
+          "threshold": 0.21756501239058357,
+          "rule": "Maximum validation F1; highest threshold breaks ties."
+        },
+        "genes_only": {
+          "threshold": 0.3154964597926059,
+          "rule": "Maximum validation F1; highest threshold breaks ties."
+        }
+      }
+    },
+    "tetracycline": {
+      "n": 9814,
+      "unmatched_eligible_pairs": 0,
+      "splits": {
+        "train": {
+          "n": 6232,
+          "groups": 722,
+          "support": {
+            "resistant": 3350,
+            "susceptible": 2882
+          }
+        },
+        "validation": {
+          "n": 1529,
+          "groups": 242,
+          "support": {
+            "susceptible": 1002,
+            "resistant": 527
+          }
+        },
+        "test": {
+          "n": 2053,
+          "groups": 243,
+          "support": {
+            "resistant": 1110,
+            "susceptible": 943
+          }
+        }
+      },
+      "validation_thresholds": {
+        "onehot_median_flags": {
+          "threshold": 0.6140803519357396,
+          "rule": "Maximum validation F1; highest threshold breaks ties."
+        },
+        "metadata_only": {
+          "threshold": 0.3609438031417145,
+          "rule": "Maximum validation F1; highest threshold breaks ties."
+        },
+        "genes_only": {
+          "threshold": 0.6917989078551778,
+          "rule": "Maximum validation F1; highest threshold breaks ties."
+        }
+      }
+    },
+    "ciprofloxacin": {
+      "n": 9584,
+      "unmatched_eligible_pairs": 0,
+      "splits": {
+        "train": {
+          "n": 6021,
+          "groups": 711,
+          "support": {
+            "susceptible": 5337,
+            "resistant": 684
+          }
+        },
+        "validation": {
+          "n": 1505,
+          "groups": 235,
+          "support": {
+            "susceptible": 1466,
+            "resistant": 39
+          }
+        },
+        "test": {
+          "n": 2058,
+          "groups": 241,
+          "support": {
+            "susceptible": 2023,
+            "resistant": 35
+          }
+        }
+      },
+      "validation_thresholds": {
+        "onehot_median_flags": {
+          "threshold": 0.8901496288544287,
+          "rule": "Maximum validation F1; highest threshold breaks ties."
+        },
+        "metadata_only": {
+          "threshold": 0.8903582991657728,
+          "rule": "Maximum validation F1; highest threshold breaks ties."
+        },
+        "genes_only": {
+          "threshold": 0.7007204197816311,
+          "rule": "Maximum validation F1; highest threshold breaks ties."
+        }
+      }
+    }
+  },
+  "warnings": {
+    "ampicillin/ordinal_median": [],
+    "CV/ordinal_median/1": [],
+    "CV/ordinal_median/2": [],
+    "CV/ordinal_median/3": [],
+    "ampicillin/ordinal_median_flags": [],
+    "CV/ordinal_median_flags/1": [],
+    "CV/ordinal_median_flags/2": [],
+    "CV/ordinal_median_flags/3": [],
+    "ampicillin/ordinal_iterative_flags": [],
+    "CV/ordinal_iterative_flags/1": [],
+    "CV/ordinal_iterative_flags/2": [],
+    "CV/ordinal_iterative_flags/3": [],
+    "ampicillin/onehot_median": [],
+    "CV/onehot_median/1": [],
+    "CV/onehot_median/2": [],
+    "CV/onehot_median/3": [],
+    "ampicillin/onehot_median_flags": [],
+    "CV/onehot_median_flags/1": [],
+    "CV/onehot_median_flags/2": [],
+    "CV/onehot_median_flags/3": [],
+    "ampicillin/onehot_iterative_flags": [],
+    "CV/onehot_iterative_flags/1": [],
+    "CV/onehot_iterative_flags/2": [],
+    "CV/onehot_iterative_flags/3": [],
+    "ampicillin/metadata_only": [],
+    "ampicillin/genes_only": [],
+    "tetracycline/onehot_median_flags": [],
+    "tetracycline/metadata_only": [],
+    "tetracycline/genes_only": [],
+    "ciprofloxacin/onehot_median_flags": [],
+    "ciprofloxacin/metadata_only": [],
+    "ciprofloxacin/genes_only": [],
+    "biosample_random_clone_overlap_diagnostic": [],
+    "bioproject_component_holdout": []
+  },
+  "packages": {
+    "numpy": "2.5.4",
+    "pandas": "3.0.6",
+    "scipy": "1.18.1",
+    "scikit-learn": "1.9.1",
+    "joblib": "1.6.0",
+    "matplotlib": "3.11.2"
+  },
+  "inference_checks": {
+    "serialized_predictions_match": true,
+    "unknown_categories_do_not_fail": true,
+    "unknown_genes_do_not_fail": true,
+    "missing_numeric_values_do_not_fail": true,
+    "split_group_intersections": 0,
+    "limitations": "Ingestion metadata is not patient-level context; SNP grouping is not complete phylogenetic validation."
+  },
+  "unseen_gene_tokens": {
+    "validation": {
+      "n_isolates_with_unseen_token": 23,
+      "n_unique_unseen_tokens": 25
+    },
+    "test": {
+      "n_isolates_with_unseen_token": 275,
+      "n_unique_unseen_tokens": 23
+    }
+  },
+  "elapsed_seconds": 112.13327760000001,
+  "peak_resident_memory_mib": 248.625
+}

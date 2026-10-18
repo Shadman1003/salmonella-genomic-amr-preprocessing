@@ -1,0 +1,217 @@
+{
+  "manifest_schema_version": 1,
+  "verified_on": "2026-10-18",
+  "timezone": "Asia/Dhaka",
+  "verification_method": "Primary pages opened and relevant passages checked in this run; candidate metadata APIs fetched directly.",
+  "scope_note": "References justify design choices and data interpretation. Implemented scope and final cohort are defined by executed code and generated manifests.",
+  "version_note": "Stable scikit-learn documentation is dynamic; use the installed software version recorded by the project when reproducing code.",
+  "sources": [
+    {
+      "url": "https://www.ncbi.nlm.nih.gov/pathogens/docs/ast/",
+      "publisher": "NCBI",
+      "application": "Define the data grain, outcome, date parsing, measurement audit and frozen-source manifest.",
+      "type": "primary_documentation",
+      "title": "NCBI Pathogen Detection AST Browser Documentation",
+      "supports": [
+        "One row is one submitted experimental AST result, usually with multiple results per isolate.",
+        "Phenotypes are submitter-reported, distinct from genotype predictions.",
+        "MIC and disk diffusion fields use different units; comparison signs and combination concentrations must be retained.",
+        "Collection dates may be missing, partial, or years earlier than submission; database updates daily."
+      ],
+      "id": "ncbi_ast_documentation"
+    },
+    {
+      "url": "https://www.ncbi.nlm.nih.gov/biosample/docs/antibiogram/",
+      "publisher": "NCBI",
+      "application": "Validate and normalize values while preserving nonbinary and censored semantics.",
+      "type": "primary_documentation",
+      "title": "NCBI BioSample Antibiograms",
+      "supports": [
+        "Controlled phenotype vocabulary includes R, S, I, NS, not defined and susceptible-dose dependent.",
+        "Comparison operators distinguish exact measurements from upper/lower bounds.",
+        "Combination measurements have number1/number2 format.",
+        "MIC units include mg/L and equivalent micrograms/mL; disk diffusion uses mm.",
+        "Documented value ranges are positive up to 1024 for mg/L and 6 through 150 for mm."
+      ],
+      "id": "ncbi_biosample_antibiogram"
+    },
+    {
+      "url": "https://www.ncbi.nlm.nih.gov/pathogens/ast/",
+      "publisher": "NCBI",
+      "application": "State provenance, quality-control limits and selection bias.",
+      "type": "primary_data_interface",
+      "title": "NCBI Antibiotic Susceptibility Test Browser",
+      "supports": [
+        "AST results are submitted through BioSample.",
+        "NCBI does not comprehensively vet supplied testing methods and values.",
+        "Collection differences limit interpretation of overall resistance frequencies."
+      ],
+      "id": "ncbi_ast_interface_caveats"
+    },
+    {
+      "url": "https://www.ncbi.nlm.nih.gov/pathogens/pathogens_help/",
+      "publisher": "NCBI",
+      "application": "Join accessions explicitly and freeze source files, queries, timestamps and checksums.",
+      "type": "primary_documentation",
+      "title": "NCBI Pathogen Detection Help",
+      "supports": [
+        "Isolate records link BioSample, BioProject, metadata, AMR genotypes and AST phenotypes.",
+        "Resources are updated approximately daily; indexing or cloud synchronization can lag.",
+        "AMR genotype calls and AST phenotypes are distinct indexed fields."
+      ],
+      "id": "ncbi_pathogen_help"
+    },
+    {
+      "url": "https://github.com/ncbi/amr/wiki/Interpreting-results",
+      "publisher": "NCBI official AMRFinderPlus repository",
+      "application": "Treat gene calls as predictors and retain independent experimental outcomes; qualify negative calls.",
+      "type": "primary_software_documentation",
+      "title": "Interpreting AMRFinderPlus results",
+      "supports": [
+        "Presence of an AMR gene or mutation does not necessarily establish phenotypic resistance.",
+        "AMRFinderPlus does not itself predict phenotypic resistance.",
+        "Unreported point mutations are not proof of their absence."
+      ],
+      "id": "ncbi_amrfinder_interpretation"
+    },
+    {
+      "url": "https://www.ncbi.nlm.nih.gov/pathogens/antimicrobial-resistance/AMRFinder/",
+      "publisher": "NCBI",
+      "application": "Identify the origin and scope of genomic annotations.",
+      "type": "primary_software_documentation",
+      "title": "NCBI AMRFinderPlus",
+      "supports": [
+        "AMRFinderPlus identifies AMR genes, resistance-associated point mutations and selected other gene classes using assembled sequence or protein annotations."
+      ],
+      "id": "ncbi_amrfinder_home"
+    },
+    {
+      "url": "https://datadryad.org/dataset/doi%3A10.5061/dryad.0rxwdbsd5",
+      "publisher": "Dryad; Cooper et al.",
+      "application": "Document candidate comparison; no executed analyses are attributed to inaccessible data files.",
+      "type": "primary_dataset",
+      "title": "ARMD-UTSW: deidentified electronic health records for antimicrobial resistance research",
+      "supports": [
+        "Clinical EHR alternative includes culture, demographic, laboratory, prior-resistance and history tables.",
+        "Public dataset metadata reports CC0 and 237258 patients."
+      ],
+      "id": "dryad_utsw_dataset"
+    },
+    {
+      "url": "https://datadryad.org/api/v2/datasets/doi%3A10.5061%2Fdryad.0rxwdbsd5",
+      "publisher": "Dryad",
+      "application": "Record exact candidate version and access audit.",
+      "type": "primary_dataset_metadata",
+      "title": "ARMD-UTSW current dataset metadata API",
+      "supports": [
+        "Version link resolves to /api/v2/versions/398029 at audit time.",
+        "License resolves to CC0-1.0."
+      ],
+      "id": "dryad_utsw_api"
+    },
+    {
+      "url": "https://scikit-learn.org/stable/modules/generated/sklearn.model_selection.StratifiedGroupKFold.html",
+      "publisher": "scikit-learn developers",
+      "application": "Keep related isolate/study/cluster observations together and audit each fold.",
+      "type": "primary_software_documentation",
+      "title": "scikit-learn StratifiedGroupKFold",
+      "supports": [
+        "Cross-validation preserves non-overlapping groups while attempting class balance.",
+        "Perfect stratification is not guaranteed when group structure constrains it."
+      ],
+      "id": "sklearn_stratified_group_kfold"
+    },
+    {
+      "url": "https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.LabelEncoder.html",
+      "publisher": "scikit-learn developers",
+      "application": "Export explicit phenotype-target mappings; avoid arbitrary feature ranks in linear models.",
+      "type": "primary_software_documentation",
+      "title": "scikit-learn LabelEncoder",
+      "supports": [
+        "LabelEncoder is for target y rather than feature matrix X.",
+        "Classes and numeric labels can be recovered through the fitted class mapping."
+      ],
+      "id": "sklearn_label_encoder"
+    },
+    {
+      "url": "https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.OrdinalEncoder.html",
+      "publisher": "scikit-learn developers",
+      "application": "Make fitted feature-label mappings and missing/unseen policies reviewable.",
+      "type": "primary_software_documentation",
+      "title": "scikit-learn OrdinalEncoder",
+      "supports": [
+        "Categorical features can use integer codes with distinct missing and unseen-category handling.",
+        "Automatic categories are learned from training data."
+      ],
+      "id": "sklearn_ordinal_encoder"
+    },
+    {
+      "url": "https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.OneHotEncoder.html",
+      "publisher": "scikit-learn developers",
+      "application": "Represent nominal categories without imposing a numeric order; reduce sparse rare categories using development data.",
+      "type": "primary_software_documentation",
+      "title": "scikit-learn OneHotEncoder",
+      "supports": [
+        "One-hot encoding supports unknown-category handling and training-frequency-based rare categories."
+      ],
+      "id": "sklearn_one_hot_encoder"
+    },
+    {
+      "url": "https://scikit-learn.org/stable/modules/impute.html",
+      "publisher": "scikit-learn developers",
+      "application": "Compare justified imputation alternatives and preserve missingness information; do not call a single run multiple imputation.",
+      "type": "primary_software_documentation",
+      "title": "scikit-learn Imputation of missing values",
+      "supports": [
+        "Simple, neighbor-based and iterative approaches are available with missingness indicators.",
+        "IterativeImputer is experimental and returns one completed matrix per run by default.",
+        "Repeated posterior-sampling runs can support multiple-imputation sensitivity analyses."
+      ],
+      "id": "sklearn_missing_values"
+    },
+    {
+      "url": "https://scikit-learn.org/stable/modules/calibration.html",
+      "publisher": "scikit-learn developers",
+      "application": "Fit calibration only within development splits and evaluate held-out probability quality.",
+      "type": "primary_software_documentation",
+      "title": "scikit-learn Probability calibration",
+      "supports": [
+        "Calibration maps classifier outputs to observed probability frequencies.",
+        "Calibration data must be separate from data used to fit the classifier.",
+        "Reliability diagrams and proper scoring rules help assess probabilities."
+      ],
+      "id": "sklearn_probability_calibration"
+    },
+    {
+      "url": "https://scikit-learn.org/stable/common_pitfalls.html",
+      "publisher": "scikit-learn developers",
+      "application": "Keep vocabulary, frequency thresholds, imputation and feature selection inside training partitions.",
+      "type": "primary_software_documentation",
+      "title": "scikit-learn Common pitfalls and recommended practices",
+      "supports": [
+        "Split data before fitting learned preprocessing.",
+        "Fit and fit_transform must exclude test data.",
+        "Pipelines apply preprocessing consistently and reduce leakage during model selection."
+      ],
+      "id": "sklearn_data_leakage"
+    },
+    {
+      "id": "feldgarden_2021_amrfinderplus",
+      "type": "primary_research",
+      "title": "Feldgarden et al. (2021). AMRFinderPlus and the Reference Gene Catalog facilitate examination of the genomic links among antimicrobial resistance, stress response, and virulence. Scientific Reports 11:12728.",
+      "url": "https://www.nature.com/articles/s41598-021-91456-0",
+      "supports": [
+        "Curated genomic annotations have evidence categories and do not constitute de novo resistance discovery."
+      ]
+    },
+    {
+      "id": "yu_2025_population_structure",
+      "type": "primary_research",
+      "title": "Yu, Wheeler and Barquist (2025). Biased sampling driven by bacterial population structure confounds machine learning prediction of antimicrobial resistance. PLOS Biology23:e3003539.",
+      "url": "https://journals.plos.org/plosbiology/article?id=10.1371/journal.pbio.3003539",
+      "supports": [
+        "Population structure and biased sampling can confound AMR prediction; more samples alone need not resolve the problem."
+      ]
+    }
+  ]
+}

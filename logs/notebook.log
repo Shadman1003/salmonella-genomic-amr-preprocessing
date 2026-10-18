@@ -1,0 +1,30 @@
+[IPKernelApp] WARNING | Kernel is running over TCP without encryption. All communication (including code and outputs) is sent in plain text and is susceptible to eavesdropping. Use IPC transport or launch with kernel manager-provisioned CurveZMQ keys to enable transport encryption.
+{
+  "file": "/mnt/c/Users/USER/OneDrive/Desktop/Internship_Research_Prime/notebooks/Research_Walkthrough.ipynb",
+  "status": "executed_no_errors",
+  "validated_at_utc": "2026-10-18T10:46:22.100878+00:00",
+  "cells": 22,
+  "code_cells": 11,
+  "executed_code_cells": 11,
+  "error_outputs": 0,
+  "embedded_png_outputs": 3,
+  "python_executable": "/tmp/shadman_amr_venv/bin/python",
+  "kernel_name": "python3",
+  "elapsed_seconds": 14.582849599999975,
+  "full_pipeline_rerun_inside_notebook": false,
+  "required_artifact_sha256": {
+    "data/raw/acquisition_manifest.json": "4147fa10f8cb616f581ff226482613fccec5b71afdbd100b973107ddaf80e1a8",
+    "results/preprocessing_summary.json": "e16d4811138d7f3f4f3f3b6837c2c1cb17dcf6626c2563ca959944b08f4aa66c",
+    "results/preprocessing_validation.json": "811b6925cdc1d0a1fe074e5525855af6b2bb60d834e9a656f0358f4d6717decf",
+    "results/model_study/summary.json": "4c2b3daae0bea5dcabc4b22363d11db172092f3d941fac8650f92139ada48f65",
+    "results/model_study/metrics.csv": "ffcf95d260aca7a701ac018276d5339d5ebed76f8221de388473d362e8c94fa1",
+    "results/model_study/cv_metrics.csv": "6a4fc875af79e4c4680082dbc088e59bb0f071f18478d64c37da8ab841295137",
+    "results/model_study/bootstrap_ci.csv": "7e278b24eab9224f2734c7832b590a6cda93ddd84d5df9459381ee403e2c0a6e",
+    "results/model_study/paired_differences.csv": "e4b868e14bbdd41e95a2c7839becd1e2b6ff45c57467809143ce7bde8ec815e6",
+    "results/model_study/split_sensitivities.csv": "45972a2e8b65733d12f39831bf467b5085b3b461c0a594c991bc14f9e2cd818c",
+    "results/model_study/encoding_maps.json": "31f22989e90f64cf153a899f43713c713f52e6a3ac70da43cdcb3a71a4df2fe1",
+    "results/model_study/predictions.csv.gz": "519abb36db13acf24413f8f01356feedccc2f3b805b4f522bd65733036d82b5f",
+    "results/model_study/figures/ampicillin_ablation_average_precision.png": "6048f3d0941e7d10343e9eb602ee4a38fc19e39cc5d6cc56a69304a8cfedf535",
+    "results/model_study/figures/ampicillin_diagnostics.png": "f0140197d78062c46e5515c19de1df0307d3969a5e8ab21c4a526fcf2627e7a4"
+  }
+}

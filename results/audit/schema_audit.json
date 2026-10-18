@@ -1,0 +1,768 @@
+{
+  "isolates": {
+    "rows": 9977,
+    "fields": {
+      "AMR_genotypes": {
+        "present": 9874,
+        "absent": 103,
+        "types": {
+          "list": 9874
+        }
+      },
+      "AMR_genotypes_core": {
+        "present": 7076,
+        "absent": 2901,
+        "types": {
+          "list": 7076
+        }
+      },
+      "AST_phenotypes": {
+        "present": 9977,
+        "absent": 0,
+        "types": {
+          "list": 9977
+        }
+      },
+      "HHS_region": {
+        "present": 106,
+        "absent": 9871,
+        "types": {
+          "int": 106
+        }
+      },
+      "IFSAC_category": {
+        "present": 3073,
+        "absent": 6904,
+        "types": {
+          "str": 3073
+        }
+      },
+      "LibraryLayout": {
+        "present": 9258,
+        "absent": 719,
+        "types": {
+          "str": 9258
+        }
+      },
+      "PFGE_PrimaryEnzyme_pattern": {
+        "present": 31,
+        "absent": 9946,
+        "types": {
+          "str": 31
+        }
+      },
+      "Platform": {
+        "present": 9258,
+        "absent": 719,
+        "types": {
+          "str": 9258
+        }
+      },
+      "Run": {
+        "present": 9258,
+        "absent": 719,
+        "types": {
+          "str": 9258
+        }
+      },
+      "_version_": {
+        "present": 9977,
+        "absent": 0,
+        "types": {
+          "int": 9977
+        }
+      },
+      "amrfinderplus_analysis_type": {
+        "present": 9977,
+        "absent": 0,
+        "types": {
+          "str": 9977
+        }
+      },
+      "amrfinderplus_applied": {
+        "present": 9977,
+        "absent": 0,
+        "types": {
+          "int": 9977
+        }
+      },
+      "amrfinderplus_version": {
+        "present": 9977,
+        "absent": 0,
+        "types": {
+          "str": 9977
+        }
+      },
+      "asm_acc": {
+        "present": 9740,
+        "absent": 237,
+        "types": {
+          "str": 9740
+        }
+      },
+      "asm_display_name": {
+        "present": 9740,
+        "absent": 237,
+        "types": {
+          "str": 9740
+        }
+      },
+      "asm_level": {
+        "present": 9740,
+        "absent": 237,
+        "types": {
+          "str": 9740
+        }
+      },
+      "asm_stats_contig_n50": {
+        "present": 9977,
+        "absent": 0,
+        "types": {
+          "int": 9977
+        }
+      },
+      "asm_stats_length_bp": {
+        "present": 9977,
+        "absent": 0,
+        "types": {
+          "int": 9977
+        }
+      },
+      "asm_stats_n_contig": {
+        "present": 9977,
+        "absent": 0,
+        "types": {
+          "int": 9977
+        }
+      },
+      "assembly_method": {
+        "present": 9740,
+        "absent": 237,
+        "types": {
+          "str": 9740
+        }
+      },
+      "assembly_uid": {
+        "present": 9740,
+        "absent": 237,
+        "types": {
+          "int": 9740
+        }
+      },
+      "attribute_package": {
+        "present": 9977,
+        "absent": 0,
+        "types": {
+          "str": 9977
+        }
+      },
+      "bioproject_acc": {
+        "present": 9977,
+        "absent": 0,
+        "types": {
+          "str": 9977
+        }
+      },
+      "bioproject_center": {
+        "present": 9977,
+        "absent": 0,
+        "types": {
+          "str": 9977
+        }
+      },
+      "biosample_acc": {
+        "present": 9977,
+        "absent": 0,
+        "types": {
+          "str": 9977
+        }
+      },
+      "cluster_size": {
+        "present": 9667,
+        "absent": 310,
+        "types": {
+          "int": 9667
+        }
+      },
+      "clustered": {
+        "present": 9977,
+        "absent": 0,
+        "types": {
+          "int": 9977
+        }
+      },
+      "collected_by": {
+        "present": 9923,
+        "absent": 54,
+        "types": {
+          "str": 9923
+        }
+      },
+      "collection_date": {
+        "present": 9937,
+        "absent": 40,
+        "types": {
+          "str": 9937
+        }
+      },
+      "complete_fl": {
+        "present": 9740,
+        "absent": 237,
+        "types": {
+          "str": 9740
+        }
+      },
+      "computed_types": {
+        "present": 9971,
+        "absent": 6,
+        "types": {
+          "list": 9971
+        }
+      },
+      "creation_date": {
+        "present": 9977,
+        "absent": 0,
+        "types": {
+          "str": 9977
+        }
+      },
+      "epi_type": {
+        "present": 9977,
+        "absent": 0,
+        "types": {
+          "str": 9977
+        }
+      },
+      "erd_group": {
+        "present": 9667,
+        "absent": 310,
+        "types": {
+          "str": 9667
+        }
+      },
+      "erd_group_acc": {
+        "present": 9667,
+        "absent": 310,
+        "types": {
+          "str": 9667
+        }
+      },
+      "food_origin": {
+        "present": 2775,
+        "absent": 7202,
+        "types": {
+          "str": 2775
+        }
+      },
+      "fullasm_id": {
+        "present": 9740,
+        "absent": 237,
+        "types": {
+          "str": 9740
+        }
+      },
+      "geo_loc_name": {
+        "present": 9937,
+        "absent": 40,
+        "types": {
+          "str": 9937
+        }
+      },
+      "host": {
+        "present": 629,
+        "absent": 9348,
+        "types": {
+          "str": 629
+        }
+      },
+      "host_disease": {
+        "present": 35,
+        "absent": 9942,
+        "types": {
+          "str": 35
+        }
+      },
+      "id": {
+        "present": 9977,
+        "absent": 0,
+        "types": {
+          "str": 9977
+        }
+      },
+      "isolate_identifiers": {
+        "present": 9977,
+        "absent": 0,
+        "types": {
+          "list": 9977
+        }
+      },
+      "isolate_name_alias": {
+        "present": 2984,
+        "absent": 6993,
+        "types": {
+          "str": 2984
+        }
+      },
+      "isolation_source": {
+        "present": 9824,
+        "absent": 153,
+        "types": {
+          "str": 9824
+        }
+      },
+      "kmer_group": {
+        "present": 9977,
+        "absent": 0,
+        "types": {
+          "str": 9977
+        }
+      },
+      "kmer_group_acc": {
+        "present": 9977,
+        "absent": 0,
+        "types": {
+          "str": 9977
+        }
+      },
+      "lat_lon": {
+        "present": 156,
+        "absent": 9821,
+        "types": {
+          "str": 156
+        }
+      },
+      "major_contributor": {
+        "present": 9977,
+        "absent": 0,
+        "types": {
+          "int": 9977
+        }
+      },
+      "mindiff": {
+        "present": 9082,
+        "absent": 895,
+        "types": {
+          "int": 9082
+        }
+      },
+      "minsame": {
+        "present": 9617,
+        "absent": 360,
+        "types": {
+          "int": 9617
+        }
+      },
+      "new": {
+        "present": 9977,
+        "absent": 0,
+        "types": {
+          "int": 9977
+        }
+      },
+      "number_amr_genes": {
+        "present": 9977,
+        "absent": 0,
+        "types": {
+          "int": 9977
+        }
+      },
+      "number_core_amr_genes": {
+        "present": 9977,
+        "absent": 0,
+        "types": {
+          "int": 9977
+        }
+      },
+      "number_drugs_intermediate": {
+        "present": 9977,
+        "absent": 0,
+        "types": {
+          "int": 9977
+        }
+      },
+      "number_drugs_resistant": {
+        "present": 9977,
+        "absent": 0,
+        "types": {
+          "int": 9977
+        }
+      },
+      "number_drugs_susceptible": {
+        "present": 9977,
+        "absent": 0,
+        "types": {
+          "int": 9977
+        }
+      },
+      "number_drugs_tested": {
+        "present": 9977,
+        "absent": 0,
+        "types": {
+          "int": 9977
+        }
+      },
+      "number_stress_genes": {
+        "present": 9977,
+        "absent": 0,
+        "types": {
+          "int": 9977
+        }
+      },
+      "number_virulence_genes": {
+        "present": 9977,
+        "absent": 0,
+        "types": {
+          "int": 9977
+        }
+      },
+      "ontological_term": {
+        "present": 3072,
+        "absent": 6905,
+        "types": {
+          "str": 3072
+        }
+      },
+      "parent_group": {
+        "present": 9667,
+        "absent": 310,
+        "types": {
+          "str": 9667
+        }
+      },
+      "property": {
+        "present": 9977,
+        "absent": 0,
+        "types": {
+          "list": 9977
+        }
+      },
+      "refgene_db_version": {
+        "present": 9977,
+        "absent": 0,
+        "types": {
+          "str": 9977
+        }
+      },
+      "sample_name": {
+        "present": 7849,
+        "absent": 2128,
+        "types": {
+          "str": 7849
+        }
+      },
+      "scientific_name": {
+        "present": 9977,
+        "absent": 0,
+        "types": {
+          "str": 9977
+        }
+      },
+      "serotype": {
+        "present": 775,
+        "absent": 9202,
+        "types": {
+          "str": 775
+        }
+      },
+      "serovar": {
+        "present": 9259,
+        "absent": 718,
+        "types": {
+          "str": 9259
+        }
+      },
+      "sort_order": {
+        "present": 9977,
+        "absent": 0,
+        "types": {
+          "int": 9977
+        }
+      },
+      "source_type": {
+        "present": 4178,
+        "absent": 5799,
+        "types": {
+          "str": 4178
+        }
+      },
+      "species_taxid": {
+        "present": 9977,
+        "absent": 0,
+        "types": {
+          "int": 9977
+        }
+      },
+      "sra_center": {
+        "present": 9258,
+        "absent": 719,
+        "types": {
+          "str": 9258
+        }
+      },
+      "sra_release_date": {
+        "present": 9258,
+        "absent": 719,
+        "types": {
+          "str": 9258
+        }
+      },
+      "strain": {
+        "present": 9931,
+        "absent": 46,
+        "types": {
+          "str": 9931
+        }
+      },
+      "stress_genotypes": {
+        "present": 9974,
+        "absent": 3,
+        "types": {
+          "list": 9974
+        }
+      },
+      "target_acc": {
+        "present": 9977,
+        "absent": 0,
+        "types": {
+          "str": 9977
+        }
+      },
+      "target_creation_date": {
+        "present": 9977,
+        "absent": 0,
+        "types": {
+          "str": 9977
+        }
+      },
+      "taxgroup_name": {
+        "present": 9977,
+        "absent": 0,
+        "types": {
+          "str": 9977
+        }
+      },
+      "taxgroup_name_short": {
+        "present": 9977,
+        "absent": 0,
+        "types": {
+          "str": 9977
+        }
+      },
+      "taxid": {
+        "present": 9977,
+        "absent": 0,
+        "types": {
+          "int": 9977
+        }
+      },
+      "tree_node_ids": {
+        "present": 9667,
+        "absent": 310,
+        "types": {
+          "list": 9667
+        }
+      },
+      "updatedate": {
+        "present": 9977,
+        "absent": 0,
+        "types": {
+          "str": 9977
+        }
+      },
+      "virulence_genotypes": {
+        "present": 9977,
+        "absent": 0,
+        "types": {
+          "list": 9977
+        }
+      },
+      "wgs_acc_prefix": {
+        "present": 9606,
+        "absent": 371,
+        "types": {
+          "str": 9606
+        }
+      },
+      "wgs_master_acc": {
+        "present": 9606,
+        "absent": 371,
+        "types": {
+          "str": 9606
+        }
+      }
+    }
+  },
+  "ast": {
+    "rows": 142338,
+    "fields": {
+      "_version_": {
+        "present": 142338,
+        "absent": 0,
+        "types": {
+          "int": 142338
+        }
+      },
+      "antibiotic": {
+        "present": 142338,
+        "absent": 0,
+        "types": {
+          "str": 142338
+        }
+      },
+      "bioproject_acc": {
+        "present": 142338,
+        "absent": 0,
+        "types": {
+          "str": 142338
+        }
+      },
+      "biosample_acc": {
+        "present": 142338,
+        "absent": 0,
+        "types": {
+          "str": 142338
+        }
+      },
+      "collection_date": {
+        "present": 141735,
+        "absent": 603,
+        "types": {
+          "str": 141735
+        }
+      },
+      "creation_date": {
+        "present": 142338,
+        "absent": 0,
+        "types": {
+          "str": 142338
+        }
+      },
+      "disk_diffusion": {
+        "present": 153,
+        "absent": 142185,
+        "types": {
+          "float": 153
+        }
+      },
+      "epi_type": {
+        "present": 142338,
+        "absent": 0,
+        "types": {
+          "str": 142338
+        }
+      },
+      "geo_loc_name": {
+        "present": 141741,
+        "absent": 597,
+        "types": {
+          "str": 141741
+        }
+      },
+      "host": {
+        "present": 8539,
+        "absent": 133799,
+        "types": {
+          "str": 8539
+        }
+      },
+      "id": {
+        "present": 142338,
+        "absent": 0,
+        "types": {
+          "str": 142338
+        }
+      },
+      "isolation_source": {
+        "present": 140152,
+        "absent": 2186,
+        "types": {
+          "str": 140152
+        }
+      },
+      "measurement_sign": {
+        "present": 142338,
+        "absent": 0,
+        "types": {
+          "str": 142338
+        }
+      },
+      "mic": {
+        "present": 142185,
+        "absent": 153,
+        "types": {
+          "float": 142185
+        }
+      },
+      "mic_secondary": {
+        "present": 19368,
+        "absent": 122970,
+        "types": {
+          "float": 19368
+        }
+      },
+      "phenotype": {
+        "present": 142338,
+        "absent": 0,
+        "types": {
+          "str": 142338
+        }
+      },
+      "platform": {
+        "present": 60582,
+        "absent": 81756,
+        "types": {
+          "str": 60582
+        }
+      },
+      "reagent": {
+        "present": 60741,
+        "absent": 81597,
+        "types": {
+          "str": 60741
+        }
+      },
+      "scientific_name": {
+        "present": 142338,
+        "absent": 0,
+        "types": {
+          "str": 142338
+        }
+      },
+      "standard": {
+        "present": 142298,
+        "absent": 40,
+        "types": {
+          "str": 142298
+        }
+      },
+      "target_acc": {
+        "present": 142338,
+        "absent": 0,
+        "types": {
+          "str": 142338
+        }
+      },
+      "target_creation_date": {
+        "present": 142338,
+        "absent": 0,
+        "types": {
+          "str": 142338
+        }
+      },
+      "taxgroup_name": {
+        "present": 142338,
+        "absent": 0,
+        "types": {
+          "str": 142338
+        }
+      },
+      "vendor": {
+        "present": 60770,
+        "absent": 81568,
+        "types": {
+          "str": 60770
+        }
+      }
+    }
+  }
+}

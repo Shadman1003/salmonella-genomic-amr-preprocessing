@@ -1,0 +1,106 @@
+{
+  "ampicillin": [
+    {
+      "val": "SUSCEPTIBLE",
+      "count": 7350
+    },
+    {
+      "val": "RESISTANT",
+      "count": 2531
+    },
+    {
+      "val": "NOT DEFINED",
+      "count": 39
+    }
+  ],
+  "tetracycline": [
+    {
+      "val": "RESISTANT",
+      "count": 4990
+    },
+    {
+      "val": "SUSCEPTIBLE",
+      "count": 4827
+    },
+    {
+      "val": "INTERMEDIATE",
+      "count": 36
+    },
+    {
+      "val": "NOT DEFINED",
+      "count": 33
+    }
+  ],
+  "ceftriaxone": [
+    {
+      "val": "SUSCEPTIBLE",
+      "count": 8389
+    },
+    {
+      "val": "RESISTANT",
+      "count": 1236
+    },
+    {
+      "val": "INTERMEDIATE",
+      "count": 8
+    }
+  ],
+  "ciprofloxacin": [
+    {
+      "val": "SUSCEPTIBLE",
+      "count": 8828
+    },
+    {
+      "val": "RESISTANT",
+      "count": 758
+    },
+    {
+      "val": "NONSUSCEPTIBLE",
+      "count": 150
+    },
+    {
+      "val": "INTERMEDIATE",
+      "count": 139
+    },
+    {
+      "val": "NOT DEFINED",
+      "count": 2
+    }
+  ],
+  "gentamicin": [
+    {
+      "val": "SUSCEPTIBLE",
+      "count": 8577
+    },
+    {
+      "val": "RESISTANT",
+      "count": 957
+    },
+    {
+      "val": "INTERMEDIATE",
+      "count": 353
+    },
+    {
+      "val": "NOT DEFINED",
+      "count": 40
+    }
+  ],
+  "chloramphenicol": [
+    {
+      "val": "SUSCEPTIBLE",
+      "count": 9104
+    },
+    {
+      "val": "RESISTANT",
+      "count": 656
+    },
+    {
+      "val": "INTERMEDIATE",
+      "count": 94
+    },
+    {
+      "val": "NOT DEFINED",
+      "count": 38
+    }
+  ]
+}

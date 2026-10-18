@@ -1,0 +1,5 @@
+__pycache__/
+.ipynb_checkpoints/
+.venv/
+*.partial
+/work/pdf_qa/

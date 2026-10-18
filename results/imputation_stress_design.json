@@ -1,0 +1,23 @@
+{
+  "synthetic_masking_only": true,
+  "fitted_on": "training isolates only",
+  "evaluated_on": "observed validation cells only",
+  "target_used": false,
+  "test_set_used": false,
+  "n_training": 6317,
+  "n_validation": 1572,
+  "features": [
+    "collection_year",
+    "asm_n50",
+    "asm_length",
+    "asm_contigs",
+    "gene_count"
+  ],
+  "missingness_mechanisms": [
+    "MCAR10%",
+    "MCAR30%",
+    "MAR conditional on recorded assembly contigs"
+  ],
+  "limitations": "Stress experiments cannot identify the accuracy of naturally missing values. MAR is a simulation, not an asserted true missingness mechanism.",
+  "elapsed_seconds": 0.25950289999997267
+}

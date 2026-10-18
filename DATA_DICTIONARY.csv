@@ -1,0 +1,78 @@
+table,column,model_role,description
+ast_clean,source_id,assay/pair audit; excluded from X,Original unique AST server record ID; provenance and cell-audit join key.
+ast_clean,biosample_acc,assay/pair audit; excluded from X,"Stable source BioSample string; biological sample join key, not a numeric feature."
+ast_clean,target_acc,assay/pair audit; excluded from X,Versioned NCBI PDT isolate/assembly accession; provenance only.
+ast_clean,antibiotic,assay/pair audit; excluded from X,Conservative whitespace/Unicode/case-normalized source drug name; defines separate tasks.
+ast_clean,phenotype,assay/pair audit; excluded from X,Canonical source phenotype. Only unanimous resistant/susceptible labels define binary y.
+ast_clean,phenotype_raw,assay/pair audit; excluded from X,Source phenotype text retained before normalization; never a predictor.
+ast_clean,standard,assay/pair audit; excluded from X,"Source testing standard (such as CLSI); assay provenance, not a model input."
+ast_clean,platform,assay/pair audit; excluded from X,Source AST platform; absent values preserved; provenance only.
+ast_clean,vendor,assay/pair audit; excluded from X,Source AST vendor; absent values preserved; provenance only.
+ast_clean,reagent,assay/pair audit; excluded from X,Source assay version/reagent; provenance only.
+ast_clean,measurement_sign,assay/pair audit; excluded from X,Source comparator; equality variants normalized to ==. Never a model input.
+ast_clean,bioproject_acc,assay/pair audit; excluded from X,"Source project accession(s); grouping sensitivity/provenance only, never X."
+ast_clean,mic_secondary_raw,assay/pair audit; excluded from X,Raw second drug concentration from API mic_secondary; not a ratio or independently censored value.
+ast_clean,mic_raw,assay/pair audit; excluded from X,Raw submitted MIC (mg/L) value; combination components separated by slash are not divided.
+ast_clean,mic_status,assay/pair audit; excluded from X,"MIC (mg/L) parser/domain state. structural_missing means that measurement type is absent, not a value to impute."
+ast_clean,mic_components,assay/pair audit; excluded from X,Number of supplied MIC (mg/L) concentration/measurement components.
+ast_clean,mic_censored,assay/pair audit; excluded from X,True if a non-equality comparator constrains the primary MIC (mg/L) component.
+ast_clean,mic_secondary_semantics,assay/pair audit; excluded from X,Second component records its nominal supplied concentration; no independent source comparator is inferred.
+ast_clean,mic_1_lower,assay/pair audit; excluded from X,Lower MIC (mg/L) bound. Missing for absent/invalid measurements; primary lower0 for < or <= MIC.
+ast_clean,mic_1_upper,assay/pair audit; excluded from X,"Upper MIC (mg/L) bound. For a valid > or >= primary measurement, missing means no finite upper bound; absent assays also have missing bounds."
+ast_clean,mic_1_lower_closed,assay/pair audit; excluded from X,Whether the corresponding bound is included. Interpret only together with valid MIC (mg/L) status/comparator.
+ast_clean,mic_1_upper_closed,assay/pair audit; excluded from X,Whether the corresponding bound is included. Interpret only together with valid MIC (mg/L) status/comparator.
+ast_clean,mic_2_lower,assay/pair audit; excluded from X,Lower MIC (mg/L) bound. Missing for absent/invalid measurements; primary lower0 for < or <= MIC.
+ast_clean,mic_2_upper,assay/pair audit; excluded from X,"Upper MIC (mg/L) bound. For a valid > or >= primary measurement, missing means no finite upper bound; absent assays also have missing bounds."
+ast_clean,mic_2_lower_closed,assay/pair audit; excluded from X,Whether the corresponding bound is included. Interpret only together with valid MIC (mg/L) status/comparator.
+ast_clean,mic_2_upper_closed,assay/pair audit; excluded from X,Whether the corresponding bound is included. Interpret only together with valid MIC (mg/L) status/comparator.
+ast_clean,disk_raw,assay/pair audit; excluded from X,Raw submitted disk zone (mm) value; combination components separated by slash are not divided.
+ast_clean,disk_status,assay/pair audit; excluded from X,"disk zone (mm) parser/domain state. structural_missing means that measurement type is absent, not a value to impute."
+ast_clean,disk_components,assay/pair audit; excluded from X,Number of supplied disk zone (mm) concentration/measurement components.
+ast_clean,disk_censored,assay/pair audit; excluded from X,True if a non-equality comparator constrains the primary disk zone (mm) component.
+ast_clean,disk_secondary_semantics,assay/pair audit; excluded from X,Second component records its nominal supplied concentration; no independent source comparator is inferred.
+ast_clean,disk_1_lower,assay/pair audit; excluded from X,Lower disk zone (mm) bound. Missing for absent/invalid measurements; primary lower0 for < or <= MIC.
+ast_clean,disk_1_upper,assay/pair audit; excluded from X,"Upper disk zone (mm) bound. For a valid > or >= primary measurement, missing means no finite upper bound; absent assays also have missing bounds."
+ast_clean,disk_1_lower_closed,assay/pair audit; excluded from X,Whether the corresponding bound is included. Interpret only together with valid disk zone (mm) status/comparator.
+ast_clean,disk_1_upper_closed,assay/pair audit; excluded from X,Whether the corresponding bound is included. Interpret only together with valid disk zone (mm) status/comparator.
+ast_clean,disk_2_lower,assay/pair audit; excluded from X,Lower disk zone (mm) bound. Missing for absent/invalid measurements; primary lower0 for < or <= MIC.
+ast_clean,disk_2_upper,assay/pair audit; excluded from X,"Upper disk zone (mm) bound. For a valid > or >= primary measurement, missing means no finite upper bound; absent assays also have missing bounds."
+ast_clean,disk_2_lower_closed,assay/pair audit; excluded from X,Whether the corresponding bound is included. Interpret only together with valid disk zone (mm) status/comparator.
+ast_clean,disk_2_upper_closed,assay/pair audit; excluded from X,Whether the corresponding bound is included. Interpret only together with valid disk zone (mm) status/comparator.
+ast_clean,measurement_type,assay/pair audit; excluded from X,mic/disk/both/missing. MIC mg/L and disk mm retain separate measurement domains.
+ast_clean,measurement_invalid,assay/pair audit; excluded from X,"Any failed parser/domain check, unknown sign, or both measurement types; quantitative quarantine flag."
+ast_clean,label_recognized,assay/pair audit; excluded from X,Source phenotype belongs to the documented expected vocabulary (or is absent).
+ast_clean,metadata_matched,assay/pair audit; excluded from X,BioSample has exactly one retained isolate-feature row.
+ast_clean,target_mismatch,assay/pair audit; excluded from X,AST PDT differs from the unambiguous metadata PDT for its BioSample.
+ast_clean,exact_duplicate,assay/pair audit; excluded from X,Repeated identical assay payload after first occurrence; source IDs do not establish biological duplication.
+isolate_features,biosample_acc,audit/key/provenance; excluded from X,"Stable source BioSample string; biological sample join key, not a numeric feature."
+isolate_features,target_acc,audit/key/provenance; excluded from X,Versioned NCBI PDT isolate/assembly accession; provenance only.
+isolate_features,bioproject_acc,audit/key/provenance; excluded from X,"Source project accession(s); grouping sensitivity/provenance only, never X."
+isolate_features,snp_cluster,audit/key/provenance; excluded from X,"Recorded NCBI PDS cluster accession; known relatedness grouping only, never X."
+isolate_features,clustered,audit/key/provenance; excluded from X,"Original source clustered flag; audit/provenance, not a predictor."
+isolate_features,source_type,nominal X,Source harmonized broad source category; nominal model metadata.
+isolate_features,epi_type,nominal X,NCBI epidemiological isolation type; nominal model metadata.
+isolate_features,country,nominal X,Country-level prefix of geo_loc_name before colon; nominal model metadata.
+isolate_features,host,nominal X,Conservatively normalized submitted host text; no invented host or gender mapping.
+isolate_features,serovar,nominal X,"Normalized reported serovar/serotype; nominal model metadata, not an ordered integer quantity."
+isolate_features,collection_year,numeric X,Unambiguous collection year from strict partial-date parser. Missing/range ambiguity stays missing until train-fitted imputation.
+isolate_features,date_precision,audit/key/provenance; excluded from X,Original collection date precision category; audit only.
+isolate_features,amr_analysis_available,numeric X,1 if applied flag plus reported call list or explicit zero count establishes completed analysis; otherwise0.
+isolate_features,gene_count,numeric X,Number of unique reported symbol=status tokens after completed analysis; not gene copies. Missing if unavailable.
+isolate_features,gene_tokens,multi-hot genomic X,JSON string array of unique AMR symbol=status annotations. Train-only vocabulary multi-hot X.
+isolate_features,amrfinderplus_version,audit/key/provenance; excluded from X,Source annotation tool version; audit/provenance only.
+isolate_features,refgene_db_version,audit/key/provenance; excluded from X,Source reference database version; audit/provenance only.
+isolate_features,analysis_type,audit/key/provenance; excluded from X,Source annotation mode (COMBINED/NUCLEOTIDE etc.); provenance only.
+isolate_features,species_taxid,audit/key/provenance; excluded from X,NCBI species taxid; required28901 in this frozen cohort; provenance/cohort check.
+isolate_features,asm_n50,numeric X,Assembly contig N50 in base pairs; positive with N50<=assembly length; numeric model metadata.
+isolate_features,asm_length,numeric X,Total assembly length in base pairs; positive numeric model metadata.
+isolate_features,asm_contigs,numeric X,Assembly contig count; positive numeric model metadata.
+isolate_features,group_id,audit/key/provenance; excluded from X,"Deterministic connected BioSample/PDS component. Split unit, never X."
+phenotype_pairs,biosample_acc,assay/pair audit; excluded from X,"Stable source BioSample string; biological sample join key, not a numeric feature."
+phenotype_pairs,antibiotic,assay/pair audit; excluded from X,Conservative whitespace/Unicode/case-normalized source drug name; defines separate tasks.
+phenotype_pairs,phenotype,defines y for eligible pair,Canonical source phenotype. Only unanimous resistant/susceptible labels define binary y.
+phenotype_pairs,status,assay/pair audit; excluded from X,"Pair eligibility/quarantine disposition: eligible_binary, nonbinary, conflicting, unmatched_metadata, etc."
+phenotype_pairs,all_labels,assay/pair audit; excluded from X,JSON list of all distinct nonmissing source labels for a BioSample-drug pair.
+phenotype_pairs,assay_count,assay/pair audit; excluded from X,Number of retained nondeduplicated source assays for this BioSample-drug pair; audit only.
+phenotype_pairs,standards,assay/pair audit; excluded from X,JSON list of source standards within a pair; audit only.
+phenotype_pairs,measurement_invalid,assay/pair audit; excluded from X,"Any failed parser/domain check, unknown sign, or both measurement types; quantitative quarantine flag."
+phenotype_pairs,source_ids,assay/pair audit; excluded from X,JSON list of all AST source records supporting a pair; audit only.

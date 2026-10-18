@@ -1,0 +1,58 @@
+INTERNSHIP RESEARCH PRIME - HANDOVER
+Date:18 October2026 (Asia/Dhaka)
+
+User:Shadman, BSc CSE/Data Science. Primary execution environment:Ubuntu WSL.
+Request:Redo the antibiotic-resistance study with a different real dataset and
+substantially deeper preprocessing, cleaning, missing-value and label-encoding
+analysis. All project work belongs in Desktop/Internship_Research_Prime.
+The previous Internship_Research project is preserved unchanged.
+
+Title:Machine Learning-Based Analysis and Prediction of Antibiotic Resistance.
+Scope:Retrospective Salmonella genomic-annotation-to-submitted-phenotype study.
+This is not clinical EHR prediction, prospective prescribing, raw-genome
+discovery, or an independently validated diagnostic device.
+
+Sources:Frozen NCBI Pathogen Detection AST and matching tested-isolate metadata.
+142,338 experimental AST rows;9,977 assembly records;9,976 raw BioSamples.
+Quarantine one ambiguous BioSample with2assemblies;9,975 feature rows remain.
+No BioSample novelty relative to all public archives is claimed.
+
+Observed data issues:75,874 censored assays;19,368 dual-concentration MICs;
+153 disk assays with structural MIC absence;81,756 missing platform fields;
+81,568 missing vendors;1inter-platform phenotype conflict;repeated assay rows;
+very sparse host/source metadata;40 missing collection years. Numeric assembly
+summaries are complete. Do not exaggerate natural numeric missingness.
+
+All AST-derived measurements, panel statistics and resistance counts are
+excluded from X. IDs and project/cluster fields serve joining/grouping only.
+AMR annotation tokens preserve symbol punctuation and reported evidence status.
+Applied analysis plus explicit zero count distinguishes API omitted empty call
+lists from unavailable analysis. Do not call unique tokens gene-copy counts.
+
+Primary task:ampicillin, prespecified onehot_median_flags logistic pipeline.
+Fixed60/20/20 connected SNP/BioSample group split;3fold grouped trainingCV;
+six encoding/imputation combinations;metadata/genomic-only controls;2secondary
+drugs;tuned validation-only supplementary threshold;300paired group bootstraps.
+Additional BioSample and BioProject split diagnostics use different populations,
+so score changes cannot be attributed exclusively to leakage.
+
+Source files, code, manifests, audits, notebook, report and learning guide are
+included. Synthetic MCAR/MAR masking is explicitly separate from natural data.
+Streaming benchmarks use real prefixes only;no duplicated million-row claim.
+
+Use results/model_study/metrics.csv and summary.json for authoritative final
+metrics;results/model_validation.json for exact inference checks. Do not select
+the best-looking test configuration after reading the results. Initial primary
+ampicillin AP .9749727946241331, recall .9544513457556936, n_test2070. These values
+are conditional on this frozen cohort/reference annotation and split.
+
+AI assistance covers discovery, implementation, evaluation, figures and writing.
+Shadman must review methods, understand the analysis and follow institutional
+disclosure requirements. No new ethics approval, affiliation, laboratory work,
+funding or publication novelty is claimed.
+
+Full rerun: bash setup_wsl.sh then bash run_wsl.sh. Default environment
+/tmp/shadman_amr_prime_venv;the prepared session environment can be selected with
+VENV_DIR=/tmp/shadman_amr_venv. Download is opt-in and preserves existing raw data.
+The notebook is an executed artifact walkthrough;the scripts reproduce the
+full experiment. Model pipelines are importable for independent inference.

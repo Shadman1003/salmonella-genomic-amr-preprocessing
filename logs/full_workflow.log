@@ -1,0 +1,464 @@
+{
+  "raw_ast_rows": 142338,
+  "raw_isolate_records": 9977,
+  "unique_biosamples_metadata": 9975,
+  "ambiguous_biosamples_quarantined": 1,
+  "exact_duplicate_assays": 0,
+  "unique_biosample_drug_pairs": 142299,
+  "pair_status_counts": {
+    "eligible_binary": 138911,
+    "nonbinary": 3372,
+    "unmatched_metadata": 15,
+    "conflicting": 1
+  },
+  "phenotype_counts": {
+    "susceptible": 117405,
+    "resistant": 21561,
+    "intermediate": 2413,
+    "not defined": 809,
+    "nonsusceptible": 150
+  },
+  "measurement_types": {
+    "mic": 142185,
+    "disk": 153
+  },
+  "comparators": {
+    "==": 66464,
+    "<=": 59010,
+    ">": 16434,
+    "<": 382,
+    ">=": 48
+  },
+  "censored_measurements": 75874,
+  "measurement_invalid_assays": 0,
+  "combination_mic_assays": 19368,
+  "missing_platform": 81756,
+  "missing_vendor": 81568,
+  "unknown_phenotype_rows": 0,
+  "unmatched_ast_records": 30,
+  "target_mismatch_records": 0,
+  "amr_available_isolates": 9975,
+  "species_taxid_counts": {
+    "28901": 9975
+  },
+  "gene_status_counts": {
+    "COMPLETE": 43300,
+    "POINT": 923,
+    "MISTRANSLATION": 295,
+    "PARTIAL_END_OF_CONTIG": 1046,
+    "PARTIAL": 425,
+    "HMM": 6
+  },
+  "date_precision_counts": {
+    "year": 7585,
+    "month": 1665,
+    "day": 685,
+    "missing": 40
+  },
+  "snp_cluster_available_isolates": 9665,
+  "connected_groups": 1249,
+  "largest_group_isolates": 683,
+  "preprocess_wall_seconds": 183.4713807,
+  "peak_rss_mib": 710.90625,
+  "policies": {
+    "labels": "Never imputed; unanimous source R/S only for primary binary cohort.",
+    "assays": "Censoring and dual concentrations preserved; MIC and disk never pooled or used as X.",
+    "groups": "Connected components of BioSample and recorded SNP-cluster links; absent cluster falls back to BioSample.",
+    "genes": "Unique symbol=status annotations, not copy number; unavailable distinguished from completed zero-hit analysis.",
+    "invalid_measurements": "Flagged and separately quarantined for quantitative use; source phenotypes remain usable because measurements never enter X."
+  }
+}
+{
+  "generated_at_utc": "2026-10-18T10:42:36.586515+00:00",
+  "scope": "Preprocessing semantics, source integrity and output reconciliation. Excludes fitted model feature selection and split validation, which are audited by modeling.",
+  "fixtures_only": false,
+  "checks": [
+    {
+      "check": "hand_calculated_measurement_semantics",
+      "passed": true,
+      "details": {
+        "hand_calculated_cases": 11,
+        "semantics": "Censor bounds, combination components and MIC/disk namespaces checked independently."
+      }
+    },
+    {
+      "check": "partial_date_and_text_fixtures",
+      "passed": true,
+      "details": {
+        "date_cases": 11,
+        "text_cases": 2,
+        "scope": "Accepted date cases tested; not an exhaustive date grammar verification."
+      }
+    },
+    {
+      "check": "miniature_end_to_end_duplicate_conflict_join_and_gene_fixtures",
+      "passed": true,
+      "details": {
+        "isolates": 3,
+        "assays": 6,
+        "gene_tokens_preserved": [
+          "aac(6')-Ib-cr=COMPLETE",
+          "blaCTX-M-15=COMPLETE",
+          "gene/with,comma=PARTIAL"
+        ],
+        "pair_status_counts": {
+          "eligible_binary": 1,
+          "conflicting": 1,
+          "missing": 1,
+          "unmatched_metadata": 1
+        }
+      }
+    },
+    {
+      "check": "frozen_raw_source_sha256_counts_and_ids",
+      "passed": true,
+      "details": [
+        {
+          "file": "data/raw/ncbi_salmonella_ast.jsonl",
+          "records": 142338,
+          "distinct_ids": 142338,
+          "sha256": "e59a5782024bdfbd9334d3add3c3bc897c6338d680c18ab4d559bd6d46454b2e",
+          "bytes": 85421138
+        },
+        {
+          "file": "data/raw/ncbi_salmonella_isolates.jsonl",
+          "records": 9977,
+          "distinct_ids": 9977,
+          "sha256": "a56f0bc8bea5f16b2a70ca46a5ae8072514c80f243a14a24611e826add91d214",
+          "bytes": 33101955
+        }
+      ]
+    },
+    {
+      "check": "processed_output_contracts_and_reconciliation",
+      "passed": true,
+      "details": {
+        "ast_rows": 142338,
+        "isolate_rows": 9975,
+        "pair_rows": 142299,
+        "eligible_pairs": 138911,
+        "exact_duplicates": 0,
+        "unmatched_assays": 30,
+        "target_mismatches": 0,
+        "measurement_flagged_assays": 0,
+        "reported_secondary_mic_rows_preserved": 19368,
+        "feature_export_forbidden_fields": [],
+        "scope": "Output export checked for explicit phenotype/measurement fields; actual fitted model X and split leakage require the separate modeling audit."
+      }
+    }
+  ],
+  "all_checks_passed": true,
+  "passed_checks": 5,
+  "total_checks": 5,
+  "interpretation": "Passing the listed finite checks does not prove all data are error-free or establish clinical validity."
+}
+Fit ampicillin: ordinal_median (6,268 training isolates)
+Fit ampicillin: ordinal_median_flags (6,268 training isolates)
+Fit ampicillin: ordinal_iterative_flags (6,268 training isolates)
+Fit ampicillin: onehot_median (6,268 training isolates)
+Fit ampicillin: onehot_median_flags (6,268 training isolates)
+Fit ampicillin: onehot_iterative_flags (6,268 training isolates)
+Fit ampicillin: metadata_only (6,268 training isolates)
+Fit ampicillin: genes_only (6,268 training isolates)
+Finished ampicillin
+Fit tetracycline: onehot_median_flags (6,232 training isolates)
+Fit tetracycline: metadata_only (6,232 training isolates)
+Fit tetracycline: genes_only (6,232 training isolates)
+Finished tetracycline
+Fit ciprofloxacin: onehot_median_flags (6,021 training isolates)
+Fit ciprofloxacin: metadata_only (6,021 training isolates)
+Fit ciprofloxacin: genes_only (6,021 training isolates)
+Finished ciprofloxacin
+{"finished": true, "output": "results/model_study", "tasks": ["ampicillin", "tetracycline", "ciprofloxacin"], "elapsed_seconds": 112.13327760000001}
+/mnt/c/Users/USER/OneDrive/Desktop/Internship_Research_Prime/results/imputation_stress.csv
+{"records_processed": 1000, "chunk_size": 500, "requested_prefix_rows": 1000, "canonical_sha256": "99468ebf868e1656c6ccce32bdb3a42419da1f147743e2a6dab0a29a5f54336b", "transform_seconds": 0.07573869999998806, "rows_per_second": 13203.289731671624, "peak_rss_mib": 55.1171875, "status": "completed", "process_wall_seconds": 1.0081814000000122}
+{"records_processed": 1000, "chunk_size": 5000, "requested_prefix_rows": 1000, "canonical_sha256": "99468ebf868e1656c6ccce32bdb3a42419da1f147743e2a6dab0a29a5f54336b", "transform_seconds": 0.11248679999999922, "rows_per_second": 8889.931974240595, "peak_rss_mib": 55.125, "status": "completed", "process_wall_seconds": 1.0962736000000177}
+{"records_processed": 1000, "chunk_size": 25000, "requested_prefix_rows": 1000, "canonical_sha256": "99468ebf868e1656c6ccce32bdb3a42419da1f147743e2a6dab0a29a5f54336b", "transform_seconds": 0.09865380000002233, "rows_per_second": 10136.456983915203, "peak_rss_mib": 55.1171875, "status": "completed", "process_wall_seconds": 1.0500139000000104}
+{"records_processed": 10000, "chunk_size": 500, "requested_prefix_rows": 10000, "canonical_sha256": "61664ce08f949e2d87f153e61d6c5bb99341dafb27ba1e1d7c108bc202560f60", "transform_seconds": 0.9630541999999878, "rows_per_second": 10383.631575460786, "peak_rss_mib": 56.5625, "status": "completed", "process_wall_seconds": 1.9034310999999775}
+{"records_processed": 10000, "chunk_size": 5000, "requested_prefix_rows": 10000, "canonical_sha256": "61664ce08f949e2d87f153e61d6c5bb99341dafb27ba1e1d7c108bc202560f60", "transform_seconds": 1.1766506000000163, "rows_per_second": 8498.699613971949, "peak_rss_mib": 81.8828125, "status": "completed", "process_wall_seconds": 2.1652851000000055}
+{"records_processed": 10000, "chunk_size": 25000, "requested_prefix_rows": 10000, "canonical_sha256": "61664ce08f949e2d87f153e61d6c5bb99341dafb27ba1e1d7c108bc202560f60", "transform_seconds": 1.1095460999999887, "rows_per_second": 9012.694470288438, "peak_rss_mib": 81.90234375, "status": "completed", "process_wall_seconds": 2.0903931000000284}
+{"records_processed": 50000, "chunk_size": 500, "requested_prefix_rows": 50000, "canonical_sha256": "5b519b0318c1d7945abb81edca0a1817f52bc1d727c20df0857fda63a01aad20", "transform_seconds": 5.809510499999988, "rows_per_second": 8606.57709457623, "peak_rss_mib": 56.5625, "status": "completed", "process_wall_seconds": 6.894341999999995}
+{"records_processed": 50000, "chunk_size": 5000, "requested_prefix_rows": 50000, "canonical_sha256": "5b519b0318c1d7945abb81edca0a1817f52bc1d727c20df0857fda63a01aad20", "transform_seconds": 5.765468400000032, "rows_per_second": 8672.322269600805, "peak_rss_mib": 83.01953125, "status": "completed", "process_wall_seconds": 6.6846598999999856}
+{"records_processed": 50000, "chunk_size": 25000, "requested_prefix_rows": 50000, "canonical_sha256": "5b519b0318c1d7945abb81edca0a1817f52bc1d727c20df0857fda63a01aad20", "transform_seconds": 5.180269799999962, "rows_per_second": 9652.00692828786, "peak_rss_mib": 189.94921875, "status": "completed", "process_wall_seconds": 6.042167900000038}
+{"records_processed": 142338, "chunk_size": 500, "requested_prefix_rows": "full", "canonical_sha256": "2336f575b069ff4cae2eb61f9089997129a563b520c5ac624e79d4cf3387bc01", "transform_seconds": 18.86295149999995, "rows_per_second": 7545.9028773943655, "peak_rss_mib": 56.6015625, "status": "completed", "process_wall_seconds": 19.715602999999987}
+{"records_processed": 142338, "chunk_size": 5000, "requested_prefix_rows": "full", "canonical_sha256": "2336f575b069ff4cae2eb61f9089997129a563b520c5ac624e79d4cf3387bc01", "transform_seconds": 16.388852000000043, "rows_per_second": 8685.050057197393, "peak_rss_mib": 83.14453125, "status": "completed", "process_wall_seconds": 17.484196699999984}
+{"records_processed": 142338, "chunk_size": 25000, "requested_prefix_rows": "full", "canonical_sha256": "2336f575b069ff4cae2eb61f9089997129a563b520c5ac624e79d4cf3387bc01", "transform_seconds": 14.704530299999988, "rows_per_second": 9679.873963740285, "peak_rss_mib": 190.64453125, "status": "completed", "process_wall_seconds": 16.959198500000014}
+Documented 77 exported fields
+[IPKernelApp] WARNING | Kernel is running over TCP without encryption. All communication (including code and outputs) is sent in plain text and is susceptible to eavesdropping. Use IPC transport or launch with kernel manager-provisioned CurveZMQ keys to enable transport encryption.
+{
+  "file": "/mnt/c/Users/USER/OneDrive/Desktop/Internship_Research_Prime/notebooks/Research_Walkthrough.ipynb",
+  "status": "executed_no_errors",
+  "validated_at_utc": "2026-10-18T10:46:22.100878+00:00",
+  "cells": 22,
+  "code_cells": 11,
+  "executed_code_cells": 11,
+  "error_outputs": 0,
+  "embedded_png_outputs": 3,
+  "python_executable": "/tmp/shadman_amr_venv/bin/python",
+  "kernel_name": "python3",
+  "elapsed_seconds": 14.582849599999975,
+  "full_pipeline_rerun_inside_notebook": false,
+  "required_artifact_sha256": {
+    "data/raw/acquisition_manifest.json": "4147fa10f8cb616f581ff226482613fccec5b71afdbd100b973107ddaf80e1a8",
+    "results/preprocessing_summary.json": "e16d4811138d7f3f4f3f3b6837c2c1cb17dcf6626c2563ca959944b08f4aa66c",
+    "results/preprocessing_validation.json": "811b6925cdc1d0a1fe074e5525855af6b2bb60d834e9a656f0358f4d6717decf",
+    "results/model_study/summary.json": "4c2b3daae0bea5dcabc4b22363d11db172092f3d941fac8650f92139ada48f65",
+    "results/model_study/metrics.csv": "ffcf95d260aca7a701ac018276d5339d5ebed76f8221de388473d362e8c94fa1",
+    "results/model_study/cv_metrics.csv": "6a4fc875af79e4c4680082dbc088e59bb0f071f18478d64c37da8ab841295137",
+    "results/model_study/bootstrap_ci.csv": "7e278b24eab9224f2734c7832b590a6cda93ddd84d5df9459381ee403e2c0a6e",
+    "results/model_study/paired_differences.csv": "e4b868e14bbdd41e95a2c7839becd1e2b6ff45c57467809143ce7bde8ec815e6",
+    "results/model_study/split_sensitivities.csv": "45972a2e8b65733d12f39831bf467b5085b3b461c0a594c991bc14f9e2cd818c",
+    "results/model_study/encoding_maps.json": "31f22989e90f64cf153a899f43713c713f52e6a3ac70da43cdcb3a71a4df2fe1",
+    "results/model_study/predictions.csv.gz": "519abb36db13acf24413f8f01356feedccc2f3b805b4f522bd65733036d82b5f",
+    "results/model_study/figures/ampicillin_ablation_average_precision.png": "6048f3d0941e7d10343e9eb602ee4a38fc19e39cc5d6cc56a69304a8cfedf535",
+    "results/model_study/figures/ampicillin_diagnostics.png": "f0140197d78062c46e5515c19de1df0307d3969a5e8ab21c4a526fcf2627e7a4"
+  }
+}
+{
+  "all_checks_passed": true,
+  "fitted_models_audited": 14,
+  "validation_and_test_predictions_recomputed": 50299,
+  "all_saved_probabilities_match_1e_12": true,
+  "all_reported_fixed_threshold_metrics_match_1e_12": true,
+  "known_group_intersections": 0,
+  "grouped_cv_fits_recorded": 18,
+  "bootstrap_replicates": 300,
+  "final_model_and_fold_warnings": 0,
+  "executed_notebook_code_cells": 11,
+  "notebook_error_outputs": 0,
+  "model_audits": [
+    {
+      "drug": "ampicillin",
+      "model": "genes_only",
+      "split": "test",
+      "rows": 2070,
+      "all_saved_probabilities_match": true,
+      "all_fixed_threshold_metrics_match": true
+    },
+    {
+      "drug": "ampicillin",
+      "model": "genes_only",
+      "split": "validation",
+      "rows": 1538,
+      "all_saved_probabilities_match": true,
+      "all_fixed_threshold_metrics_match": true
+    },
+    {
+      "drug": "ampicillin",
+      "model": "metadata_only",
+      "split": "test",
+      "rows": 2070,
+      "all_saved_probabilities_match": true,
+      "all_fixed_threshold_metrics_match": true
+    },
+    {
+      "drug": "ampicillin",
+      "model": "metadata_only",
+      "split": "validation",
+      "rows": 1538,
+      "all_saved_probabilities_match": true,
+      "all_fixed_threshold_metrics_match": true
+    },
+    {
+      "drug": "ampicillin",
+      "model": "onehot_iterative_flags",
+      "split": "test",
+      "rows": 2070,
+      "all_saved_probabilities_match": true,
+      "all_fixed_threshold_metrics_match": true
+    },
+    {
+      "drug": "ampicillin",
+      "model": "onehot_iterative_flags",
+      "split": "validation",
+      "rows": 1538,
+      "all_saved_probabilities_match": true,
+      "all_fixed_threshold_metrics_match": true
+    },
+    {
+      "drug": "ampicillin",
+      "model": "onehot_median",
+      "split": "test",
+      "rows": 2070,
+      "all_saved_probabilities_match": true,
+      "all_fixed_threshold_metrics_match": true
+    },
+    {
+      "drug": "ampicillin",
+      "model": "onehot_median",
+      "split": "validation",
+      "rows": 1538,
+      "all_saved_probabilities_match": true,
+      "all_fixed_threshold_metrics_match": true
+    },
+    {
+      "drug": "ampicillin",
+      "model": "onehot_median_flags",
+      "split": "test",
+      "rows": 2070,
+      "all_saved_probabilities_match": true,
+      "all_fixed_threshold_metrics_match": true
+    },
+    {
+      "drug": "ampicillin",
+      "model": "onehot_median_flags",
+      "split": "validation",
+      "rows": 1538,
+      "all_saved_probabilities_match": true,
+      "all_fixed_threshold_metrics_match": true
+    },
+    {
+      "drug": "ampicillin",
+      "model": "ordinal_iterative_flags",
+      "split": "test",
+      "rows": 2070,
+      "all_saved_probabilities_match": true,
+      "all_fixed_threshold_metrics_match": true
+    },
+    {
+      "drug": "ampicillin",
+      "model": "ordinal_iterative_flags",
+      "split": "validation",
+      "rows": 1538,
+      "all_saved_probabilities_match": true,
+      "all_fixed_threshold_metrics_match": true
+    },
+    {
+      "drug": "ampicillin",
+      "model": "ordinal_median",
+      "split": "test",
+      "rows": 2070,
+      "all_saved_probabilities_match": true,
+      "all_fixed_threshold_metrics_match": true
+    },
+    {
+      "drug": "ampicillin",
+      "model": "ordinal_median",
+      "split": "validation",
+      "rows": 1538,
+      "all_saved_probabilities_match": true,
+      "all_fixed_threshold_metrics_match": true
+    },
+    {
+      "drug": "ampicillin",
+      "model": "ordinal_median_flags",
+      "split": "test",
+      "rows": 2070,
+      "all_saved_probabilities_match": true,
+      "all_fixed_threshold_metrics_match": true
+    },
+    {
+      "drug": "ampicillin",
+      "model": "ordinal_median_flags",
+      "split": "validation",
+      "rows": 1538,
+      "all_saved_probabilities_match": true,
+      "all_fixed_threshold_metrics_match": true
+    },
+    {
+      "drug": "ciprofloxacin",
+      "model": "genes_only",
+      "split": "test",
+      "rows": 2058,
+      "all_saved_probabilities_match": true,
+      "all_fixed_threshold_metrics_match": true
+    },
+    {
+      "drug": "ciprofloxacin",
+      "model": "genes_only",
+      "split": "validation",
+      "rows": 1505,
+      "all_saved_probabilities_match": true,
+      "all_fixed_threshold_metrics_match": true
+    },
+    {
+      "drug": "ciprofloxacin",
+      "model": "metadata_only",
+      "split": "test",
+      "rows": 2058,
+      "all_saved_probabilities_match": true,
+      "all_fixed_threshold_metrics_match": true
+    },
+    {
+      "drug": "ciprofloxacin",
+      "model": "metadata_only",
+      "split": "validation",
+      "rows": 1505,
+      "all_saved_probabilities_match": true,
+      "all_fixed_threshold_metrics_match": true
+    },
+    {
+      "drug": "ciprofloxacin",
+      "model": "onehot_median_flags",
+      "split": "test",
+      "rows": 2058,
+      "all_saved_probabilities_match": true,
+      "all_fixed_threshold_metrics_match": true
+    },
+    {
+      "drug": "ciprofloxacin",
+      "model": "onehot_median_flags",
+      "split": "validation",
+      "rows": 1505,
+      "all_saved_probabilities_match": true,
+      "all_fixed_threshold_metrics_match": true
+    },
+    {
+      "drug": "tetracycline",
+      "model": "genes_only",
+      "split": "test",
+      "rows": 2053,
+      "all_saved_probabilities_match": true,
+      "all_fixed_threshold_metrics_match": true
+    },
+    {
+      "drug": "tetracycline",
+      "model": "genes_only",
+      "split": "validation",
+      "rows": 1529,
+      "all_saved_probabilities_match": true,
+      "all_fixed_threshold_metrics_match": true
+    },
+    {
+      "drug": "tetracycline",
+      "model": "metadata_only",
+      "split": "test",
+      "rows": 2053,
+      "all_saved_probabilities_match": true,
+      "all_fixed_threshold_metrics_match": true
+    },
+    {
+      "drug": "tetracycline",
+      "model": "metadata_only",
+      "split": "validation",
+      "rows": 1529,
+      "all_saved_probabilities_match": true,
+      "all_fixed_threshold_metrics_match": true
+    },
+    {
+      "drug": "tetracycline",
+      "model": "onehot_median_flags",
+      "split": "test",
+      "rows": 2053,
+      "all_saved_probabilities_match": true,
+      "all_fixed_threshold_metrics_match": true
+    },
+    {
+      "drug": "tetracycline",
+      "model": "onehot_median_flags",
+      "split": "validation",
+      "rows": 1529,
+      "all_saved_probabilities_match": true,
+      "all_fixed_threshold_metrics_match": true
+    }
+  ],
+  "reproduction_check": {
+    "all_frozen_metric_rows_match_initial_run": true,
+    "rows": 42,
+    "max_absolute_difference": 5.551115123125783e-16,
+    "fit_timings_excluded": true
+  },
+  "limitations": "Finite artifact/inference checks cannot prove external validity or complete biological independence."
+}
+/mnt/c/Users/USER/OneDrive/Desktop/Internship_Research_Prime/reports/Research_Report_Prime.pdf
+Study complete. See results/, notebooks/, and reports/Research_Report_Prime.pdf.

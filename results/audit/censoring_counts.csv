@@ -1,0 +1,9 @@
+measurement_type,measurement_sign,records
+disk,<=,3
+disk,==,121
+disk,>=,29
+mic,<,382
+mic,<=,59007
+mic,==,66343
+mic,>,16434
+mic,>=,19

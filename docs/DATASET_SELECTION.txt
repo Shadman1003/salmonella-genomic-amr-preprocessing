@@ -1,0 +1,25 @@
+DATASET SELECTION AND ACCESS AUDIT
+Verified 18 October 2026 (Asia/Dhaka)
+
+Decision
+Use a newly acquired NCBI Pathogen Detection AST cohort joined to isolate metadata and available AMRFinderPlus gene information. Final organism, antibiotic target, row counts and selection boundaries belong in the executed acquisition manifest and results; they are deliberately not asserted in this selection note before the actual cohort is frozen.
+
+Why this changes the research
+The previous project used a BV-BRC E. coli extract. This project starts from NCBI's submitted experimental antimicrobial susceptibility testing (AST) results and related isolate records. It therefore introduces a distinct acquisition and integration workflow: multiple tests per isolate, inconsistent metadata strings, partial dates, measurement censoring, combination-drug values, incomplete lab fields, and a many-to-one join to isolate/genomic data. These are real data issues to measure and document, rather than artificial corruption added to make the task look complicated. This distinction concerns the selected source and workflow; public microbial repositories can share underlying studies, so a change of repository alone does not prove that every BioSample is novel relative to the old cohort.
+
+Alternative considered: ARMD-UTSW clinical EHR data
+The open Dryad dataset (doi:10.5061/dryad.0rxwdbsd5) contains deidentified clinical cultures and linked demographics, laboratory results, prior resistance, ward and history tables. Its CC0 metadata, study description, version 398029 and file inventory were accessible. A compact combination of cohort (202.29 MB), demographics (32.34 MB), labs (462.23 MB) and ward information (47.78 MB) would provide a substantial clinical preprocessing problem. However, the actual public file-stream requests returned HTML browser validation, while the API download endpoint required a bearer token. No valid CSV was obtained in this audit, and no access challenge was bypassed. Therefore those tables cannot support claimed executed research in this run. The Stanford ARMD collection was also considered but has the same access issue.
+
+Phenotype and measurement policy
+NCBI AST rows are submitter-reported phenotypic tests; they are not calculated from AMR genes. Preserve resistant, susceptible, intermediate, nonsusceptible, dose-dependent and undefined values until the explicit target definition is applied. Do not silently convert all non-susceptible categories into the same class. Keep missing targets excluded from supervised training and report exclusions. An untested antibiotic is not a susceptible result.
+
+Keep MIC in mg/L distinct from disk diffusion in mm. Preserve comparison signs (<, <=, ==, >, >=), which indicate bounds rather than exact values. Parse combination concentrations as two components. Apply documented unit and range checks to audit measurements, without inventing clinical resistance breakpoints. Target-associated MICs, phenotype summaries and derived resistance counts must be excluded from predictor sets for phenotype prediction.
+
+Genotype policy
+AMRFinderPlus calls can be candidate genomic predictors, with explicit availability checks and a metadata-only comparison. Gene detection is not a laboratory susceptibility outcome. Empty annotations require an analysis-status check before interpreting them as gene absence. NCBI warns that AMR-gene or mutation detection does not establish the corresponding resistant phenotype. Models using genomic calls describe genotype-to-phenotype prediction after sequencing, not pre-culture clinical risk prediction.
+
+Validation and reproducibility
+Freeze acquisition queries, UTC retrieval timestamps, source URLs, software versions, raw file checksums and exact accession lists because the public NCBI resources update daily. Report available target coverage, duplicate/conflict handling, unmatched join counts and missingness by source/study. Split related observations before fitting imputers or encoders. Keep all rows from the same isolate in one split; evaluate study/BioProject or genomic-cluster separation when the cohort supports it. Fit vocabulary, rare-category rules, imputation and any probability calibration using development data only. Distinguish a grouped internal estimate from external or temporal validation. Results from convenience samples should not be represented as population prevalence or clinical readiness.
+
+Source details
+See SOURCES.json for verified primary documentation and its relevance. This note does not claim that every suggested method has been implemented; the executed pipeline and generated audit outputs establish the final methods and scope.

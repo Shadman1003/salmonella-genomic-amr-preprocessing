@@ -1,0 +1,115 @@
+{
+  "success":true,
+  "ngout": {
+    "status": [
+     {
+        "statusreturn": 0
+      }],
+  "data": {
+      "content": 
+[
+  {
+    "id":"001_PDT000003687.3",
+    "biosample_acc":"SAMN02640777",
+    "taxgroup_name":"Salmonella enterica",
+    "scientific_name":"Salmonella enterica subsp. enterica serovar 4,[5],12:i:-",
+    "epi_type":"environmental/other",
+    "geo_loc_name":"USA",
+    "target_acc":"PDT000003687.3",
+    "isolation_source":"chicken breast",
+    "collection_date":"2002",
+    "target_creation_date":"2015-02-11T08:09:23Z",
+    "creation_date":"2015-02-11T08:09:23Z",
+    "bioproject_acc":"PRJNA183851",
+    "antibiotic":"amikacin",
+    "phenotype":"susceptible",
+    "measurement_sign":"==",
+    "mic":1.0,
+    "standard":"CLSI",
+    "_version_":1879327895310041088
+  },
+  {
+    "id":"001_PDT000003688.4",
+    "biosample_acc":"SAMN02640778",
+    "taxgroup_name":"Salmonella enterica",
+    "scientific_name":"Salmonella enterica subsp. enterica serovar Kentucky",
+    "epi_type":"environmental/other",
+    "geo_loc_name":"USA",
+    "target_acc":"PDT000003688.4",
+    "isolation_source":"chicken breast",
+    "collection_date":"2002",
+    "target_creation_date":"2015-02-10T22:08:35Z",
+    "creation_date":"2015-02-10T22:08:35Z",
+    "bioproject_acc":"PRJNA183851",
+    "antibiotic":"amikacin",
+    "phenotype":"susceptible",
+    "measurement_sign":"==",
+    "mic":2.0,
+    "standard":"CLSI",
+    "_version_":1879327895316332544
+  },
+  {
+    "id":"001_PDT000003689.4",
+    "biosample_acc":"SAMN02640780",
+    "taxgroup_name":"Salmonella enterica",
+    "scientific_name":"Salmonella enterica subsp. enterica serovar Kentucky",
+    "epi_type":"environmental/other",
+    "geo_loc_name":"USA",
+    "target_acc":"PDT000003689.4",
+    "isolation_source":"chicken breast",
+    "collection_date":"2002",
+    "target_creation_date":"2015-02-10T22:08:35Z",
+    "creation_date":"2015-02-10T22:08:35Z",
+    "bioproject_acc":"PRJNA183851",
+    "antibiotic":"amikacin",
+    "phenotype":"susceptible",
+    "measurement_sign":"==",
+    "mic":4.0,
+    "standard":"CLSI",
+    "_version_":1879327895320526849
+  },
+  {
+    "id":"001_PDT000003690.3",
+    "biosample_acc":"SAMN02640788",
+    "taxgroup_name":"Salmonella enterica",
+    "scientific_name":"Salmonella enterica subsp. enterica serovar Hadar",
+    "epi_type":"environmental/other",
+    "geo_loc_name":"USA",
+    "target_acc":"PDT000003690.3",
+    "isolation_source":"chicken breast",
+    "collection_date":"2002",
+    "target_creation_date":"2015-02-10T22:08:35Z",
+    "creation_date":"2015-02-10T22:08:35Z",
+    "bioproject_acc":"PRJNA183851",
+    "antibiotic":"amikacin",
+    "phenotype":"susceptible",
+    "measurement_sign":"==",
+    "mic":1.0,
+    "standard":"CLSI",
+    "_version_":1879327895324721155
+  },
+  {
+    "id":"001_PDT000003691.3",
+    "biosample_acc":"SAMN02640789",
+    "taxgroup_name":"Salmonella enterica",
+    "scientific_name":"Salmonella enterica subsp. enterica",
+    "epi_type":"environmental/other",
+    "geo_loc_name":"USA",
+    "target_acc":"PDT000003691.3",
+    "isolation_source":"pork chop",
+    "collection_date":"2002",
+    "target_creation_date":"2015-02-10T22:08:35Z",
+    "creation_date":"2015-02-10T22:08:35Z",
+    "bioproject_acc":"PRJNA183851",
+    "antibiotic":"amikacin",
+    "phenotype":"susceptible",
+    "measurement_sign":"==",
+    "mic":1.0,
+    "standard":"CLSI",
+    "_version_":1879327895329964032
+  }
+], "totalCount": 142338
+  }
+
+ }
+}

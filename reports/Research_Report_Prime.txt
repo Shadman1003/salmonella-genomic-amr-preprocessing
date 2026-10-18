@@ -1,0 +1,339 @@
+SHADMAN / COMPUTER SCIENCE AND ENGINEERING / DATA SCIENCE
+
+<b>Prime study:</b> Auditable preprocessing, missing values, and categorical encoding for Salmonella phenotype and genomic-annotation data.
+
+Executed 18 October 2026 | WSL / Ubuntu | Reproducible undergraduate empirical study
+
+
+Abstract
+
+
+This study links 142,338 submitted antimicrobial susceptibility test (AST) results to 9,977 assembled isolate records. It evaluates cleaning and preprocessing as explicit, testable decisions. The workflow preserves censored assay intervals, separates MIC from disk measurements, quarantines conflicting labels and ambiguous joins, and encodes curated genomic annotations without using phenotype-derived predictors. Nominal encoding and numerical imputation are compared in a prespecified factorial experiment. Training, validation and test data are separated by recorded SNP/BioSample connected groups.
+
+For the predeclared ampicillin model, held-out average precision was 0.975, AUROC 0.989, and resistance recall 0.954 at threshold 0.5. These are retrospective cohort results, not a clinical validation. The preprocessing audit and paired experiments establish what changed and what did not; complexity is not assumed to improve accuracy.
+
+Frozen inputs | Primary evaluation
+
+142,338 AST results | 2,070 held-out ampicillin BioSamples
+
+9,977 isolate/assembly records | 242 held-out connected groups
+
+75,874 censored assays | Primary: one-hot + median + indicators
+
+Prepared with AI assistance for Shadman. All numerical results come from executed artifacts. Review and understand the methods before academic submission.
+
+
+1 / Research question and contribution
+
+
+The earlier project used a limited metadata snapshot. This study changes both the data source and the empirical design: experimental phenotypes are joined to isolate-specific genomic annotations, and alternative preprocessing policies are compared under fixed relatedness-aware splits. Its contribution is a reproducible preprocessing study, not a claim of a novel AMR algorithm.
+
+Question | Operational test
+
+What makes cleaning scientifically meaningful? | Audit source censoring, dual concentrations, repeated assays, discordant labels, metadata multiplicity and missingness.
+
+Does integer encoding distort nominal predictors? | Compare ordinal integers with one-hot columns using the same numeric and genomic inputs.
+
+Does numerical imputation help here? | Cross median / median+indicators / iterative+indicators with both categorical strategies.
+
+How much signal comes from genomic annotations? | Compare combined, metadata-only and genomic-only pipelines.
+
+Does the result depend on evaluation design? | Use connected-group holdout, grouped CV, BioProject and BioSample split diagnostics.
+
+Can processing scale without changing outputs? | Compare canonical hashes and process memory at real row prefixes and chunk sizes.
+
+The study protocol in docs/STUDY_PROTOCOL.txt was fixed before model results were inspected. Ampicillin is primary; tetracycline and ciprofloxacin are prespecified secondary tasks. Other drug results remain in the cleaned data and do not choose the headline outcome. No hyperparameters or cleaning thresholds are selected from test scores.
+
+This is analysis of public bacterial isolate records. There are no patient identifiers, prospective clinical decisions, new laboratory experiments, or raw-sequence assembly experiments in this work.
+
+<b>Related empirical work.</b> Feldgarden et al. describe AMRFinderPlus reference curation, point-mutation detection, and evidence categories for annotation calls. This motivates retaining call status and treating the predictors as existing curated knowledge, rather than newly discovered genomic mechanisms. [10] Yu, Wheeler and Barquist demonstrate that bacterial population structure and biased sampling can confound AMR models, and that increasing sample size alone need not rescue performance. Their result motivates group-separated evaluation and source-transfer sensitivity here; recorded SNP groups are a practical approximation, not a reproduction of their full phylogenetic analysis. [11]
+
+
+2 / Acquisition, denominators and provenance
+
+
+NCBI stores submitted AST results separately from genomic annotations. A row represents an assay result, while an isolate can have many antibiotic results. The organism-group query and matching tested-isolate metadata were acquired with stable ID ordering; all retrieved species identifiers were verified as Salmonella enterica (28901). [1,3]
+
+Stage / denominator | Observed count
+
+Raw AST rows | 142,338
+
+Raw assembled isolate records | 9,977
+
+Unambiguous BioSample feature rows | 9,975
+
+BioSamples with ambiguous metadata, quarantined | 1
+
+Distinct BioSample-drug pairs after exact deduplication | 142,299
+
+Known SNP-cluster links retained | 9,665
+
+Connected groups after conservative metadata cleaning | 1,249
+
+Raw JSONL files are immutable analytical inputs. The acquisition manifest records every request, page count, timestamp and SHA256. Initial and final counts agree and server IDs are unique and ascending. This verifies retrieval completeness under the observed query, but the live browser backend does not provide a transactional snapshot. The endpoint/schema can change; frozen files are the reproducible source.
+
+NCBI surveillance and research submissions are a convenience cohort. Tested isolates may differ from untested isolates; dates and locations are unevenly reported. These data cannot establish population prevalence. AST row counts must never be presented as independent patient or isolate counts. [1,9]
+
+Files: data/raw/acquisition_manifest.json; logs/raw_ast_profile.json; logs/raw_isolate_profile.json. All exclusions and transformations retain source accessions for traceability.
+
+
+3 / Measurement-aware cleaning
+
+
+The workflow identified 75,874 censored assays and 19,368 combination-MIC results. It retained 153 disk measurements separately from MIC. A missing MIC on a disk assay is structural missingness, not a concentration to estimate. [1,2]
+
+For an MIC reported as &gt;16 mg/L, the valid information is a lower bound, not an exact value of 16. The cleaned schema stores bound values and open/closed endpoints. An absent upper endpoint means no finite upper bound was supplied. Combination values retain both concentrations; X/Y is never treated as division. The API mic_secondary field is explicitly preserved. The assay sign is not independently extrapolated to the second component.
+
+MIC values are checked against the submission domain (positive, up to 1024 mg/L); disk diameters use 6-150 mm. Domain violations and unknown signs are flagged rather than mean-imputed or silently corrected. These are schema checks, not independently reconstructed clinical breakpoints. Current laboratory standards are not applied retrospectively to relabel historical tests. [2]
+
+There were 0 quantitative measurement anomalies. Quantitative quarantine is separate from phenotype-label eligibility; the model study records its stricter flagged-measurement exclusion rule. No MIC, disk, sign, platform or AST-panel counts enter prediction features.
+
+
+4 / Repeated assays, conflicts and join integrity
+
+
+Pair disposition | BioSample-drug pairs
+
+eligible_binary | 138,911
+
+nonbinary | 3,372
+
+unmatched_metadata | 15
+
+conflicting | 1
+
+Exact duplicate biological assay payloads: 0. Multiple drugs per isolate are intentional long-format records. Compatible repeats remain auditable, while the analytical target is one BioSample-drug label. A pair is eligible only when known source labels are unanimous R or S, keys are valid, and the metadata join is unambiguous. Missing, intermediate, nonsusceptible and undefined labels are retained outside the binary target; they are never filled with a majority class.
+
+A real conflict illustrates why this matters: SAMN11179044 has piperacillin-tazobactam results from Microscan (susceptible, &lt;=16/4) and Phoenix (resistant, &gt;64/4), both reported under CLSI. The workflow preserves both records and quarantines the conflicting pair. It does not decide which platform is correct or remove the isolate because its genes disagree with a phenotype.
+
+A second edge case is BioSample SAMN03894186, associated with two current PDT records. The primary feature join excludes that ambiguous BioSample instead of multiplying outcomes over assemblies or selecting a record based on resistance. This conservative rule may discard usable data; both candidates remain in the audit for a more informed future resolution.
+
+Unmatched AST records after this conservative join: 30; accession mismatches: 0. Pair-level quarantine and assay-level quarantine have different denominators and are reported separately.
+
+Evidence: results/audit/phenotype_pair_quarantine.csv.gz, exact_duplicate_assays.csv.gz, ambiguous_biosample_metadata.csv.gz, join_exceptions.csv.gz; logs/raw_ast_edge_cases.json.
+
+
+5 / Missing values and collection-date precision
+
+
+Assay platform was absent in 81,756 records and vendor in 81,568. Those fields are provenance, not model predictors. Isolate host and source type also have substantial missingness. Missing categorical values receive an explicit training-pipeline category; unknown holdout categories are handled without refitting the vocabulary.
+
+Collection dates are parsed at their supplied precision: year, month, day, explicit range, missing, or rejected/unparsed form. Only an unambiguous in-scope year is used numerically. No day is invented and ingestion dates are not substituted for collection dates. A year-spanning interval remains missing for the scalar year feature.
+
+Collection-date precision | Isolates
+
+year | 7,585
+
+month | 1,665
+
+day | 685
+
+missing | 40
+
+Numerical predictors are collection year and assembly summaries, plus genomic call count in combined models. They are standardized using training data before imputation. Median imputation is a transparent baseline. Missingness indicators expose whether a value was absent. Iterative imputation estimates a missing feature from other observed features; it cannot prove that naturally missing values have been reconstructed correctly. [6]
+
+
+6 / Genomic and categorical encoding
+
+
+The genomic feature source is the NCBI AMRFinderPlus annotation, not a new annotation run on raw genomes. Each unique symbol=status token becomes a training-vocabulary multi-hot column. Parentheses, apostrophes, commas, slashes and mutation suffixes are preserved. COMPLETE, POINT, PARTIAL, PARTIAL_END_OF_CONTIG, HMM and MISTRANSLATION calls retain their distinctions. Counts describe unique reported calls, not gene copy number. [3,4]
+
+Reported call status | Unique-symbol observations across isolates
+
+COMPLETE | 43,300
+
+POINT | 923
+
+MISTRANSLATION | 295
+
+PARTIAL_END_OF_CONTIG | 1,046
+
+PARTIAL | 425
+
+HMM | 6
+
+Completed annotation was available for 9,975 retained isolate records. In the raw API, a completed zero-hit analysis may omit its empty array; the applied flag and explicit zero count distinguish this case from unavailable analysis. Unavailable calls would have a missing count and an availability flag, not an asserted zero resistance burden. In this acquired cohort, annotation availability itself is not a meaningful missingness experiment.
+
+The inclusive AMR list can contain general efflux/plus annotations. Their presence is not proof of phenotypic resistance and absence is not proof of susceptibility. Curated reference knowledge is external information; possible reference/benchmark overlap and later database versions limit any claim of independent biological discovery. [3,4]
+
+Nominal metadata use either one-hot categories or alphabetically learned integer codes. Integer codes give a linear model artificial distances; they are a deliberate comparison, not a recommended biological ordering. Both pipelines learn their categories from training only. The binary target mapping is explicitly resistant=1, susceptible=0; all other source labels remain separately auditable. [7]
+
+Explicit unscaled integer-label datasets are included as ampicillin_label_encoded_train/validation/test.csv.gz under data/processed. Their 217 columns include category codes, imputed numeric values in original units, missingness flags and training-vocabulary genomic multi-hot columns. results/label_encoding_export.json documents the fitted maps, unknown code -1 and intended inspection use; saved-pipeline inference remains the authoritative model path.
+
+
+7 / Evaluation that respects relatedness
+
+
+Primary ampicillin partition | BioSamples | Groups | R / S
+
+train | 6,268 | 732 | {'susceptible': 4465, 'resistant': 1803}
+
+validation | 1,538 | 244 | {'susceptible': 1298, 'resistant': 240}
+
+test | 2,070 | 242 | {'susceptible': 1587, 'resistant': 483}
+
+Connected components link BioSamples with the same recorded SNP-cluster accession. The fixed split allocates approximately 60%/20%/20% of groups to training/validation/test, so row proportions need not be exactly 60/20/20. Missing clusters fall back to BioSample-specific groups, never one shared unknown group. Known groups do not overlap across partitions. Grouping reduces known clone overlap but cannot guarantee patient or complete phylogenetic independence. [3,5]
+
+Each of the six ampicillin configurations is evaluated in the same three grouped training folds. Every fold rebuilds the imputer, scaler, nominal categories and gene vocabulary. No full-dataset encoding or imputation is permitted. Validation-only max-F1 thresholds are supplementary; the primary result uses a fixed threshold of 0.5. [5,8]
+
+Logistic regression uses C=1, liblinear, no class weighting, and a fixed seed. The classifier is deliberately held constant so preprocessing comparisons are interpretable. Probabilities are evaluated with average precision, AUROC, Brier score and calibration. Recall, precision, F1, balanced accuracy and confusion counts expose errors hidden by overall accuracy.
+
+Neither genomic/phenotype disagreement nor test performance is used to remove records. Forbidden X fields include MIC, disk, phenotype, AST_phenotypes, number_drugs_*, IDs, BioProject and SNP-cluster IDs. Project/cluster identifiers are grouping/provenance fields only. The intended use is retrospective prediction after genomic annotation, not real-time prescribing before any testing.
+
+
+8 / Controlled preprocessing experiment
+
+
+Ampicillin model | AP | AUROC | R recall | Brier
+
+ordinal_median | 0.977 | 0.989 | 0.957 | 0.014
+
+ordinal_median_flags | 0.977 | 0.989 | 0.957 | 0.014
+
+ordinal_iterative_flags | 0.977 | 0.989 | 0.957 | 0.014
+
+onehot_median | 0.975 | 0.989 | 0.954 | 0.014
+
+onehot_median_flags | 0.975 | 0.989 | 0.954 | 0.014
+
+onehot_iterative_flags | 0.975 | 0.989 | 0.954 | 0.014
+
+metadata_only | 0.555 | 0.833 | 0.511 | 0.140
+
+genes_only | 0.975 | 0.987 | 0.957 | 0.013
+
+Grouped training CV | Mean AP | Fold SD
+
+onehot_iterative_flags | 0.963 | 0.037
+
+onehot_median | 0.963 | 0.037
+
+onehot_median_flags | 0.963 | 0.037
+
+ordinal_iterative_flags | 0.963 | 0.038
+
+ordinal_median | 0.963 | 0.037
+
+ordinal_median_flags | 0.963 | 0.037
+
+These are prespecified comparisons on the same frozen holdout, not a test-driven model search. Average precision should be interpreted against the held-out resistance prevalence. The metadata-only and genomic-only controls help distinguish source/lineage associations from information in genomic annotations. More elaborate imputation is not assumed better; identical or worse results are informative.
+
+The source has complete assembly summaries and only limited numerical missingness compared with its sparse categorical fields. Therefore small numerical-imputation effects are plausible. The masking experiment later in this report evaluates a deliberately harder numerical-missingness scenario without relabeling it as a natural-data result.
+
+<b>Observed finding.</b> The ordinal-median AP difference versus the primary model is 0.0019 (paired 95% interval -0.0033 to 0.0048). One-hot iterative imputation changes AP by -0.00002, also with an interval spanning zero. These experiments do not establish an improvement from more elaborate preprocessing. Genomic-only AP is 0.975, versus metadata-only 0.555; curated genomic annotations supply most of the predictive information in this cohort.
+
+
+9 / Primary ampicillin performance
+
+
+At the fixed threshold 0.5: accuracy 0.985, balanced accuracy 0.974, resistance recall 0.954, precision 0.981, F1 0.967, and Brier score 0.014. The test set contains 483 resistant and 1,587 susceptible observations.
+
+Confusion counts: true susceptible 1,578, false resistance 9, missed resistance 22, correctly identified resistance 461. A high aggregate score does not eliminate false susceptibility. Calibration is descriptive; no recalibration has been fitted to the test data.
+
+Curves and calibration bins come from held-out predictions in results/model_study/predictions.csv.gz. The serialized pipeline reproduces test predictions and accepts unseen categories/genes and missing numeric values without fitting new transformations.
+
+
+10 / Uncertainty and secondary drug tasks
+
+
+The 95% intervals resample entire held-out connected groups, using identical bootstrap weights for every frozen model. They are conditional on this training run and cohort, and do not cover all model-selection, source-sampling or annotation-reference uncertainty. Wide or overlapping intervals should temper ranking claims.
+
+With 300 paired group resamples, primary ampicillin AP is 0.975 with a 95% interval of 0.936 to 0.986. The ciprofloxacin test contains only 35 resistant outcomes, so its resistance recall is based on much less resistant support than the other tasks.
+
+Secondary drug / primary preprocessing | AP | AUROC | R recall | R / S
+
+tetracycline | 0.992 | 0.991 | 0.986 | 1,110 / 943
+
+ciprofloxacin | 0.935 | 0.980 | 0.714 | 35 / 2,023
+
+Tetracycline and ciprofloxacin use their own observed R/S outcomes with the same isolate split and primary preprocessing. Intermediate and nonsusceptible outcomes are excluded from this binary estimand rather than arbitrarily merged. Differences across drugs reflect distinct biology, class support, and reporting populations; they do not select the primary endpoint.
+
+
+11 / Split sensitivity and missingness stress
+
+
+Alternate ampicillin evaluation | Status | AP | AUROC | Test rows sharing training SNP component
+
+biosample_random_clone_overlap_diagnostic | evaluated | 0.958 | 0.980 | 1784
+
+bioproject_component_holdout | evaluated | 0.933 | 0.979 | 4069
+
+The BioSample-random diagnostic can place related isolates on both sides of evaluation. The BioProject sensitivity asks about source transfer. These splits change test populations as well as overlap, so score differences cannot be attributed solely to leakage. A failed or class-degenerate sensitivity is reported as not evaluable, never silently replaced by a favorable split.
+
+The stress experiment fits numerical imputers on training isolates and masks previously observed validation cells under MCAR (10%,30%) and a declared contig-conditioned MAR simulation. Errors are normalized by training IQR. Labels and the test set are not used. This tests reconstruction under specified artificial mechanisms; it cannot identify the correctness of naturally missing values or establish that real missingness is MAR.
+
+In the MCAR30% simulation, iterative reconstruction changed N50 RMSE from 538,329 to 484,478 base pairs and collection-year RMSE from 5.60 to 5.10 years. Reconstruction gains under artificial masking did not translate into a detectable AP gain in the naturally near-complete numerical data. Different evaluation questions therefore produce different, compatible findings.
+
+
+12 / Runtime, memory and reproducibility
+
+
+The engineering benchmark uses actual ordered prefixes (1,000/10,000/50,000/full), without duplicating records. Each configuration runs in a separate process. Canonical hashes agree across chunk sizes for every prefix. This establishes batching invariance for the measured canonicalization/interval-parsing/hash stage, not the full relational pipeline.
+
+The full preprocessing run used 183.5 seconds and peak process RSS 710.9 MiB. This full in-memory join/group audit differs from the streaming microbenchmark. Single-run timings are sensitive to file caching, WSL mount performance and run order; they are not a comparison with Spark or a claim about millions of independent samples.
+
+Reproduction in Ubuntu WSL: bash setup_wsl.sh, then bash run_wsl.sh. Raw data are already frozen. Acquisition is a separate opt-in operation that refuses to overwrite an existing manifest. The run script executes cleaning, validation, modeling, masking and streaming checks; notebook execution and PDF building are documented separately. Frozen requirements, logs, SHA256SUMS and the validated ZIP accompany the study.
+
+The executed notebook is a readable analytical walkthrough of the frozen artifacts and core transformation functions. The complete computational experiment lives in versioned source scripts. Saved-model inference is available through model_study.py --predict; the README records its exact arguments.
+
+
+13 / Interpretation, limitations and next work
+
+
+The strongest improvement over a simple cleaning exercise is traceability: censored and combination measurements retain meaning; one ambiguous join and one conflicting pair are visible; annotation absence has an explicit meaning; relatedness influences evaluation; and preprocessing alternatives are measured under a fixed model. Complexity is demonstrated by real data properties and defensible decisions.
+
+This remains a retrospective study of a selected public cohort. The same public repositories and curated references may have informed annotation development. AMRFinderPlus versions and reference databases vary across isolates. Assembly/genotype summaries omit expression, gene regulation and unrecognized mechanisms. Recorded SNP clusters do not represent a complete phylogenetic partition; clusterless genomes can still be related. Sample, location and source reporting can encode collection bias.
+
+Nonbinary and missing source outcomes are deliberately excluded from the binary models, potentially changing the represented population. Submission-domain measurement checks cannot adjudicate historical clinical breakpoints or inter-platform disagreement. The conservative duplicate-BioSample policy discards information rather than resolving a biological identity question. Deterministic imputation does not quantify uncertainty in every missing feature.
+
+The next defensible steps are external source validation, a fully dated reference-annotation benchmark, explicit organism/drug/method/standard breakpoint sensitivity, more complete genomic-relatedness partitions, and repeated independent computational benchmarks. Adding species or samples should follow a scientific generalization question, not merely inflate the row count.
+
+The report does not claim publication novelty, prospective clinical utility, or independent laboratory confirmation. It supplies a reproducible empirical basis for an undergraduate research submission and a stronger starting point for supervised extension.
+
+
+References and artifact map
+
+
+[1] <link href="https://www.ncbi.nlm.nih.gov/pathogens/docs/ast/" color="#126b75">NCBI AST Browser documentation</link>
+
+[2] <link href="https://www.ncbi.nlm.nih.gov/biosample/docs/antibiogram/" color="#126b75">NCBI BioSample antibiogram specification</link>
+
+[3] <link href="https://www.ncbi.nlm.nih.gov/pathogens/pathogens_help/" color="#126b75">NCBI Pathogen Detection help</link>
+
+[4] <link href="https://github.com/ncbi/amr/wiki/Interpreting-results" color="#126b75">AMRFinderPlus: interpreting results</link>
+
+[5] <link href="https://scikit-learn.org/stable/modules/cross_validation.html" color="#126b75">scikit-learn: grouped cross-validation</link>
+
+[6] <link href="https://scikit-learn.org/stable/modules/impute.html" color="#126b75">scikit-learn: missing-value imputation</link>
+
+[7] <link href="https://scikit-learn.org/stable/modules/preprocessing.html" color="#126b75">scikit-learn: categorical preprocessing</link>
+
+[8] <link href="https://scikit-learn.org/stable/common_pitfalls.html" color="#126b75">scikit-learn: common pitfalls and leakage</link>
+
+[9] <link href="https://www.ncbi.nlm.nih.gov/pathogens/faq/" color="#126b75">NCBI Pathogen Detection FAQ</link>
+
+[10] <link href="https://www.nature.com/articles/s41598-021-91456-0" color="#126b75">Feldgarden et al. (2021). AMRFinderPlus and the Reference Gene Catalog. Scientific Reports 11:12728. doi:10.1038/s41598-021-91456-0</link>
+
+[11] <link href="https://journals.plos.org/plosbiology/article?id=10.1371/journal.pbio.3003539" color="#126b75">Yu, Wheeler and Barquist (2025). Biased sampling driven by bacterial population structure confounds machine learning prediction of antimicrobial resistance. PLOS Biology 23:e3003539. doi:10.1371/journal.pbio.3003539</link>
+
+All sources were checked on 18 October 2026. Source documentation supports interpretation and method choices; actual cohort counts and performance are computed from the archived data. The full machine-readable primary-source register is docs/SOURCES.json.
+
+Artifact | Purpose
+
+data/raw/ + acquisition_manifest.json | Frozen submitted records and acquisition integrity
+
+data/processed/ | Assays, unanimous label pairs, isolate feature table
+
+results/audit/ | Schema, cell normalization, joins, repeats, quarantine, dates
+
+results/model_study/ | Frozen splits, fitted pipelines, encoding maps, predictions, metrics, CIs
+
+results/imputation_stress* and streaming_benchmark.json | Declared missingness simulation and batching benchmark
+
+src/ + logs/ + requirements-lock-wsl.txt | Executable methods and environment evidence
+
+notebooks/Research_Walkthrough.ipynb | Executed explanation and exploration
+
+STUDY_GUIDE.txt + README.txt | Study/viva preparation and WSL execution
+
+<b>Assistance disclosure.</b> AI assistance was used for source discovery, implementation, analysis, figures and drafting. Shadman should review all methods and results, understand the code, and follow institutional disclosure rules. No authorship credentials, funding, new ethics approval or laboratory work have been invented.

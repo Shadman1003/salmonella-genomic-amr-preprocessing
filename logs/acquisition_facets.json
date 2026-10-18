@@ -1,0 +1,690 @@
+{
+  "count": 142338,
+  "antibiotic": {
+    "numBuckets": 72,
+    "missing": {
+      "count": 0
+    },
+    "buckets": [
+      {
+        "val": "gentamicin",
+        "count": 9927
+      },
+      {
+        "val": "ampicillin",
+        "count": 9920
+      },
+      {
+        "val": "chloramphenicol",
+        "count": 9892
+      },
+      {
+        "val": "tetracycline",
+        "count": 9886
+      },
+      {
+        "val": "ciprofloxacin",
+        "count": 9877
+      },
+      {
+        "val": "nalidixic acid",
+        "count": 9701
+      },
+      {
+        "val": "trimethoprim-sulfamethoxazole",
+        "count": 9687
+      },
+      {
+        "val": "amoxicillin-clavulanic acid",
+        "count": 9648
+      },
+      {
+        "val": "ceftriaxone",
+        "count": 9633
+      },
+      {
+        "val": "cefoxitin",
+        "count": 9626
+      },
+      {
+        "val": "sulfisoxazole",
+        "count": 9257
+      },
+      {
+        "val": "streptomycin",
+        "count": 8769
+      },
+      {
+        "val": "azithromycin",
+        "count": 7047
+      },
+      {
+        "val": "ceftiofur",
+        "count": 4876
+      },
+      {
+        "val": "meropenem",
+        "count": 4842
+      },
+      {
+        "val": "kanamycin",
+        "count": 3879
+      },
+      {
+        "val": "amikacin",
+        "count": 3028
+      },
+      {
+        "val": "colistin",
+        "count": 1076
+      },
+      {
+        "val": "sulfamethoxazole",
+        "count": 432
+      },
+      {
+        "val": "ceftazidime",
+        "count": 285
+      },
+      {
+        "val": "imipenem",
+        "count": 202
+      },
+      {
+        "val": "tigecycline",
+        "count": 103
+      },
+      {
+        "val": "cefotaxime",
+        "count": 98
+      },
+      {
+        "val": "trimethoprim",
+        "count": 82
+      },
+      {
+        "val": "cefazolin",
+        "count": 45
+      },
+      {
+        "val": "enrofloxacin",
+        "count": 41
+      },
+      {
+        "val": "piperacillin-tazobactam",
+        "count": 39
+      },
+      {
+        "val": "cefovecin",
+        "count": 38
+      },
+      {
+        "val": "cefpodoxime",
+        "count": 38
+      },
+      {
+        "val": "marbofloxacin",
+        "count": 38
+      },
+      {
+        "val": "doxycycline",
+        "count": 35
+      },
+      {
+        "val": "cephalexin",
+        "count": 34
+      },
+      {
+        "val": "orbifloxacin",
+        "count": 30
+      },
+      {
+        "val": "pradofloxacin",
+        "count": 30
+      },
+      {
+        "val": "levofloxacin",
+        "count": 25
+      },
+      {
+        "val": "ertapenem",
+        "count": 13
+      },
+      {
+        "val": "tobramycin",
+        "count": 13
+      },
+      {
+        "val": "cefepime",
+        "count": 12
+      },
+      {
+        "val": "ampicillin-sulbactam",
+        "count": 10
+      },
+      {
+        "val": "nitrofurantoin",
+        "count": 9
+      },
+      {
+        "val": "doripenem",
+        "count": 8
+      },
+      {
+        "val": "ticarcillin",
+        "count": 8
+      },
+      {
+        "val": "aztreonam",
+        "count": 7
+      },
+      {
+        "val": "clindamycin",
+        "count": 7
+      },
+      {
+        "val": "erythromycin",
+        "count": 7
+      },
+      {
+        "val": "penicillin",
+        "count": 7
+      },
+      {
+        "val": "amoxicillin",
+        "count": 6
+      },
+      {
+        "val": "polymyxin B",
+        "count": 5
+      },
+      {
+        "val": "cefalotin",
+        "count": 4
+      },
+      {
+        "val": "minocycline",
+        "count": 4
+      },
+      {
+        "val": "oxacillin",
+        "count": 4
+      },
+      {
+        "val": "piperacillin",
+        "count": 4
+      },
+      {
+        "val": "rifampin",
+        "count": 4
+      },
+      {
+        "val": "spectinomycin",
+        "count": 4
+      },
+      {
+        "val": "sulfonamide",
+        "count": 4
+      },
+      {
+        "val": "cephalothin",
+        "count": 3
+      },
+      {
+        "val": "florfenicol",
+        "count": 3
+      },
+      {
+        "val": "neomycin",
+        "count": 3
+      },
+      {
+        "val": "oxytetracycline",
+        "count": 3
+      },
+      {
+        "val": "sulfadimethoxine",
+        "count": 3
+      },
+      {
+        "val": "tylosin",
+        "count": 3
+      },
+      {
+        "val": "ceftazidime-avibactam",
+        "count": 2
+      },
+      {
+        "val": "ceftolozane-tazobactam",
+        "count": 2
+      },
+      {
+        "val": "novobiocin",
+        "count": 2
+      },
+      {
+        "val": "chlortetracycline",
+        "count": 1
+      },
+      {
+        "val": "danofloxacin",
+        "count": 1
+      },
+      {
+        "val": "moxifloxacin",
+        "count": 1
+      },
+      {
+        "val": "pefloxacin",
+        "count": 1
+      },
+      {
+        "val": "tiamulin",
+        "count": 1
+      },
+      {
+        "val": "tilmicosin",
+        "count": 1
+      },
+      {
+        "val": "tulathromycin",
+        "count": 1
+      },
+      {
+        "val": "vancomycin",
+        "count": 1
+      }
+    ]
+  },
+  "phenotype": {
+    "numBuckets": 5,
+    "missing": {
+      "count": 0
+    },
+    "buckets": [
+      {
+        "val": "SUSCEPTIBLE",
+        "count": 117405
+      },
+      {
+        "val": "RESISTANT",
+        "count": 21561
+      },
+      {
+        "val": "INTERMEDIATE",
+        "count": 2413
+      },
+      {
+        "val": "NOT DEFINED",
+        "count": 809
+      },
+      {
+        "val": "NONSUSCEPTIBLE",
+        "count": 150
+      }
+    ]
+  },
+  "measurement_sign": {
+    "numBuckets": 6,
+    "missing": {
+      "count": 0
+    },
+    "buckets": [
+      {
+        "val": "==",
+        "count": 66458
+      },
+      {
+        "val": "<=",
+        "count": 59010
+      },
+      {
+        "val": ">",
+        "count": 16434
+      },
+      {
+        "val": "<",
+        "count": 382
+      },
+      {
+        "val": ">=",
+        "count": 48
+      },
+      {
+        "val": "=",
+        "count": 6
+      }
+    ]
+  },
+  "standard": {
+    "numBuckets": 3,
+    "missing": {
+      "count": 40
+    },
+    "buckets": [
+      {
+        "val": "CLSI",
+        "count": 128404
+      },
+      {
+        "val": "NARMS",
+        "count": 11139
+      },
+      {
+        "val": "EUCAST",
+        "count": 2755
+      }
+    ]
+  },
+  "platform": {
+    "numBuckets": 5,
+    "missing": {
+      "count": 81756
+    },
+    "buckets": [
+      {
+        "val": "Sensititre",
+        "count": 60363
+      },
+      {
+        "val": "Vitek",
+        "count": 168
+      },
+      {
+        "val": "Not applicable",
+        "count": 25
+      },
+      {
+        "val": "Microscan",
+        "count": 13
+      },
+      {
+        "val": "Phoenix",
+        "count": 13
+      }
+    ]
+  },
+  "vendor": {
+    "numBuckets": 5,
+    "missing": {
+      "count": 81568
+    },
+    "buckets": [
+      {
+        "val": "Trek",
+        "count": 60508
+      },
+      {
+        "val": "Biomérieux",
+        "count": 200
+      },
+      {
+        "val": "Not applicable",
+        "count": 25
+      },
+      {
+        "val": "Becton Dickinson",
+        "count": 24
+      },
+      {
+        "val": "Siemens",
+        "count": 13
+      }
+    ]
+  },
+  "mic": {
+    "numBuckets": 35,
+    "missing": {
+      "count": 153
+    },
+    "buckets": [
+      {
+        "val": 4.0,
+        "count": 24702
+      },
+      {
+        "val": 1.0,
+        "count": 18499
+      },
+      {
+        "val": 32.0,
+        "count": 17126
+      },
+      {
+        "val": 0.25,
+        "count": 13317
+      },
+      {
+        "val": 2.0,
+        "count": 12819
+      },
+      {
+        "val": 8.0,
+        "count": 12661
+      },
+      {
+        "val": 0.015,
+        "count": 6801
+      },
+      {
+        "val": 0.5,
+        "count": 6608
+      },
+      {
+        "val": 64.0,
+        "count": 5577
+      },
+      {
+        "val": 0.06,
+        "count": 4938
+      },
+      {
+        "val": 0.12,
+        "count": 4935
+      },
+      {
+        "val": 16.0,
+        "count": 4886
+      },
+      {
+        "val": 0.125,
+        "count": 4294
+      },
+      {
+        "val": 256.0,
+        "count": 2777
+      },
+      {
+        "val": 0.03,
+        "count": 1855
+      },
+      {
+        "val": 512.0,
+        "count": 165
+      },
+      {
+        "val": 128.0,
+        "count": 96
+      },
+      {
+        "val": 0.05,
+        "count": 73
+      },
+      {
+        "val": 0.0625,
+        "count": 27
+      },
+      {
+        "val": 0.003,
+        "count": 4
+      },
+      {
+        "val": 125.0,
+        "count": 4
+      },
+      {
+        "val": 0.016,
+        "count": 3
+      },
+      {
+        "val": 20.0,
+        "count": 3
+      },
+      {
+        "val": 48.0,
+        "count": 3
+      },
+      {
+        "val": 0.007,
+        "count": 2
+      },
+      {
+        "val": 0.008,
+        "count": 1
+      },
+      {
+        "val": 0.012,
+        "count": 1
+      },
+      {
+        "val": 0.025,
+        "count": 1
+      },
+      {
+        "val": 0.038,
+        "count": 1
+      },
+      {
+        "val": 0.047,
+        "count": 1
+      },
+      {
+        "val": 0.062,
+        "count": 1
+      },
+      {
+        "val": 0.75,
+        "count": 1
+      },
+      {
+        "val": 1.5,
+        "count": 1
+      },
+      {
+        "val": 25.0,
+        "count": 1
+      },
+      {
+        "val": 26.0,
+        "count": 1
+      }
+    ]
+  },
+  "disk_diffusion": {
+    "numBuckets": 24,
+    "missing": {
+      "count": 142185
+    },
+    "buckets": [
+      {
+        "val": 6.0,
+        "count": 51
+      },
+      {
+        "val": 15.0,
+        "count": 38
+      },
+      {
+        "val": 12.0,
+        "count": 6
+      },
+      {
+        "val": 27.0,
+        "count": 6
+      },
+      {
+        "val": 14.0,
+        "count": 5
+      },
+      {
+        "val": 23.0,
+        "count": 5
+      },
+      {
+        "val": 24.0,
+        "count": 5
+      },
+      {
+        "val": 32.0,
+        "count": 5
+      },
+      {
+        "val": 22.0,
+        "count": 4
+      },
+      {
+        "val": 13.0,
+        "count": 3
+      },
+      {
+        "val": 16.0,
+        "count": 3
+      },
+      {
+        "val": 26.0,
+        "count": 3
+      },
+      {
+        "val": 28.0,
+        "count": 3
+      },
+      {
+        "val": 8.0,
+        "count": 2
+      },
+      {
+        "val": 11.0,
+        "count": 2
+      },
+      {
+        "val": 21.0,
+        "count": 2
+      },
+      {
+        "val": 29.0,
+        "count": 2
+      },
+      {
+        "val": 33.0,
+        "count": 2
+      },
+      {
+        "val": 10.0,
+        "count": 1
+      },
+      {
+        "val": 17.0,
+        "count": 1
+      },
+      {
+        "val": 19.0,
+        "count": 1
+      },
+      {
+        "val": 25.0,
+        "count": 1
+      },
+      {
+        "val": 30.0,
+        "count": 1
+      },
+      {
+        "val": 31.0,
+        "count": 1
+      }
+    ]
+  },
+  "query": [
+    "*"
+  ]
+}
