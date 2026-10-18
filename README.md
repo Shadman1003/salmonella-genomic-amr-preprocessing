@@ -2,7 +2,7 @@
 
 **Machine Learning-Based Analysis and Prediction of Antibiotic Resistance**
 
-A reproducible study of preprocessing, cleaning, missing values, categorical encoding, and genomic phenotype prediction using a frozen NCBI Salmonella dataset. Prepared for Shadman, BSc Computer Science and Engineering / Data Science.
+A reproducible study of preprocessing, cleaning, missing values, categorical encoding, and genomic phenotype prediction using a frozen NCBI Salmonella dataset. Prepared by **Shadman_Al_Muksit**, BSc Computer Science and Engineering / Data Science.
 
 ## Start here
 
