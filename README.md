@@ -1,4 +1,4 @@
-# Antibiotic Resistance Research Prime
+# Salmonella Genomic AMR Preprocessing
 
 **Machine Learning-Based Analysis and Prediction of Antibiotic Resistance**
 
@@ -60,8 +60,8 @@ Tetracycline and ciprofloxacin are secondary tasks. Full support, metrics, thres
 ## Reproduce in Ubuntu WSL
 
 ```bash
-git clone https://github.com/Shadman1003/antibiotic-resistance-research-prime.git
-cd antibiotic-resistance-research-prime
+git clone https://github.com/Shadman1003/salmonella-genomic-amr-preprocessing.git
+cd salmonella-genomic-amr-preprocessing
 bash setup_wsl.sh
 bash run_wsl.sh
 ```

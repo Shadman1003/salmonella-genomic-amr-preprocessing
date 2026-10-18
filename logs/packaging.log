@@ -1,7 +1,7 @@
 {
   "archived_files": 127,
-  "archive_bytes": 11787828,
-  "archive_sha256": "a5eeaab71f42896b18749e1bc0905f7ca2a850eb0eded5c21e87a7daedb11446",
+  "archive_bytes": 11787831,
+  "archive_sha256": "8451dbbdde706fbe65b33f166666dc58bb936d1e784386a9ccd91188988ffa5b",
   "all_entry_hashes_verified": true,
   "zip_crc_verified": true,
   "recursive_archive_excluded": true
