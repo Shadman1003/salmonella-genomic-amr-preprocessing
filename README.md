@@ -8,7 +8,6 @@ A reproducible study of preprocessing, cleaning, missing values, categorical enc
 
 - [Research report — 15 pages](reports/Research_Report_Prime.pdf)
 - [Executed research walkthrough](notebooks/Research_Walkthrough.ipynb)
-- [Study and viva guide](STUDY_GUIDE.txt)
 - [Detailed WSL instructions](README.txt)
 - [Complete project ZIP](Research_Project_Prime.zip)
 - [Data dictionary](DATA_DICTIONARY.csv)
